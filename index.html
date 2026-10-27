@@ -13,7 +13,26 @@
 <link rel="icon" href="/kitsune-logo.svg" type="image/svg+xml">
 <style>
 :root{color-scheme:dark;--bg:#09090b;--panel:#111114;--line:#29292f;--muted:#a4a4ad;--white:#f6f4f1;--orange:#ff6a2a;--violet:#9a7cff;--max:1180px}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:#09090bea;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff0c}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:650;letter-spacing:-.04em}.brand img{width:35px;height:35px}.brand span{font-size:17px}.nav-links{display:flex;align-items:center;gap:28px;color:#c9c7ce;font-size:13px}.nav-links a:hover,.footer-links a:hover{color:white}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #ffffff28;border-radius:999px;padding:12px 18px;font-size:13px;font-weight:600;transition:transform .25s,border-color .25s,background .25s}.nav-cta:hover,.button:hover{transform:translateY(-2px);border-color:#ffffff77}.button.primary{background:var(--orange);border-color:var(--orange);color:#170a05}.button.primary:hover{background:#ff8957}.menu{display:none;background:none;color:white;border:1px solid var(--line);border-radius:12px;padding:10px}.hero{position:relative;min-height:670px;display:grid;align-items:center;overflow:hidden;border-bottom:1px solid #ffffff0b}.hero:before{content:"";position:absolute;inset:-25%;background:radial-gradient(ellipse at 74% 42%,#8b4eff16,transparent 28%),radial-gradient(ellipse at 70% 62%,#ff6a2a12,transparent 25%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:36px;padding:92px 0 100px;position:relative}.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:700;color:#c7c2cd}.dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 18px #ff6a2a88}.hero h1{font-size:clamp(48px,7vw,86px);line-height:.99;letter-spacing:-.075em;font-weight:560;margin:28px 0 24px;max-width:700px}.hero h1 em{font-style:normal;color:var(--orange)}.hero-copy{max-width:480px;color:#aaa8b2;font-size:16px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.micro-proof{margin-top:42px;color:#777680;font-size:11px;letter-spacing:.04em}.hero-art{min-height:430px;position:relative;display:grid;place-items:center}.orbital{position:absolute;width:min(390px,90%);aspect-ratio:1;border:1px solid #9a7cff30;border-radius:50%;animation:spin 48s linear infinite}.orbital:before,.orbital:after{content:"";position:absolute;border:1px solid #ff6a2a25;border-radius:50%;inset:28px}.orbital:after{inset:65px;border-color:#ffffff15}.orbit-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--orange);top:13%;left:22%;box-shadow:0 0 22px #ff6a2a}.hero-symbol{width:190px;position:relative;z-index:1;filter:drop-shadow(0 0 55px #ff6a2a20);animation:float 6s ease-in-out infinite}.star{position:absolute;right:9%;top:17%;width:42px;height:42px;background:var(--violet);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 18px #9a7cff77);animation:pulse 4s ease-in-out infinite}.art-caption{position:absolute;bottom:13%;right:0;color:#777680;font-size:10px;letter-spacing:.17em;text-transform:uppercase}.section{padding:112px 0;border-bottom:1px solid #ffffff0b}.section-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:46px}.kicker{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);font-weight:700}.section h2{font-size:clamp(34px,5vw,56px);letter-spacing:-.065em;line-height:1.04;font-weight:550;margin:14px 0 0}.section-head p{color:var(--muted);max-width:370px;font-size:14px;line-height:1.8;margin:0}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.intro-statement{font-size:clamp(25px,3.4vw,40px);line-height:1.25;letter-spacing:-.045em;max-width:570px}.intro-statement span{color:#777680}.intro-copy{color:var(--muted);font-size:14px;line-height:1.9;max-width:470px}.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}.tag{border:1px solid var(--line);border-radius:99px;padding:8px 12px;color:#d0cdd5;font-size:11px}.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:#09090bea;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff0c}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:650;letter-spacing:-.04em}.brand img{width:35px;height:35px}.brand span{font-size:17px}.nav-links{display:flex;align-items:center;gap:28px;color:#c9c7ce;font-size:13px}.nav-links a:hover,.footer-links a:hover{color:white}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #ffffff28;border-radius:999px;padding:12px 18px;font-size:13px;font-weight:600;transition:transform .25s,border-color .25s,background .25s}.nav-cta:hover,.button:hover{transform:translateY(-2px);border-color:#ffffff77}.button.primary{background:var(--orange);border-color:var(--orange);color:#170a05}.button.primary:hover{background:#ff8957}.menu{display:none;background:none;color:white;border:1px solid var(--line);border-radius:12px;padding:10px}.hero{position:relative;min-height:670px;display:grid;align-items:center;overflow:hidden;border-bottom:1px solid #ffffff0b}.hero:before{content:"";position:absolute;inset:-25%;background:radial-gradient(ellipse at 74% 42%,#8b4eff16,transparent 28%),radial-gradient(ellipse at 70% 62%,#ff6a2a12,transparent 25%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:36px;padding:92px 0 100px;position:relative}.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:700;color:#c7c2cd}.dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 18px #ff6a2a88}.hero h1{font-size:clamp(48px,7vw,86px);line-height:.99;letter-spacing:-.075em;font-weight:560;margin:28px 0 24px;max-width:700px}.hero h1 em{font-style:normal;color:var(--orange)}.hero-copy{max-width:480px;color:#aaa8b2;font-size:16px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.micro-proof{margin-top:42px;color:#777680;font-size:11px;letter-spacing:.04em}.hero-art{min-height:430px;position:relative;display:grid;place-items:center}.orbital{position:absolute;width:min(390px,90%);aspect-ratio:1;border:1px solid #9a7cff30;border-radius:50%;animation:spin 48s linear infinite}.orbital:before,.orbital:after{content:"";position:absolute;border:1px solid #ff6a2a25;border-radius:50%;inset:28px}.orbital:after{inset:65px;border-color:#ffffff15}.orbit-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--orange);top:13%;left:22%;box-shadow:0 0 22px #ff6a2a}.kitsune-aura{position:absolute;width:240px;height:240px;border-radius:50%;background:#ff6a2a16;filter:blur(36px);animation:kitsuneAura 5s ease-in-out infinite;pointer-events:none}
+.kitsune-creature{width:min(360px,88%);position:relative;z-index:2;overflow:visible;filter:drop-shadow(0 18px 26px #0008);transform-origin:50% 80%;animation:kitsuneIdle 3.4s ease-in-out infinite}
+.kitsune-body{transform-box:fill-box;transform-origin:center;animation:kitsuneBody 1.05s ease-in-out infinite}
+.kitsune-head{transform-box:view-box;transform-origin:207px 175px;transition:transform .16s ease-out}
+.kitsune-tail{transform-box:fill-box;transform-origin:8% 70%}
+.tail-a{animation:kitsuneTailA 2.7s ease-in-out infinite}.tail-b{animation:kitsuneTailB 2.2s ease-in-out infinite}.tail-c{animation:kitsuneTailC 1.8s ease-in-out infinite}
+.kitsune-leg{transform-box:fill-box;transform-origin:50% 0%;animation:kitsuneWalk .62s ease-in-out infinite alternate}
+.leg-back{animation-delay:-.31s}.leg-front-two{animation-delay:-.42s}
+.kitsune-pupil{transition:transform .12s ease-out}
+.kitsune-sparks{animation:kitsuneSpark 3s ease-in-out infinite;transform-origin:center}
+@keyframes kitsuneIdle{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes kitsuneBody{0%,100%{transform:rotate(-1deg) translateY(0)}50%{transform:rotate(1deg) translateY(-2px)}}
+@keyframes kitsuneWalk{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+@keyframes kitsuneTailA{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(7deg)}}
+@keyframes kitsuneTailB{0%,100%{transform:rotate(5deg)}50%{transform:rotate(-8deg)}}
+@keyframes kitsuneTailC{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(9deg)}}
+@keyframes kitsuneAura{0%,100%{transform:scale(.88);opacity:.65}50%{transform:scale(1.12);opacity:1}}
+@keyframes kitsuneSpark{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}
+@media(max-width:850px){.kitsune-creature{width:min(320px,84%)}.hero-art{min-height:360px}}
+@media(prefers-reduced-motion:reduce){.kitsune-creature,.kitsune-body,.kitsune-leg,.kitsune-tail,.kitsune-aura,.kitsune-sparks{animation:none!important;transition:none!important}}.star{position:absolute;right:9%;top:17%;width:42px;height:42px;background:var(--violet);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 18px #9a7cff77);animation:pulse 4s ease-in-out infinite}.art-caption{position:absolute;bottom:13%;right:0;color:#777680;font-size:10px;letter-spacing:.17em;text-transform:uppercase}.section{padding:112px 0;border-bottom:1px solid #ffffff0b}.section-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:46px}.kicker{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);font-weight:700}.section h2{font-size:clamp(34px,5vw,56px);letter-spacing:-.065em;line-height:1.04;font-weight:550;margin:14px 0 0}.section-head p{color:var(--muted);max-width:370px;font-size:14px;line-height:1.8;margin:0}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.intro-statement{font-size:clamp(25px,3.4vw,40px);line-height:1.25;letter-spacing:-.045em;max-width:570px}.intro-statement span{color:#777680}.intro-copy{color:var(--muted);font-size:14px;line-height:1.9;max-width:470px}.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}.tag{border:1px solid var(--line);border-radius:99px;padding:8px 12px;color:#d0cdd5;font-size:11px}.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 
 /* Editorial bento portfolio */
 .projects.bento-projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
@@ -104,15 +123,6 @@
 @media(max-width:600px){.wrap{width:min(var(--max),calc(100% - 36px))}.nav-inner{height:66px}.menu{display:block}.nav-links{display:none;position:absolute;top:65px;left:0;right:0;background:#0c0c0f;border-bottom:1px solid var(--line);padding:20px 24px 24px;flex-direction:column;align-items:stretch;gap:18px}.nav-links.open{display:flex}.nav-links .nav-cta{text-align:center}.hero-grid{padding-top:45px;gap:14px}.hero-art{min-height:260px}.orbital{width:245px}.hero-symbol{width:112px}.star{width:30px;height:30px;right:14%;top:10%}.hero h1{font-size:clamp(45px,13vw,66px);margin-top:22px}.hero-copy{font-size:14px}.hero-actions .button{flex:1}.micro-proof{margin-top:28px}.section-head{display:block;margin-bottom:30px}.section-head p{margin-top:20px}.intro-grid{grid-template-columns:1fr;gap:18px}.projects{grid-template-columns:1fr}.project-card:last-child{grid-column:auto}.project-visual{height:250px}.principles,.steps{grid-template-columns:1fr}.principle{padding-bottom:16px}.contact{padding:75px 0}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.modal{padding:22px}.modal h2{font-size:30px}}
 
 
-/* Kitsune cursor companion: decorative follower, native pointer remains usable */
-.cursor-kitsune{position:fixed;left:0;top:0;width:54px;height:54px;z-index:90;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);will-change:transform;transition:opacity .2s ease;mix-blend-mode:screen}
-.cursor-kitsune.is-visible{opacity:1}
-.cursor-kitsune img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 12px #ff6a2a70)}
-.cursor-kitsune-star{position:absolute;width:12px;height:12px;right:0;top:0;background:var(--violet);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 8px #9a7cffaa);transition:transform .2s ease}
-.cursor-kitsune.is-hovering .cursor-kitsune-star{transform:scale(1.3) rotate(45deg)}
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.cursor-kitsune{display:block}}
-@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-kitsune{display:none!important}}
-
 /* Brand polish + restrained motion */
 :focus-visible{outline:2px solid var(--violet);outline-offset:4px}
 .nav:after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:linear-gradient(90deg,transparent,#ff6a2a55,#9a7cff66,transparent);pointer-events:none}
@@ -141,10 +151,53 @@
 @media(prefers-reduced-motion:reduce){.hero:after,.hero-symbol,.star,.orbital,.brand img,.project-card:before{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body><div id="scrollProgress" aria-hidden="true"></div><div class="cursor-kitsune" id="cursorKitsune" aria-hidden="true"><img src="/kitsune-logo.svg" alt=""><span class="cursor-kitsune-star"></span></div>
+<body><div id="scrollProgress" aria-hidden="true"></div>
 <header class="nav"><div class="wrap nav-inner"><a class="brand" href="#top" aria-label="Kitsune Studio home"><img src="/kitsune-logo.svg" alt=""><span>KITSUNE STUDIO</span></a><button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#imagine">Imagine</a><a href="#process">Process</a><a href="#studio">Studio</a><a class="nav-cta" href="#contact">Start a project ↗</a></nav></div></header>
 <main id="top">
-<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow"><span class="dot"></span> Independent digital studio</div><h1>Websites with<br><em>intent.</em></h1><p class="hero-copy">We design and build distinctive websites for ambitious brands. Clear thinking, considered details, and digital experiences that feel unmistakably yours.</p><div class="hero-actions"><a class="button primary" href="#contact">Start a project <span>↗</span></a><a class="button" href="#work">Explore selected work <span>↓</span></a></div><div class="micro-proof">STRATEGY · DESIGN · DEVELOPMENT · LAUNCH</div></div><div class="hero-art" aria-label="Kitsune Studio orange fox and violet star emblem"><div class="orbital"><span class="orbit-dot"></span></div><img class="hero-symbol" src="/kitsune-logo.svg" alt="Kitsune Studio fox emblem"><span class="star" aria-hidden="true"></span><div class="art-caption">Crafted with intent / 001</div></div></div></section>
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow"><span class="dot"></span> Independent digital studio</div><h1>Websites with<br><em>intent.</em></h1><p class="hero-copy">We design and build distinctive websites for ambitious brands. Clear thinking, considered details, and digital experiences that feel unmistakably yours.</p><div class="hero-actions"><a class="button primary" href="#contact">Start a project <span>↗</span></a><a class="button" href="#work">Explore selected work <span>↓</span></a></div><div class="micro-proof">STRATEGY · DESIGN · DEVELOPMENT · LAUNCH</div></div><div class="hero-art" id="heroArt" aria-label="An animated magical Kitsune fox that watches your cursor">
+<div class="orbital"><span class="orbit-dot"></span></div>
+<div class="kitsune-aura" aria-hidden="true"></div>
+<svg class="kitsune-creature" id="heroKitsune" viewBox="0 0 420 360" role="img" aria-labelledby="kitsuneTitle">
+<title id="kitsuneTitle">Kitsune, the magical fox companion</title>
+<defs>
+ <linearGradient id="kitsuneFur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9a42"/><stop offset=".55" stop-color="#ff6a2a"/><stop offset="1" stop-color="#c63c16"/></linearGradient>
+ <linearGradient id="kitsuneCream" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff0d9"/><stop offset="1" stop-color="#d9bba9"/></linearGradient>
+ <linearGradient id="kitsuneTail" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff8a35"/><stop offset="1" stop-color="#b53a26"/></linearGradient>
+ <radialGradient id="kitsuneEye"><stop stop-color="#fff2a8"/><stop offset=".65" stop-color="#ffcb52"/><stop offset="1" stop-color="#e86a24"/></radialGradient>
+</defs>
+<ellipse cx="218" cy="309" rx="105" ry="15" fill="#ff6a2a" opacity=".12"/>
+<g class="kitsune-tails">
+ <path class="kitsune-tail tail-a" d="M251 235 C310 206 318 139 368 127 C390 122 402 141 388 160 C369 185 345 184 334 219 C324 250 296 268 264 272Z" fill="url(#kitsuneTail)" stroke="#ffad65" stroke-width="2"/>
+ <path class="kitsune-tail tail-b" d="M247 244 C300 236 321 191 350 190 C371 190 377 208 359 224 C341 239 319 236 305 263 C292 286 270 292 245 281Z" fill="#e94f22" stroke="#ffad65" stroke-width="2"/>
+ <path class="kitsune-tail tail-c" d="M242 250 C283 263 299 242 321 250 C341 258 338 276 317 285 C296 294 274 282 253 293Z" fill="#ffb04b" stroke="#ffd39b" stroke-width="2"/>
+ <path d="M365 131 Q386 138 379 153 Q369 166 351 172" fill="none" stroke="#fff0d9" stroke-width="7" stroke-linecap="round"/>
+ <path d="M347 194 Q365 202 352 216 Q343 223 332 225" fill="none" stroke="#fff0d9" stroke-width="6" stroke-linecap="round"/>
+ <path d="M316 252 Q333 260 319 273 Q310 279 299 278" fill="none" stroke="#fff0d9" stroke-width="5" stroke-linecap="round"/>
+</g>
+<g class="kitsune-body">
+ <path d="M137 229 C146 193 178 180 220 188 C254 194 274 220 270 254 C266 283 237 300 195 296 C157 292 128 270 137 229Z" fill="url(#kitsuneFur)" stroke="#ffb36f" stroke-width="2"/>
+ <path d="M171 220 C185 207 212 211 226 231 C240 251 230 277 205 284 C181 288 160 267 162 247Z" fill="url(#kitsuneCream)"/>
+ <path d="M177 221 Q193 239 190 265" fill="none" stroke="#fff9ef" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+ <g class="kitsune-leg leg-back"><path d="M163 267 Q151 282 157 303 Q160 313 174 310 L183 305 L178 296 L180 276Z" fill="#df4a20"/><path d="M158 304 Q167 309 180 302 L186 311 Q178 320 161 316 Q151 313 158 304Z" fill="#fff0d9"/></g>
+ <g class="kitsune-leg leg-front"><path d="M221 268 Q230 285 225 305 Q223 315 209 312 L201 306 L207 297 L204 276Z" fill="#ff7a2c"/><path d="M202 306 Q213 311 226 305 L231 313 Q224 322 208 318 Q198 316 202 306Z" fill="#fff0d9"/></g>
+ <g class="kitsune-leg leg-front-two"><path d="M247 258 Q260 275 254 298 Q251 308 238 304 L231 298 L237 289 L231 269Z" fill="#e94f22"/><path d="M231 298 Q241 303 254 297 L259 305 Q252 314 237 310 Q227 308 231 298Z" fill="#fff0d9"/></g>
+</g>
+<g class="kitsune-head" id="kitsuneHead">
+ <path d="M142 137 L124 72 Q154 83 179 111 Q202 100 228 111 L265 78 L258 151 Q254 181 220 194 Q183 199 158 173Z" fill="url(#kitsuneFur)" stroke="#ffb36f" stroke-width="2.5" stroke-linejoin="round"/>
+ <path d="M133 84 L151 119 L151 101Z" fill="#69251d" opacity=".9"/><path d="M251 91 L235 122 L250 111Z" fill="#69251d" opacity=".9"/>
+ <path d="M159 157 Q183 143 207 157 Q229 142 251 157 Q241 181 211 187 Q179 184 159 157Z" fill="url(#kitsuneCream)"/>
+ <path d="M160 138 Q177 120 194 139 Q181 151 163 146Z" fill="#fff0d9"/><path d="M216 138 Q235 120 251 139 L248 146 Q231 151 216 138Z" fill="#fff0d9"/>
+ <g class="kitsune-eyes"><path d="M164 137 Q178 124 193 138 Q180 148 164 137Z" fill="#3a1b1a"/><path d="M218 138 Q233 124 247 137 Q232 148 218 138Z" fill="#3a1b1a"/>
+ <ellipse class="kitsune-pupil" id="kitsunePupilL" cx="180" cy="137" rx="5" ry="7" fill="url(#kitsuneEye)"/><ellipse class="kitsune-pupil" id="kitsunePupilR" cx="234" cy="137" rx="5" ry="7" fill="url(#kitsuneEye)"/>
+ <circle cx="181" cy="135" r="1.8" fill="#fff9ed"/><circle cx="235" cy="135" r="1.8" fill="#fff9ed"/></g>
+ <path d="M199 154 Q207 149 215 154 Q211 162 207 162 Q202 160 199 154Z" fill="#391b1b"/><path d="M207 162 Q204 169 198 166 M207 162 Q211 169 217 166" fill="none" stroke="#6e3025" stroke-width="2" stroke-linecap="round"/>
+ <path d="M199 119 L207 106 L215 119 L207 115Z" fill="#9a7cff" opacity=".95"/><path d="M180 172 Q206 181 232 171" fill="none" stroke="#fff9ed" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+</g>
+<g class="kitsune-sparks" aria-hidden="true" fill="#9a7cff"><path d="M308 102 L313 117 L328 122 L313 127 L308 142 L303 127 L288 122 L303 117Z"/><circle cx="110" cy="174" r="3"/><circle cx="295" cy="185" r="4"/><circle cx="126" cy="111" r="2"/></g>
+</svg>
+<span class="star" aria-hidden="true"></span>
+<div class="art-caption">Move your cursor. Meet the Kitsune.</div>
+</div></div></section>
 <section class="section" id="studio"><div class="wrap intro-grid reveal"><div><div class="kicker">01 / The studio</div><div class="intro-statement">Good websites don't just look different. <span>They make the right things feel obvious.</span></div></div><div><p class="intro-copy">Kitsune Studio partners with founders and small teams to turn complex ideas into focused, memorable web experiences. Every choice has a job: guide attention, build trust, and make the next step clear.</p><div class="tag-row"><span class="tag">Intentional design</span><span class="tag">Responsive by default</span><span class="tag">Built for clarity</span></div></div></div></section>
 <section class="section" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">02 / Selected concepts</div><h2>Designed to make<br>an impression.</h2></div><p>A glimpse of the design directions we explore. These are concept projects created to demonstrate craft and creative range—not commissioned client work.</p></div><div class="projects bento-projects">
 <a class="project-card reveal" href="/forma-objects.html" aria-label="Explore FORMA Objects concept case study"><div class="project-visual visual-forma"><div class="mock-window"><div class="mock-top"><span>FORMA OBJECTS</span><span>COLLECTION 01</span></div><div class="mock-title">Objects for<br>slower living.</div><div class="mock-sub">A quieter kind of everyday design.</div><div class="mock-blocks"><span></span><span></span><span></span></div></div></div><div class="project-info"><div class="project-meta"><span>Commerce / Lifestyle</span><span class="concept">Concept</span></div><h3>FORMA Objects</h3><p>A restrained storefront concept for considered home goods.</p><div class="project-link"><span>Explore case study</span><span class="arrow">↗</span></div></div></a>
@@ -163,23 +216,25 @@
 <div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorities</h3><ul id="modalPriorities"></ul><div class="modal-tags" id="modalTags"></div><p class="notice">This is a fictional portfolio concept. It is not commissioned client work and has no real performance metrics or live website.</p></section></div>
 <script>
 
-/* Cursor-reactive Kitsune: simple pointer follower; native cursor stays visible. */
+/* Hero Kitsune reacts to the pointer: its head turns and eyes track movement. */
 (function(){
- const fox=document.getElementById('cursorKitsune');
- if(!fox||!window.matchMedia('(hover:hover) and (pointer:fine)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
- const move=e=>{
-   fox.style.transform='translate3d('+(e.clientX-27)+'px,'+(e.clientY-27)+'px,0)';
-   fox.classList.add('is-visible');
+ const stage=document.getElementById('heroArt');
+ const head=document.getElementById('kitsuneHead');
+ const left=document.getElementById('kitsunePupilL');
+ const right=document.getElementById('kitsunePupilR');
+ if(!stage||!head||!left||!right)return;
+ const point=e=>{
+  const r=stage.getBoundingClientRect();
+  const x=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width/2)));
+  const y=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height/2)));
+  head.style.transform='rotate('+(-x*15+y*3)+'deg) translate('+(-x*2)+'px,'+(y*1.5)+'px)';
+  left.style.transform='translate('+(x*2.6)+'px,'+(y*1.8)+'px)';
+  right.style.transform='translate('+(x*2.6)+'px,'+(y*1.8)+'px)';
  };
- document.addEventListener('pointermove',move,{passive:true});
- document.addEventListener('pointerleave',()=>fox.classList.remove('is-visible'));
- document.addEventListener('pointerdown',()=>fox.classList.add('is-hovering'),{passive:true});
- document.addEventListener('pointerup',()=>fox.classList.remove('is-hovering'),{passive:true});
- document.querySelectorAll('a,button,[role="button"]').forEach(el=>{
-   el.addEventListener('pointerenter',()=>fox.classList.add('is-hovering'));
-   el.addEventListener('pointerleave',()=>fox.classList.remove('is-hovering'));
+ stage.addEventListener('pointermove',point,{passive:true});
+ stage.addEventListener('pointerleave',()=>{
+  head.style.transform='';left.style.transform='';right.style.transform='';
  });
- document.addEventListener('visibilitychange',()=>{if(document.hidden)fox.classList.remove('is-visible')});
 })();
 
 const demoProfiles={
