@@ -2,16 +2,19 @@
 
 Premium website design and development for ambitious brands.
 
-Kitsune Studio builds high-quality landing pages, multi-page business websites, and website redesigns with a cinematic visual style and a focus on clarity, craft, performance, and accessibility.
+Kitsune Studio builds landing pages, multi-page business websites, and website redesigns with a cinematic visual style focused on clarity, craft, performance, and accessibility.
 
-## Project status
+## What's in this repository
 
-This repository is the starting point for the Kitsune Studio website. The actual website source needs to be added before a Cloudflare Pages deployment can build successfully.
+- `index.html` — responsive, standalone portfolio website with CSS motion and interactive concept case-study modals.
+- `kitsune-mark.svg` — orange fox and violet star brand mark.
+- `README.md` — project and deployment notes.
+
+This version is intentionally a static site, so it can be deployed without a framework build or paid website-builder credits.
 
 ## Portfolio principles
 
 - Keep the visual identity minimal, cinematic, and responsive.
-- Use the orange fox mark and violet four-point star as core brand elements.
 - Label speculative portfolio work clearly as **concept projects**.
 - Do not invent testimonials, client relationships, or performance results.
 - Prioritize semantic HTML, keyboard access, reduced-motion preferences, and SEO metadata.
@@ -22,21 +25,28 @@ This repository is the starting point for the Kitsune Studio website. The actual
 - Multi-page business websites
 - Website redesigns
 
-## Deploying with Cloudflare Pages
+## Deploy with Cloudflare Pages
 
-Once the website source is committed:
-
-1. Sign in to Cloudflare and open **Workers & Pages**.
+1. Open Cloudflare Dashboard → **Workers & Pages**.
 2. Choose **Create application** → **Pages** → **Connect to Git**.
 3. Select `kpuneet1004-netizen/kitsune-studio`.
-4. Configure the build command and output directory to match the framework used by the project.
-5. Deploy, then verify the production URL, mobile layout, metadata, and contact links.
+4. Use these settings for this static version:
+   - **Production branch:** `main`
+   - **Framework preset:** `None`
+   - **Build command:** leave blank
+   - **Build output directory:** `.`
+5. Save and deploy. Future commits to `main` should trigger a new deployment.
 
-Do not guess the build settings until the app source and package scripts are in the repository.
+After deployment, verify the public URL, mobile layout, project modals, keyboard navigation, metadata, and contact links.
 
 ## Before launch
 
-- Replace placeholder contact details with the studio's real contact address.
-- Confirm canonical URL and Open Graph metadata use the production domain.
+- Replace the placeholder contact email `hello@kitsunestudio.design` in `index.html` with the studio's real address.
+- Add the production canonical URL and final Open Graph image when the domain is known.
+- Connect a custom domain if desired.
 - Test all navigation, project case studies, and contact actions.
 - Verify accessibility and responsive layouts.
+
+## Concept disclaimer
+
+FORMA Objects, NOIR Atelier, and ORBIT Finance are fictional portfolio concepts. The page explicitly labels them as concepts; the illustrative mockups are not live client projects and make no claims about real business results.
