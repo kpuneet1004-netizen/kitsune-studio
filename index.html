@@ -216,7 +216,7 @@
 <div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorities</h3><ul id="modalPriorities"></ul><div class="modal-tags" id="modalTags"></div><p class="notice">This is a fictional portfolio concept. It is not commissioned client work and has no real performance metrics or live website.</p></section></div>
 <script>
 
-/* Hero Kitsune: tracks the cursor, then takes a few lively steps toward it. */
+/* Hero Kitsune: free-roams through the hero, then follows the pointer. */
 (function(){
  const hero=document.querySelector('.hero');
  const stage=document.getElementById('heroArt');
@@ -225,50 +225,67 @@
  const left=document.getElementById('kitsunePupilL');
  const right=document.getElementById('kitsunePupilR');
  if(!hero||!stage||!fox||!head||!left||!right)return;
- const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
- const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
+ const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(!finePointer||reducedMotion)return;
- let lastX=null,lastY=null,stopTimer=null,raf=0;
- let targetX=0,targetY=0,currentX=0,currentY=0;
- const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
- const animatePosition=()=>{
-  raf=0;
-  currentX+=(targetX-currentX)*.12;
-  currentY+=(targetY-currentY)*.12;
-  fox.style.transform='translate3d('+currentX.toFixed(2)+'px,'+currentY.toFixed(2)+'px,0)';
-  if(Math.abs(targetX-currentX)>.15||Math.abs(targetY-currentY)>.15)raf=requestAnimationFrame(animatePosition);
- };
- const reset=()=>{
-  targetX=0;targetY=0;
-  head.style.transform='';left.style.transform='';right.style.transform='';
-  stage.classList.remove('is-walking');
-  if(stopTimer)clearTimeout(stopTimer);
-  if(!raf)raf=requestAnimationFrame(animatePosition);
-  lastX=null;lastY=null;
- };
- hero.addEventListener('pointermove',e=>{
+ let raf=0,lastPointer=null,lastMove=0,roamTarget=null,roamTimer=null,walkTimer=null;
+ let x=0,y=0,tx=0,ty=0,mode='roam',lastPX=0,lastPY=0;
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const pickRoam=()=>{
+  if(mode!=='roam')return;
   const r=stage.getBoundingClientRect();
-  const dx=e.clientX-(r.left+r.width*.5);
-  const dy=e.clientY-(r.top+r.height*.48);
-  targetX=clamp(dx*.23,-76,76);
-  targetY=clamp(dy*.12,-24,24);
-  if(!raf)raf=requestAnimationFrame(animatePosition);
-  const x=clamp(dx/(r.width*.72),-1,1);
-  const y=clamp(dy/(r.height*.72),-1,1);
-  head.style.transform='rotate('+clamp(-x*17+y*3,-19,19)+'deg) translate('+(-x*2.5)+'px,'+(y*1.8)+'px)';
-  left.style.transform='translate('+(x*2.8)+'px,'+(y*1.8)+'px)';
-  right.style.transform='translate('+(x*2.8)+'px,'+(y*1.8)+'px)';
-  const moving=lastX!==null&&(Math.abs(e.clientX-lastX)+Math.abs(e.clientY-lastY)>1.8);
-  if(moving){
-   stage.classList.add('is-walking');
-   if(stopTimer)clearTimeout(stopTimer);
-   stopTimer=setTimeout(()=>stage.classList.remove('is-walking'),420);
-  }
-  lastX=e.clientX;lastY=e.clientY;
+  // Wander inside the art field, favouring open space around the orbital.
+  tx=clamp((Math.random()-.5)*r.width*.56,-105,105);
+  ty=clamp((Math.random()-.5)*r.height*.36,-62,62);
+  roamTarget={x:tx,y:ty};
+  stage.classList.add('is-walking');
+  clearTimeout(walkTimer);
+  walkTimer=setTimeout(()=>stage.classList.remove('is-walking'),850+Math.random()*550);
+  clearTimeout(roamTimer);
+  roamTimer=setTimeout(pickRoam,2100+Math.random()*1500);
+ };
+ const animate=()=>{
+  raf=0;
+  const easing=mode==='follow'?.105:.035;
+  x+=(tx-x)*easing;y+=(ty-y)*easing;
+  fox.style.transform='translate3d('+x.toFixed(2)+'px,'+y.toFixed(2)+'px,0)';
+  if(Math.abs(tx-x)>.18||Math.abs(ty-y)>.18||mode==='roam')raf=requestAnimationFrame(animate);
+ };
+ const lookAt=(px,py)=>{
+  const r=stage.getBoundingClientRect();
+  const dx=px-(r.left+r.width*.5+x),dy=py-(r.top+r.height*.48+y);
+  const hx=clamp(dx/(r.width*.72),-1,1),hy=clamp(dy/(r.height*.72),-1,1);
+  head.style.transform='rotate('+clamp(-hx*17+hy*3,-19,19)+'deg) translate('+(-hx*2.5)+'px,'+(hy*1.8)+'px)';
+  left.style.transform='translate('+(hx*2.8)+'px,'+(hy*1.8)+'px)';
+  right.style.transform='translate('+(hx*2.8)+'px,'+(hy*1.8)+'px)';
+ };
+ const enter=()=>{
+  mode='follow';clearTimeout(roamTimer);clearTimeout(walkTimer);
+  stage.classList.remove('is-walking');
+  if(!raf)raf=requestAnimationFrame(animate);
+ };
+ const leave=()=>{
+  mode='roam';lastPointer=null;head.style.transform='';left.style.transform='';right.style.transform='';
+  pickRoam();if(!raf)raf=requestAnimationFrame(animate);
+ };
+ hero.addEventListener('pointerenter',e=>{
+  if(e.pointerType==='mouse'||e.pointerType==='pen'){lastPointer={x:e.clientX,y:e.clientY};enter();lookAt(e.clientX,e.clientY)}
+ });
+ hero.addEventListener('pointermove',e=>{
+  if(e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  if(mode!=='follow')enter();
+  lastPointer={x:e.clientX,y:e.clientY};lastMove=performance.now();
+  const r=stage.getBoundingClientRect();
+  const dx=e.clientX-(r.left+r.width*.5),dy=e.clientY-(r.top+r.height*.48);
+  tx=clamp(dx*.24,-112,112);ty=clamp(dy*.16,-68,68);
+  lookAt(e.clientX,e.clientY);
+  const moving=Math.abs(e.clientX-lastPX)+Math.abs(e.clientY-lastPY)>2;
+  if(moving){stage.classList.add('is-walking');clearTimeout(walkTimer);walkTimer=setTimeout(()=>stage.classList.remove('is-walking'),360)}
+  lastPX=e.clientX;lastPY=e.clientY;
+  if(!raf)raf=requestAnimationFrame(animate);
  },{passive:true});
- hero.addEventListener('pointerleave',reset);
- hero.addEventListener('pointerdown',()=>stage.classList.add('is-walking'),{passive:true});
- hero.addEventListener('pointerup',()=>{if(stopTimer)clearTimeout(stopTimer);stopTimer=setTimeout(()=>stage.classList.remove('is-walking'),220)},{passive:true});
+ hero.addEventListener('pointerleave',leave);
+ pickRoam();raf=requestAnimationFrame(animate);
 })();
 
 const demoProfiles={
