@@ -14,7 +14,7 @@
 <style>
 :root{color-scheme:dark;--bg:#09090b;--panel:#111114;--line:#29292f;--muted:#a4a4ad;--white:#f6f4f1;--orange:#ff6a2a;--violet:#9a7cff;--max:1180px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:#09090bea;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff0c}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:650;letter-spacing:-.04em}.brand img{width:35px;height:35px}.brand span{font-size:17px}.nav-links{display:flex;align-items:center;gap:28px;color:#c9c7ce;font-size:13px}.nav-links a:hover,.footer-links a:hover{color:white}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #ffffff28;border-radius:999px;padding:12px 18px;font-size:13px;font-weight:600;transition:transform .25s,border-color .25s,background .25s}.nav-cta:hover,.button:hover{transform:translateY(-2px);border-color:#ffffff77}.button.primary{background:var(--orange);border-color:var(--orange);color:#170a05}.button.primary:hover{background:#ff8957}.menu{display:none;background:none;color:white;border:1px solid var(--line);border-radius:12px;padding:10px}.hero{position:relative;min-height:670px;display:grid;align-items:center;overflow:hidden;border-bottom:1px solid #ffffff0b}.hero:before{content:"";position:absolute;inset:-25%;background:radial-gradient(ellipse at 74% 42%,#8b4eff16,transparent 28%),radial-gradient(ellipse at 70% 62%,#ff6a2a12,transparent 25%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:36px;padding:92px 0 100px;position:relative}.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:700;color:#c7c2cd}.dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 18px #ff6a2a88}.hero h1{font-size:clamp(48px,7vw,86px);line-height:.99;letter-spacing:-.075em;font-weight:560;margin:28px 0 24px;max-width:700px}.hero h1 em{font-style:normal;color:var(--orange)}.hero-copy{max-width:480px;color:#aaa8b2;font-size:16px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.micro-proof{margin-top:42px;color:#777680;font-size:11px;letter-spacing:.04em}.hero-art{min-height:430px;position:relative;display:grid;place-items:center}.orbital{position:absolute;width:min(390px,90%);aspect-ratio:1;border:1px solid #9a7cff30;border-radius:50%;animation:spin 48s linear infinite}.orbital:before,.orbital:after{content:"";position:absolute;border:1px solid #ff6a2a25;border-radius:50%;inset:28px}.orbital:after{inset:65px;border-color:#ffffff15}.orbit-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--orange);top:13%;left:22%;box-shadow:0 0 22px #ff6a2a}.kitsune-aura{position:absolute;width:240px;height:240px;border-radius:50%;background:#ff6a2a16;filter:blur(36px);animation:kitsuneAura 5s ease-in-out infinite;pointer-events:none}
-.kitsune-creature{width:min(360px,88%);position:relative;z-index:2;overflow:visible;filter:drop-shadow(0 18px 26px #0008);transform-origin:50% 80%;will-change:transform;transition:filter .35s ease;animation:kitsuneIdle 3.4s ease-in-out infinite}.hero-art.is-walking .kitsune-creature{filter:drop-shadow(0 22px 34px #ff6a2a35)}
+.kitsune-creature{width:min(360px,88%);position:relative;z-index:2;overflow:visible;filter:drop-shadow(0 18px 26px #0008);transform-origin:50% 80%;will-change:transform;transition:filter .35s ease;animation:kitsuneIdle 3.4s ease-in-out infinite}.hero-art.is-walking .kitsune-creature{filter:drop-shadow(0 22px 34px #ff6a2a35)}#heroKitsune.is-cursor-guardian{position:fixed!important;left:0!important;top:0!important;width:min(340px,42vw)!important;max-width:340px;z-index:25;pointer-events:none;transform-origin:50% 55%;filter:drop-shadow(0 18px 28px #ff6a2a40);will-change:transform}
 .kitsune-body{transform-box:fill-box;transform-origin:center;animation:kitsuneBody 1.05s ease-in-out infinite}
 .kitsune-head{transform-box:view-box;transform-origin:207px 175px;transition:transform .16s ease-out}
 .kitsune-tail{transform-box:fill-box;transform-origin:8% 70%}
@@ -213,10 +213,7 @@
 <section class="contact" id="contact"><div class="wrap contact-inner"><div><div class="kicker">06 / Have something in mind?</div><h2>Let's build something<br>worth noticing.</h2><p>Tell us what you're building. We'll work out the clearest next step.</p></div><div class="contact-actions"><a class="button primary" href="mailto:hello@kitsunestudio.design?subject=Kitsune%20Studio%20project%20inquiry">Discuss a project ↗</a><a class="button" href="#work">See concepts ↑</a></div></div></section>
 </main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#top"><img src="/kitsune-logo.svg" alt=""><span>KITSUNE STUDIO</span></a><span>Independent studio · Websites with intent.</span><div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></div><span>© <span id="year"></span> Kitsune Studio</span></div></footer>
-<div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorities</h3><ul id="modalPriorities"></ul><div class="modal-tags" id="modalTags"></div><p class="notice">This is a fictional portfolio concept. It is not commissioned client work and has no real performance metrics or live website.</p></section></div>
-<script>
-
-/* Hero Kitsune: free-roams through the hero, then follows the pointer. */
+<div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorit/* Cursor guardian: the Kitsune can cross the whole hero, then returns home. */
 (function(){
  const hero=document.querySelector('.hero');
  const stage=document.getElementById('heroArt');
@@ -228,59 +225,75 @@
  const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(!finePointer||reducedMotion)return;
- let raf=0,lastPointer=null,lastMove=0,roamTarget=null,roamTimer=null,walkTimer=null;
- let x=0,y=0,tx=0,ty=0,mode='roam',lastPX=0,lastPY=0;
- const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- const pickRoam=()=>{
-  if(mode!=='roam')return;
-  const r=stage.getBoundingClientRect();
-  // Wander inside the art field, favouring open space around the orbital.
-  tx=clamp((Math.random()-.5)*r.width*.56,-105,105);
-  ty=clamp((Math.random()-.5)*r.height*.36,-62,62);
-  roamTarget={x:tx,y:ty};
-  stage.classList.add('is-walking');
-  clearTimeout(walkTimer);
-  walkTimer=setTimeout(()=>stage.classList.remove('is-walking'),850+Math.random()*550);
-  clearTimeout(roamTimer);
-  roamTimer=setTimeout(pickRoam,2100+Math.random()*1500);
+ let home={x:0,y:0},target={x:0,y:0},current={x:0,y:0};
+ let raf=0,walkingTimer=0,active=false,lastX=0,lastY=0;
+ const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+ const measureHome=()=>{
+  fox.classList.remove('is-cursor-guardian');
+  fox.style.transform='';
+  const r=fox.getBoundingClientRect();
+  home={x:r.left,y:r.top};
+  current={...home};target={...home};
+ };
+ const heroBounds=()=>{
+  const r=hero.getBoundingClientRect();
+  return {left:Math.max(0,r.left),top:Math.max(0,r.top),right:Math.min(innerWidth,r.right),bottom:Math.min(innerHeight,r.bottom)};
+ };
+ const moveTo=(x,y)=>{
+  const b=heroBounds();
+  const w=fox.getBoundingClientRect().width||Math.min(340,innerWidth*.42);
+  const h=w*360/420;
+  target.x=clamp(x-w*.56,b.left+8,Math.max(b.left+8,b.right-w-8));
+  target.y=clamp(y-h*.48,b.top+8,Math.max(b.top+8,b.bottom-h-8));
  };
  const animate=()=>{
   raf=0;
-  const easing=mode==='follow'?.105:.035;
-  x+=(tx-x)*easing;y+=(ty-y)*easing;
-  fox.style.transform='translate3d('+x.toFixed(2)+'px,'+y.toFixed(2)+'px,0)';
-  if(Math.abs(tx-x)>.18||Math.abs(ty-y)>.18||mode==='roam')raf=requestAnimationFrame(animate);
+  const ease=active?.19:.11;
+  current.x+=(target.x-current.x)*ease;
+  current.y+=(target.y-current.y)*ease;
+  fox.style.transform='translate3d('+current.x.toFixed(2)+'px,'+current.y.toFixed(2)+'px,0)';
+  if(active||Math.abs(target.x-current.x)>.3||Math.abs(target.y-current.y)>.3)raf=requestAnimationFrame(animate);
  };
  const lookAt=(px,py)=>{
-  const r=stage.getBoundingClientRect();
-  const dx=px-(r.left+r.width*.5+x),dy=py-(r.top+r.height*.48+y);
-  const hx=clamp(dx/(r.width*.72),-1,1),hy=clamp(dy/(r.height*.72),-1,1);
-  head.style.transform='rotate('+clamp(-hx*17+hy*3,-19,19)+'deg) translate('+(-hx*2.5)+'px,'+(hy*1.8)+'px)';
-  left.style.transform='translate('+(hx*2.8)+'px,'+(hy*1.8)+'px)';
-  right.style.transform='translate('+(hx*2.8)+'px,'+(hy*1.8)+'px)';
+  const r=fox.getBoundingClientRect();
+  const dx=clamp((px-(r.left+r.width*.5))/(r.width*.5),-1,1);
+  const dy=clamp((py-(r.top+r.height*.42))/(r.height*.58),-1,1);
+  if(head)head.style.transform='rotate('+clamp(-dx*12+dy*3,-15,15)+'deg) translate('+(-dx*1.8)+'px,'+(dy*1.2)+'px)';
+  if(left)left.style.transform='translate('+(dx*2.2)+'px,'+(dy*1.5)+'px)';
+  if(right)right.style.transform='translate('+(dx*2.2)+'px,'+(dy*1.5)+'px)';
  };
- const enter=()=>{
-  mode='follow';clearTimeout(roamTimer);clearTimeout(walkTimer);
-  stage.classList.remove('is-walking');
+ const enter=(e)=>{
+  active=true;fox.classList.add('is-cursor-guardian');
+  moveTo(e.clientX,e.clientY);
+  lookAt(e.clientX,e.clientY);
   if(!raf)raf=requestAnimationFrame(animate);
  };
  const leave=()=>{
-  mode='roam';lastPointer=null;head.style.transform='';left.style.transform='';right.style.transform='';
-  pickRoam();if(!raf)raf=requestAnimationFrame(animate);
+  active=false;clearTimeout(walkingTimer);
+  stage.classList.remove('is-walking');
+  if(head)head.style.transform='';
+  if(left)left.style.transform='';
+  if(right)right.style.transform='';
+  target={...home};
+  if(!raf)raf=requestAnimationFrame(animate);
+  setTimeout(()=>{if(!active)fox.classList.remove('is-cursor-guardian')},650);
  };
- hero.addEventListener('pointerenter',e=>{
-  if(e.pointerType==='mouse'||e.pointerType==='pen'){lastPointer={x:e.clientX,y:e.clientY};enter();lookAt(e.clientX,e.clientY)}
- });
+ hero.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')enter(e)});
  hero.addEventListener('pointermove',e=>{
   if(e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
-  if(mode!=='follow')enter();
-  lastPointer={x:e.clientX,y:e.clientY};lastMove=performance.now();
-  const r=stage.getBoundingClientRect();
-  const dx=e.clientX-(r.left+r.width*.5),dy=e.clientY-(r.top+r.height*.48);
-  tx=clamp(dx*.24,-112,112);ty=clamp(dy*.16,-68,68);
-  lookAt(e.clientX,e.clientY);
-  const moving=Math.abs(e.clientX-lastPX)+Math.abs(e.clientY-lastPY)>2;
-  if(moving){stage.classList.add('is-walking');clearTimeout(walkTimer);walkTimer=setTimeout(()=>stage.classList.remove('is-walking'),360)}
+  if(!active)enter(e);
+  moveTo(e.clientX,e.clientY);lookAt(e.clientX,e.clientY);
+  if(Math.abs(e.clientX-lastX)+Math.abs(e.clientY-lastY)>2){
+   stage.classList.add('is-walking');clearTimeout(walkingTimer);
+   walkingTimer=setTimeout(()=>stage.classList.remove('is-walking'),300);
+  }
+  lastX=e.clientX;lastY=e.clientY;
+  if(!raf)raf=requestAnimationFrame(animate);
+ },{passive:true});
+ hero.addEventListener('pointerleave',leave);
+ window.addEventListener('resize',()=>{if(!active)measureHome();else if(!raf)raf=requestAnimationFrame(animate)},{passive:true});
+ measureHome();
+})();tTimeout(()=>stage.classList.remove('is-walking'),360)}
   lastPX=e.clientX;lastPY=e.clientY;
   if(!raf)raf=requestAnimationFrame(animate);
  },{passive:true});
