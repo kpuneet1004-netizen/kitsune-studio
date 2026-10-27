@@ -104,20 +104,14 @@
 @media(max-width:600px){.wrap{width:min(var(--max),calc(100% - 36px))}.nav-inner{height:66px}.menu{display:block}.nav-links{display:none;position:absolute;top:65px;left:0;right:0;background:#0c0c0f;border-bottom:1px solid var(--line);padding:20px 24px 24px;flex-direction:column;align-items:stretch;gap:18px}.nav-links.open{display:flex}.nav-links .nav-cta{text-align:center}.hero-grid{padding-top:45px;gap:14px}.hero-art{min-height:260px}.orbital{width:245px}.hero-symbol{width:112px}.star{width:30px;height:30px;right:14%;top:10%}.hero h1{font-size:clamp(45px,13vw,66px);margin-top:22px}.hero-copy{font-size:14px}.hero-actions .button{flex:1}.micro-proof{margin-top:28px}.section-head{display:block;margin-bottom:30px}.section-head p{margin-top:20px}.intro-grid{grid-template-columns:1fr;gap:18px}.projects{grid-template-columns:1fr}.project-card:last-child{grid-column:auto}.project-visual{height:250px}.principles,.steps{grid-template-columns:1fr}.principle{padding-bottom:16px}.contact{padding:75px 0}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.modal{padding:22px}.modal h2{font-size:30px}}
 
 
-/* Kitsune cursor companion: opt-in desktop-only brand interaction */
-.cursor-kitsune{position:fixed;left:0;top:0;width:42px;height:42px;z-index:90;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);will-change:transform;transition:opacity .25s ease;mix-blend-mode:screen}
+/* Kitsune cursor companion: decorative follower, native pointer remains usable */
+.cursor-kitsune{position:fixed;left:0;top:0;width:54px;height:54px;z-index:90;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);will-change:transform;transition:opacity .2s ease;mix-blend-mode:screen}
 .cursor-kitsune.is-visible{opacity:1}
-.cursor-kitsune img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 12px #ff6a2a55)}
-.cursor-kitsune-star{position:absolute;width:10px;height:10px;right:-2px;top:-3px;background:var(--violet);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 8px #9a7cffaa);transition:transform .25s ease}
-.cursor-kitsune.is-hovering .cursor-kitsune-star{transform:scale(1.35) rotate(45deg)}
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
- body.kitsune-cursor-ready{cursor:none}
- body.kitsune-cursor-ready a,body.kitsune-cursor-ready button,body.kitsune-cursor-ready [role="button"]{cursor:none}
- body.kitsune-cursor-ready .cursor-kitsune{display:block}
-}
-@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
- .cursor-kitsune{display:none!important}
-}
+.cursor-kitsune img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 12px #ff6a2a70)}
+.cursor-kitsune-star{position:absolute;width:12px;height:12px;right:0;top:0;background:var(--violet);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 8px #9a7cffaa);transition:transform .2s ease}
+.cursor-kitsune.is-hovering .cursor-kitsune-star{transform:scale(1.3) rotate(45deg)}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.cursor-kitsune{display:block}}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-kitsune{display:none!important}}
 
 /* Brand polish + restrained motion */
 :focus-visible{outline:2px solid var(--violet);outline-offset:4px}
@@ -169,36 +163,23 @@
 <div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorities</h3><ul id="modalPriorities"></ul><div class="modal-tags" id="modalTags"></div><p class="notice">This is a fictional portfolio concept. It is not commissioned client work and has no real performance metrics or live website.</p></section></div>
 <script>
 
-/* Cursor-reactive Kitsune: restrained, desktop-only, never blocks input. */
+/* Cursor-reactive Kitsune: simple pointer follower; native cursor stays visible. */
 (function(){
  const fox=document.getElementById('cursorKitsune');
- const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)');
- const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
- if(!fox||!finePointer.matches||reducedMotion.matches)return;
- let targetX=-100,targetY=-100,currentX=-100,currentY=-100,raf=0,active=false;
- const setVisible=visible=>{fox.classList.toggle('is-visible',visible);document.body.classList.toggle('kitsune-cursor-ready',visible);active=visible};
+ if(!fox||!window.matchMedia('(hover:hover) and (pointer:fine)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  const move=e=>{
-   targetX=e.clientX;targetY=e.clientY;
-   if(!active)setVisible(true);
-   if(!raf)raf=requestAnimationFrame(render);
+   fox.style.transform='translate3d('+(e.clientX-27)+'px,'+(e.clientY-27)+'px,0)';
+   fox.classList.add('is-visible');
  };
- function render(){
-   const dx=targetX-currentX,dy=targetY-currentY;
-   currentX+=dx*.19;currentY+=dy*.19;
-   fox.style.transform='translate3d('+(currentX-21)+'px,'+(currentY-21)+'px,0)';
-   if(Math.abs(dx)+Math.abs(dy)>.15)raf=requestAnimationFrame(render);else raf=0;
- }
  document.addEventListener('pointermove',move,{passive:true});
- document.addEventListener('pointerleave',()=>setVisible(false));
- document.addEventListener('pointerenter',()=>{});
+ document.addEventListener('pointerleave',()=>fox.classList.remove('is-visible'));
  document.addEventListener('pointerdown',()=>fox.classList.add('is-hovering'),{passive:true});
  document.addEventListener('pointerup',()=>fox.classList.remove('is-hovering'),{passive:true});
  document.querySelectorAll('a,button,[role="button"]').forEach(el=>{
    el.addEventListener('pointerenter',()=>fox.classList.add('is-hovering'));
    el.addEventListener('pointerleave',()=>fox.classList.remove('is-hovering'));
  });
- window.addEventListener('blur',()=>setVisible(false));
- document.addEventListener('visibilitychange',()=>{if(document.hidden)setVisible(false)});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)fox.classList.remove('is-visible')});
 })();
 
 const demoProfiles={
