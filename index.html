@@ -213,7 +213,7 @@
 <section class="contact" id="contact"><div class="wrap contact-inner"><div><div class="kicker">06 / Have something in mind?</div><h2>Let's build something<br>worth noticing.</h2><p>Tell us what you're building. We'll work out the clearest next step.</p></div><div class="contact-actions"><a class="button primary" href="mailto:hello@kitsunestudio.design?subject=Kitsune%20Studio%20project%20inquiry">Discuss a project ↗</a><a class="button" href="#work">See concepts ↑</a></div></div></section>
 </main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#top"><img src="/kitsune-logo.svg" alt=""><span>KITSUNE STUDIO</span></a><span>Independent studio · Websites with intent.</span><div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></div><span>© <span id="year"></span> Kitsune Studio</span></div></footer>
-<div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorit/* Cursor guardian: the Kitsune can cross the whole hero, then returns home. */
+<div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorit/* Cursor guardian: follows the pointer across the entire hero and returns home. */
 (function(){
  const hero=document.querySelector('.hero');
  const stage=document.getElementById('heroArt');
@@ -222,83 +222,67 @@
  const left=document.getElementById('kitsunePupilL');
  const right=document.getElementById('kitsunePupilR');
  if(!hero||!stage||!fox||!head||!left||!right)return;
- const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
- const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(!finePointer||reducedMotion)return;
+ if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  let home={x:0,y:0},target={x:0,y:0},current={x:0,y:0};
- let raf=0,walkingTimer=0,active=false,lastX=0,lastY=0;
- const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+ let raf=0,walkTimer=0,active=false,lastX=0,lastY=0,returning=false;
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  const measureHome=()=>{
   fox.classList.remove('is-cursor-guardian');
   fox.style.transform='';
   const r=fox.getBoundingClientRect();
-  home={x:r.left,y:r.top};
-  current={...home};target={...home};
+  home={x:r.left,y:r.top};current={...home};target={...home};
  };
- const heroBounds=()=>{
+ const bounds=()=>{
   const r=hero.getBoundingClientRect();
   return {left:Math.max(0,r.left),top:Math.max(0,r.top),right:Math.min(innerWidth,r.right),bottom:Math.min(innerHeight,r.bottom)};
  };
- const moveTo=(x,y)=>{
-  const b=heroBounds();
-  const w=fox.getBoundingClientRect().width||Math.min(340,innerWidth*.42);
-  const h=w*360/420;
-  target.x=clamp(x-w*.56,b.left+8,Math.max(b.left+8,b.right-w-8));
-  target.y=clamp(y-h*.48,b.top+8,Math.max(b.top+8,b.bottom-h-8));
+ const setTarget=(px,py)=>{
+  const b=bounds(),w=fox.getBoundingClientRect().width||Math.min(340,innerWidth*.42),h=w*360/420;
+  target.x=clamp(px-w*.52,b.left+8,Math.max(b.left+8,b.right-w-8));
+  target.y=clamp(py-h*.48,b.top+8,Math.max(b.top+8,b.bottom-h-8));
+ };
+ const lookAt=(px,py)=>{
+  const r=fox.getBoundingClientRect(),dx=clamp((px-(r.left+r.width*.5))/(r.width*.5),-1,1),dy=clamp((py-(r.top+r.height*.42))/(r.height*.58),-1,1);
+  head.style.transform='rotate('+clamp(-dx*12+dy*3,-15,15)+'deg) translate('+(-dx*1.8)+'px,'+(dy*1.2)+'px)';
+  left.style.transform='translate('+(dx*2.2)+'px,'+(dy*1.5)+'px)';
+  right.style.transform='translate('+(dx*2.2)+'px,'+(dy*1.5)+'px)';
  };
  const animate=()=>{
   raf=0;
-  const ease=active?.19:.11;
-  current.x+=(target.x-current.x)*ease;
-  current.y+=(target.y-current.y)*ease;
+  const ease=active?.18:.12;
+  current.x+=(target.x-current.x)*ease;current.y+=(target.y-current.y)*ease;
   fox.style.transform='translate3d('+current.x.toFixed(2)+'px,'+current.y.toFixed(2)+'px,0)';
-  if(active||Math.abs(target.x-current.x)>.3||Math.abs(target.y-current.y)>.3)raf=requestAnimationFrame(animate);
+  const settled=Math.abs(target.x-current.x)<.6&&Math.abs(target.y-current.y)<.6;
+  if(!active&&returning&&settled){
+   returning=false;fox.classList.remove('is-cursor-guardian');fox.style.transform='';
+   current={...home};target={...home};return;
+  }
+  if(active||!settled)raf=requestAnimationFrame(animate);
  };
- const lookAt=(px,py)=>{
-  const r=fox.getBoundingClientRect();
-  const dx=clamp((px-(r.left+r.width*.5))/(r.width*.5),-1,1);
-  const dy=clamp((py-(r.top+r.height*.42))/(r.height*.58),-1,1);
-  if(head)head.style.transform='rotate('+clamp(-dx*12+dy*3,-15,15)+'deg) translate('+(-dx*1.8)+'px,'+(dy*1.2)+'px)';
-  if(left)left.style.transform='translate('+(dx*2.2)+'px,'+(dy*1.5)+'px)';
-  if(right)right.style.transform='translate('+(dx*2.2)+'px,'+(dy*1.5)+'px)';
- };
- const enter=(e)=>{
-  active=true;fox.classList.add('is-cursor-guardian');
-  moveTo(e.clientX,e.clientY);
-  lookAt(e.clientX,e.clientY);
+ const enter=e=>{
+  active=true;returning=false;fox.classList.add('is-cursor-guardian');
+  setTarget(e.clientX,e.clientY);lookAt(e.clientX,e.clientY);
   if(!raf)raf=requestAnimationFrame(animate);
  };
  const leave=()=>{
-  active=false;clearTimeout(walkingTimer);
-  stage.classList.remove('is-walking');
-  if(head)head.style.transform='';
-  if(left)left.style.transform='';
-  if(right)right.style.transform='';
-  target={...home};
-  if(!raf)raf=requestAnimationFrame(animate);
-  setTimeout(()=>{if(!active){fox.classList.remove('is-cursor-guardian');fox.style.transform=''}},750);
+  active=false;returning=true;clearTimeout(walkTimer);stage.classList.remove('is-walking');
+  head.style.transform='';left.style.transform='';right.style.transform='';
+  target={...home};if(!raf)raf=requestAnimationFrame(animate);
  };
  hero.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')enter(e)});
  hero.addEventListener('pointermove',e=>{
   if(e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
   if(!active)enter(e);
-  moveTo(e.clientX,e.clientY);lookAt(e.clientX,e.clientY);
+  setTarget(e.clientX,e.clientY);lookAt(e.clientX,e.clientY);
   if(Math.abs(e.clientX-lastX)+Math.abs(e.clientY-lastY)>2){
-   stage.classList.add('is-walking');clearTimeout(walkingTimer);
-   walkingTimer=setTimeout(()=>stage.classList.remove('is-walking'),300);
+   stage.classList.add('is-walking');clearTimeout(walkTimer);
+   walkTimer=setTimeout(()=>stage.classList.remove('is-walking'),360);
   }
-  lastX=e.clientX;lastY=e.clientY;
-  if(!raf)raf=requestAnimationFrame(animate);
+  lastX=e.clientX;lastY=e.clientY;if(!raf)raf=requestAnimationFrame(animate);
  },{passive:true});
  hero.addEventListener('pointerleave',leave);
- window.addEventListener('resize',()=>{if(!active)measureHome();else if(!raf)raf=requestAnimationFrame(animate)},{passive:true});
+ window.addEventListener('resize',()=>{if(!active&&!returning)measureHome();else if(!raf)raf=requestAnimationFrame(animate)},{passive:true});
  measureHome();
-})();tTimeout(()=>stage.classList.remove('is-walking'),360)}
-  lastPX=e.clientX;lastPY=e.clientY;
-  if(!raf)raf=requestAnimationFrame(animate);
- },{passive:true});
- hero.addEventListener('pointerleave',leave);
- pickRoam();raf=requestAnimationFrame(animate);
 })();
 
 const demoProfiles={
