@@ -276,7 +276,7 @@
   if(right)right.style.transform='';
   target={...home};
   if(!raf)raf=requestAnimationFrame(animate);
-  setTimeout(()=>{if(!active)fox.classList.remove('is-cursor-guardian')},650);
+  setTimeout(()=>{if(!active){fox.classList.remove('is-cursor-guardian');fox.style.transform=''}},750);
  };
  hero.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')enter(e)});
  hero.addEventListener('pointermove',e=>{
