@@ -14,12 +14,12 @@
 <style>
 :root{color-scheme:dark;--bg:#09090b;--panel:#111114;--line:#29292f;--muted:#a4a4ad;--white:#f6f4f1;--orange:#ff6a2a;--violet:#9a7cff;--max:1180px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:#09090bea;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff0c}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:650;letter-spacing:-.04em}.brand img{width:35px;height:35px}.brand span{font-size:17px}.nav-links{display:flex;align-items:center;gap:28px;color:#c9c7ce;font-size:13px}.nav-links a:hover,.footer-links a:hover{color:white}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #ffffff28;border-radius:999px;padding:12px 18px;font-size:13px;font-weight:600;transition:transform .25s,border-color .25s,background .25s}.nav-cta:hover,.button:hover{transform:translateY(-2px);border-color:#ffffff77}.button.primary{background:var(--orange);border-color:var(--orange);color:#170a05}.button.primary:hover{background:#ff8957}.menu{display:none;background:none;color:white;border:1px solid var(--line);border-radius:12px;padding:10px}.hero{position:relative;min-height:670px;display:grid;align-items:center;overflow:hidden;border-bottom:1px solid #ffffff0b}.hero:before{content:"";position:absolute;inset:-25%;background:radial-gradient(ellipse at 74% 42%,#8b4eff16,transparent 28%),radial-gradient(ellipse at 70% 62%,#ff6a2a12,transparent 25%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:36px;padding:92px 0 100px;position:relative}.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:700;color:#c7c2cd}.dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 18px #ff6a2a88}.hero h1{font-size:clamp(48px,7vw,86px);line-height:.99;letter-spacing:-.075em;font-weight:560;margin:28px 0 24px;max-width:700px}.hero h1 em{font-style:normal;color:var(--orange)}.hero-copy{max-width:480px;color:#aaa8b2;font-size:16px;line-height:1.8}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.micro-proof{margin-top:42px;color:#777680;font-size:11px;letter-spacing:.04em}.hero-art{min-height:430px;position:relative;display:grid;place-items:center}.orbital{position:absolute;width:min(390px,90%);aspect-ratio:1;border:1px solid #9a7cff30;border-radius:50%;animation:spin 48s linear infinite}.orbital:before,.orbital:after{content:"";position:absolute;border:1px solid #ff6a2a25;border-radius:50%;inset:28px}.orbital:after{inset:65px;border-color:#ffffff15}.orbit-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--orange);top:13%;left:22%;box-shadow:0 0 22px #ff6a2a}.kitsune-aura{position:absolute;width:240px;height:240px;border-radius:50%;background:#ff6a2a16;filter:blur(36px);animation:kitsuneAura 5s ease-in-out infinite;pointer-events:none}
-.kitsune-creature{width:min(360px,88%);position:relative;z-index:2;overflow:visible;filter:drop-shadow(0 18px 26px #0008);transform-origin:50% 80%;animation:kitsuneIdle 3.4s ease-in-out infinite}
+.kitsune-creature{width:min(360px,88%);position:relative;z-index:2;overflow:visible;filter:drop-shadow(0 18px 26px #0008);transform-origin:50% 80%;will-change:transform;transition:filter .35s ease;animation:kitsuneIdle 3.4s ease-in-out infinite}.hero-art.is-walking .kitsune-creature{filter:drop-shadow(0 22px 34px #ff6a2a35)}
 .kitsune-body{transform-box:fill-box;transform-origin:center;animation:kitsuneBody 1.05s ease-in-out infinite}
 .kitsune-head{transform-box:view-box;transform-origin:207px 175px;transition:transform .16s ease-out}
 .kitsune-tail{transform-box:fill-box;transform-origin:8% 70%}
 .tail-a{animation:kitsuneTailA 2.7s ease-in-out infinite}.tail-b{animation:kitsuneTailB 2.2s ease-in-out infinite}.tail-c{animation:kitsuneTailC 1.8s ease-in-out infinite}
-.kitsune-leg{transform-box:fill-box;transform-origin:50% 0%;animation:kitsuneWalk .62s ease-in-out infinite alternate}
+.kitsune-leg{transform-box:fill-box;transform-origin:50% 0%;animation:none}.hero-art.is-walking .kitsune-leg{animation:kitsuneWalk .24s ease-in-out infinite alternate}.hero-art.is-walking .leg-back{animation-delay:-.12s}.hero-art.is-walking .leg-front-two{animation-delay:-.18s}.hero-art.is-walking .kitsune-body{animation:kitsuneBody .32s ease-in-out infinite}
 .leg-back{animation-delay:-.31s}.leg-front-two{animation-delay:-.42s}
 .kitsune-pupil{transition:transform .12s ease-out}
 .kitsune-sparks{animation:kitsuneSpark 3s ease-in-out infinite;transform-origin:center}
@@ -216,25 +216,59 @@
 <div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><div class="modal-badge">Concept case study · Fictional project</div><h2 id="modalTitle">Project title</h2></div><button class="close" id="closeModal" aria-label="Close case study">×</button></div><p id="modalIntro"></p><h3>Design challenge</h3><p id="modalChallenge"></p><h3>Creative direction</h3><p id="modalDirection"></p><h3>Experience priorities</h3><ul id="modalPriorities"></ul><div class="modal-tags" id="modalTags"></div><p class="notice">This is a fictional portfolio concept. It is not commissioned client work and has no real performance metrics or live website.</p></section></div>
 <script>
 
-/* Hero Kitsune reacts to the pointer: its head turns and eyes track movement. */
+/* Hero Kitsune: tracks the cursor, then takes a few lively steps toward it. */
 (function(){
+ const hero=document.querySelector('.hero');
  const stage=document.getElementById('heroArt');
+ const fox=document.getElementById('heroKitsune');
  const head=document.getElementById('kitsuneHead');
  const left=document.getElementById('kitsunePupilL');
  const right=document.getElementById('kitsunePupilR');
- if(!stage||!head||!left||!right)return;
- const point=e=>{
-  const r=stage.getBoundingClientRect();
-  const x=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width/2)));
-  const y=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height/2)));
-  head.style.transform='rotate('+(-x*15+y*3)+'deg) translate('+(-x*2)+'px,'+(y*1.5)+'px)';
-  left.style.transform='translate('+(x*2.6)+'px,'+(y*1.8)+'px)';
-  right.style.transform='translate('+(x*2.6)+'px,'+(y*1.8)+'px)';
+ if(!hero||!stage||!fox||!head||!left||!right)return;
+ const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+ const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(!finePointer||reducedMotion)return;
+ let lastX=null,lastY=null,stopTimer=null,raf=0;
+ let targetX=0,targetY=0,currentX=0,currentY=0;
+ const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+ const animatePosition=()=>{
+  raf=0;
+  currentX+=(targetX-currentX)*.12;
+  currentY+=(targetY-currentY)*.12;
+  fox.style.transform='translate3d('+currentX.toFixed(2)+'px,'+currentY.toFixed(2)+'px,0)';
+  if(Math.abs(targetX-currentX)>.15||Math.abs(targetY-currentY)>.15)raf=requestAnimationFrame(animatePosition);
  };
- stage.addEventListener('pointermove',point,{passive:true});
- stage.addEventListener('pointerleave',()=>{
+ const reset=()=>{
+  targetX=0;targetY=0;
   head.style.transform='';left.style.transform='';right.style.transform='';
- });
+  stage.classList.remove('is-walking');
+  if(stopTimer)clearTimeout(stopTimer);
+  if(!raf)raf=requestAnimationFrame(animatePosition);
+  lastX=null;lastY=null;
+ };
+ hero.addEventListener('pointermove',e=>{
+  const r=stage.getBoundingClientRect();
+  const dx=e.clientX-(r.left+r.width*.5);
+  const dy=e.clientY-(r.top+r.height*.48);
+  targetX=clamp(dx*.23,-76,76);
+  targetY=clamp(dy*.12,-24,24);
+  if(!raf)raf=requestAnimationFrame(animatePosition);
+  const x=clamp(dx/(r.width*.72),-1,1);
+  const y=clamp(dy/(r.height*.72),-1,1);
+  head.style.transform='rotate('+clamp(-x*17+y*3,-19,19)+'deg) translate('+(-x*2.5)+'px,'+(y*1.8)+'px)';
+  left.style.transform='translate('+(x*2.8)+'px,'+(y*1.8)+'px)';
+  right.style.transform='translate('+(x*2.8)+'px,'+(y*1.8)+'px)';
+  const moving=lastX!==null&&(Math.abs(e.clientX-lastX)+Math.abs(e.clientY-lastY)>1.8);
+  if(moving){
+   stage.classList.add('is-walking');
+   if(stopTimer)clearTimeout(stopTimer);
+   stopTimer=setTimeout(()=>stage.classList.remove('is-walking'),420);
+  }
+  lastX=e.clientX;lastY=e.clientY;
+ },{passive:true});
+ hero.addEventListener('pointerleave',reset);
+ hero.addEventListener('pointerdown',()=>stage.classList.add('is-walking'),{passive:true});
+ hero.addEventListener('pointerup',()=>{if(stopTimer)clearTimeout(stopTimer);stopTimer=setTimeout(()=>stage.classList.remove('is-walking'),220)},{passive:true});
 })();
 
 const demoProfiles={
