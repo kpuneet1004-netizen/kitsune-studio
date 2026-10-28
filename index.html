@@ -159,6 +159,76 @@
 .hero-art .orbital,.hero-art .orbit-dot,.hero-art .kitsune-aura,.hero-art .kitsune-creature,.hero-art .kitsune-tail,.hero-art .kitsune-sparks,.hero-art .kitsune-leg,.hero-art .kitsune-body,.hero-art .star{animation:none!important;transition:none!important;}
 .hero-art .kitsune-creature{transform:none!important;}
 .hero-art .kitsune-head{transform:none!important;}
+
+/* Kitsune layout refinement: tighter rhythm, clearer hierarchy, stronger project previews. */
+:root{--section-space:76px}
+.section{padding:var(--section-space) 0}
+.section-head{margin-bottom:28px;gap:24px}
+.section-head p{max-width:330px}
+.hero{min-height:0}
+.hero-grid{padding:56px 0 58px;gap:24px}
+.hero-art{min-height:390px}
+.hero h1{margin:20px 0 18px}
+.hero-copy{font-size:15px;line-height:1.72}
+.micro-proof{margin-top:28px}
+.section#studio .intro-grid{gap:38px}
+.section#work .section-head{margin-bottom:24px}
+.projects.bento-projects{gap:14px}
+.bento-projects .project-card:first-child .project-visual{min-height:330px}
+.bento-projects .project-card:first-child .project-info{padding:clamp(22px,3vw,38px)}
+.project-visual{padding:18px}
+.project-info{padding:18px 18px 20px}
+.project-info h3{margin-top:10px}
+.project-link{margin-top:14px}
+.notice{margin-top:12px}
+.services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.service{padding:22px;min-height:205px}
+.service h3{margin:22px 0 8px}
+.principles{gap:18px}
+.principle{padding-top:14px}
+.steps{gap:12px}
+.step{padding:18px}
+.step h3{margin:18px 0 8px}
+.contact{padding:70px 0 74px}
+.contact h2{margin:14px 0}
+.contact p{max-width:560px}
+.footer{padding:20px 0}
+@media(max-width:850px){
+ :root{--section-space:60px}
+ .hero-grid{padding:42px 0 44px;gap:12px}
+ .hero-art{min-height:285px}
+ .hero-art .orbital{width:260px}
+ .intro-grid{gap:28px}
+ .services-grid{grid-template-columns:1fr}
+ .service{min-height:0;padding:20px 22px}
+ .service h3{margin:14px 0 7px}
+ .service small{margin-top:12px}
+ .bento-projects .project-card:first-child .project-visual{min-height:280px;height:280px}
+}
+@media(max-width:600px){
+ :root{--section-space:46px}
+ .hero-grid{padding:30px 0 32px;gap:4px}
+ .hero-art{min-height:230px}
+ .hero-art .orbital{width:220px}
+ .hero h1{margin:15px 0 14px;font-size:clamp(44px,12vw,62px)}
+ .hero-copy{font-size:14px}
+ .micro-proof{margin-top:20px}
+ .section-head{display:block;margin-bottom:22px}
+ .section-head p{margin-top:14px}
+ .section h2{font-size:clamp(32px,9vw,43px)}
+ .section#studio .intro-grid{grid-template-columns:1fr;gap:14px}
+ .projects.bento-projects{gap:12px}
+ .bento-projects .project-card:first-child .project-visual,.bento-projects .project-card:not(:first-child) .project-visual{height:225px;min-height:225px}
+ .bento-projects .project-card:first-child .project-info{padding:18px}
+ .project-info{padding:16px}
+ .principles,.steps{gap:12px}
+ .principle h3{margin:10px 0 6px}
+ .contact{padding:52px 0 56px}
+ .contact-inner{gap:20px}
+ .contact h2{font-size:clamp(38px,10vw,54px)}
+ .footer-inner{flex-wrap:wrap}
+}
+
 </style>
 </head>
 <body><a class="skip-link" href="#main-content">Skip to main content</a><div id="scrollProgress" aria-hidden="true"></div>
