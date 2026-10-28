@@ -229,17 +229,74 @@
  .footer-inner{flex-wrap:wrap}
 }
 
+
+/* Hero art: purposeful brand illustration and compact floating proof points. */
+.hero-art{min-height:430px;isolation:isolate;overflow:visible}
+.hero-art:before{content:"";position:absolute;width:82%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ff6a2a1c 0%,#9a7cff0b 42%,transparent 70%);z-index:-2}
+.hero-orbit{position:absolute;aspect-ratio:1;border:1px solid #9a7cff3d;border-radius:50%;pointer-events:none}
+.orbit-one{width:82%;transform:rotate(-24deg);border-style:dashed;border-color:#9a7cff55}
+.orbit-two{width:66%;border-color:#ff6a2a3d;transform:rotate(32deg)}
+.hero-glow{position:absolute;width:54%;aspect-ratio:1;border-radius:50%;background:#ff6a2a1c;filter:blur(38px);z-index:-1}
+.hero-fox{width:min(390px,91%);height:auto;position:relative;z-index:2;overflow:visible;filter:drop-shadow(0 22px 32px #0009);animation:fox-float 5s ease-in-out infinite}
+.hero-float{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:12px 14px;background:#121116eF;border:1px solid #ffffff1b;border-radius:13px;box-shadow:0 12px 36px #0006;backdrop-filter:blur(12px)}
+.hero-float b{display:block;font-size:11px;font-weight:650;letter-spacing:-.01em}
+.hero-float small{display:block;color:#a4a1ad;font-size:9px;margin-top:2px}
+.float-top{top:13%;right:-1%}.float-bottom{bottom:15%;left:-2%}
+.float-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#9a7cff1e;color:#bba8ff;font-size:17px}
+.float-pulse{width:8px;height:8px;border-radius:50%;background:#ff6a2a;box-shadow:0 0 14px #ff6a2a}
+.hero-art-label{position:absolute;bottom:3%;right:2%;left:2%;display:flex;justify-content:space-between;gap:12px;color:#777480;font-size:8px;letter-spacing:.16em}
+@keyframes fox-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(1deg)}}
+@media(prefers-reduced-motion:reduce){.hero-fox{animation:none!important}}
+@media(max-width:850px){.hero-art{min-height:350px}.hero-fox{width:min(330px,85%)}.float-top{right:1%;top:9%}.float-bottom{left:0;bottom:10%}}
+@media(max-width:600px){.hero-art{min-height:280px}.hero-fox{width:min(270px,82%)}.hero-float{padding:9px 10px}.hero-float b{font-size:10px}.hero-float small{font-size:8px}.float-top{top:7%;right:-2%}.float-bottom{left:-2%;bottom:8%}.hero-art-label{font-size:7px;bottom:0}}
+
 </style>
 </head>
 <body><a class="skip-link" href="#main-content">Skip to main content</a><div id="scrollProgress" aria-hidden="true"></div>
 <header class="nav"><div class="wrap nav-inner"><a class="brand" href="#main-content" aria-label="Kitsune Studio home"><img src="/kitsune-logo.svg" alt=""><span>KITSUNE STUDIO</span></a><button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#imagine">Imagine</a><a href="#process">Process</a><a href="#studio">Studio</a><a class="nav-cta" href="#contact">Start a project ↗</a></nav></div></header>
 <main id="main-content">
-<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow"><span class="dot"></span> Independent digital studio</div><h1>Websites with<br><em>intent.</em></h1><p class="hero-copy">We design and build distinctive websites for ambitious brands. Clear thinking, considered details, and digital experiences that feel unmistakably yours.</p><div class="hero-actions"><a class="button primary" href="#contact">Start a project <span>↗</span></a><a class="button" href="#work">Explore selected work <span>↓</span></a></div><div class="micro-proof">STRATEGY · DESIGN · DEVELOPMENT · LAUNCH</div></div><div class="hero-art" id="heroArt" aria-label="Abstract orange and violet orbital artwork">
-<div class="orbital"><span class="orbit-dot"></span></div>
-
-
-<span class="star" aria-hidden="true"></span>
-
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow"><span class="dot"></span> Independent digital studio</div><h1>Websites with<br><em>intent.</em></h1><p class="hero-copy">We design and build distinctive websites for ambitious brands. Clear thinking, considered details, and digital experiences that feel unmistakably yours.</p><div class="hero-actions"><a class="button primary" href="#contact">Start a project <span>↗</span></a><a class="button" href="#work">Explore selected work <span>↓</span></a></div><div class="micro-proof">STRATEGY · DESIGN · DEVELOPMENT · LAUNCH</div></div><div class="hero-art" id="heroArt" aria-label="Kitsune Studio fox emblem and digital craft details">
+  <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+  <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <svg class="hero-fox" viewBox="0 0 420 440" role="img" aria-labelledby="foxTitle">
+    <title id="foxTitle">Kitsune, the orange fox studio mascot</title>
+    <defs>
+      <linearGradient id="foxFur" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb16e"/><stop offset=".48" stop-color="#ff6a2a"/><stop offset="1" stop-color="#c83c17"/></linearGradient>
+      <linearGradient id="foxCream" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#fff1d9"/><stop offset="1" stop-color="#d8bda5"/></linearGradient>
+      <linearGradient id="foxTail" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9b52"/><stop offset="1" stop-color="#e34b20"/></linearGradient>
+      <filter id="foxShadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="13"/></filter>
+    </defs>
+    <ellipse cx="220" cy="382" rx="112" ry="18" fill="#ff6a2a" opacity=".17" filter="url(#foxShadow)"/>
+    <path d="M244 287 C318 262 350 196 320 157 C299 132 273 154 279 180 C288 218 253 238 220 244" fill="none" stroke="#8d351d" stroke-width="50" stroke-linecap="round"/>
+    <path d="M244 287 C318 262 350 196 320 157 C299 132 273 154 279 180 C288 218 253 238 220 244" fill="none" stroke="url(#foxTail)" stroke-width="42" stroke-linecap="round"/>
+    <path d="M307 151 C328 155 335 177 327 194 C314 181 305 169 307 151Z" fill="#fff0d9"/>
+    <path d="M150 266 C127 302 129 340 149 359 L196 359 C206 329 203 298 188 271Z" fill="url(#foxFur)"/>
+    <path d="M222 267 C247 299 249 331 231 360 L188 360 C178 329 186 297 202 268Z" fill="#f15b24"/>
+    <path d="M139 345 Q167 333 195 348 L195 365 L140 365Z" fill="#2a1714"/>
+    <path d="M192 347 Q218 333 240 347 L239 365 L192 365Z" fill="#2a1714"/>
+    <path d="M144 216 C143 166 171 135 215 137 C259 138 285 170 278 222 L261 290 C242 318 178 318 158 286Z" fill="url(#foxFur)" stroke="#b9411c" stroke-width="2"/>
+    <path d="M157 166 L145 84 Q182 103 205 143Z" fill="url(#foxFur)" stroke="#b9411c" stroke-width="2"/>
+    <path d="M241 143 Q270 104 294 88 L279 178Z" fill="url(#foxFur)" stroke="#b9411c" stroke-width="2"/>
+    <path d="M160 145 L157 105 L188 145Z" fill="#6f2b27"/>
+    <path d="M253 143 L282 108 L271 158Z" fill="#6f2b27"/>
+    <path d="M153 193 Q180 166 207 190 Q226 164 264 190 L255 239 Q234 269 208 270 Q179 263 161 238Z" fill="url(#foxCream)"/>
+    <path d="M173 202 Q190 190 204 202 L199 218 Q185 224 174 214Z" fill="#261b1a"/>
+    <path d="M222 202 Q239 190 252 202 L250 214 Q236 224 224 218Z" fill="#261b1a"/>
+    <circle cx="190" cy="206" r="3.5" fill="#fff9ed"/><circle cx="239" cy="206" r="3.5" fill="#fff9ed"/>
+    <path d="M203 227 Q211 220 219 227 Q215 236 211 236 Q206 236 203 227Z" fill="#38201b"/>
+    <path d="M211 236 Q205 245 196 240 M211 236 Q218 245 226 240" fill="none" stroke="#38201b" stroke-width="2" stroke-linecap="round"/>
+    <path d="M165 244 Q185 260 204 254 M257 244 Q238 260 220 254" fill="none" stroke="#d7a58b" stroke-width="2" stroke-linecap="round"/>
+    <path d="M180 276 Q211 293 243 276" fill="none" stroke="#fff0d9" stroke-width="5" stroke-linecap="round"/>
+    <path d="M154 285 Q173 314 204 310 L211 287 Q183 295 154 285Z" fill="#fff0d9" opacity=".9"/>
+    <path d="M213 287 L221 310 Q248 313 266 285 Q240 295 213 287Z" fill="#fff0d9" opacity=".9"/>
+    <path d="M120 116 L126 134 L144 140 L126 146 L120 164 L114 146 L96 140 L114 134Z" fill="#9a7cff"/>
+    <path d="M298 251 L303 263 L315 267 L303 271 L298 283 L294 271 L282 267 L294 263Z" fill="#9a7cff"/>
+    <circle cx="298" cy="117" r="4" fill="#ffb16e"/><circle cx="118" cy="238" r="3" fill="#ffb16e"/>
+  </svg>
+  <div class="hero-float float-top"><span class="float-icon">✳</span><span><b>Distinct by design</b><small>Strategy meets craft</small></span></div>
+  <div class="hero-float float-bottom"><span class="float-pulse"></span><span><b>Designed to work</b><small>Responsive. Intentional. Yours.</small></span></div>
+  <div class="hero-art-label">KITSUNE / DIGITAL CRAFT <span>EST. BY INTENT</span></div>
 </div></div></section>
 <section class="section" id="studio"><div class="wrap intro-grid reveal"><div><div class="kicker">01 / The studio</div><div class="intro-statement">Good websites don't just look different. <span>They make the right things feel obvious.</span></div></div><div><p class="intro-copy">Kitsune Studio partners with founders and small teams to turn complex ideas into focused, memorable web experiences. Every choice has a job: guide attention, build trust, and make the next step clear.</p><div class="tag-row"><span class="tag">Intentional design</span><span class="tag">Responsive by default</span><span class="tag">Built for clarity</span></div></div></div></section>
 <section class="section" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">02 / Selected concepts</div><h2>Designed to make<br>an impression.</h2></div><p>A glimpse of the design directions we explore. These are concept projects created to demonstrate craft and creative range—not commissioned client work.</p></div><div class="projects bento-projects">
