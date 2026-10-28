@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kitsune-studio-7ix.pages.dev/sitemap.xml
