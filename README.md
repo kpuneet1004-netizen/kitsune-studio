@@ -1,56 +1,46 @@
 # Kitsune Studio
 
-Premium website design and development for ambitious brands.
+A motion-led, responsive website for an independent digital design studio.
 
-Kitsune Studio builds landing pages, multi-page business websites, and website redesigns with a cinematic visual style focused on clarity, craft, performance, and accessibility.
+## Experience
+- Brief fox-power intro with skip control, session-aware replay, and reduced-motion support
+- Responsive hero and bento-style concept project gallery
+- Interactive business-category website previews: Commerce, Luxury, and SaaS / Fintech
+- Studio positioning, services, process, honest testimonials policy, contact CTA, and footer
+- Custom fox identity, semantic HTML, keyboard-friendly tabs, responsive navigation, SEO metadata
+- Static HTML/CSS/JavaScript; no framework build step required
 
-## What's in this repository
-
-- `index.html` — responsive, standalone portfolio website with CSS motion and interactive concept case-study modals.
-- `kitsune-mark.svg` — orange fox and violet star brand mark.
-- `README.md` — project and deployment notes.
-- `robots.txt` and `sitemap.xml` — crawler guidance and public page URLs.
-- `404.html` — branded not-found page.
-- `og-image.svg` — social-sharing preview graphic.
-
-This version is intentionally a static site, so it can be deployed without a framework build or paid website-builder credits.
-
-## Portfolio principles
-
-- Keep the visual identity minimal, cinematic, and responsive.
-- Label speculative portfolio work clearly as **concept projects**.
-- Do not invent testimonials, client relationships, or performance results.
-- Prioritize semantic HTML, keyboard access, reduced-motion preferences, and SEO metadata.
-
-## Services
-
-- Landing pages
-- Multi-page business websites
-- Website redesigns
+## Local preview
+Open `index.html` in a browser, or run a local static server:
+```bash
+python -m http.server 8000
+```
+Then open `http://localhost:8000`.
 
 ## Deploy with Cloudflare Pages
+The repository is structured as a static website. In Cloudflare Dashboard:
 
-1. Open Cloudflare Dashboard → **Workers & Pages**.
-2. Choose **Create application** → **Pages** → **Connect to Git**.
-3. Select `kpuneet1004-netizen/kitsune-studio`.
-4. Use these settings for this static version:
-   - **Production branch:** `main`
-   - **Framework preset:** `None`
-   - **Build command:** leave blank
-   - **Build output directory:** `.`
-5. Save and deploy. Future commits to `main` should trigger a new deployment.
+1. Go to **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+2. Connect the GitHub repository `kpuneet1004-netizen/kitsune-studio`.
+3. Set production branch to `main`.
+4. Framework preset: `None`.
+5. Build command: leave empty.
+6. Build output directory: `/` or `.` (Cloudflare Pages asks for the repository root for this static site).
+7. Save and deploy. Future commits to `main` should automatically trigger deployments once Git integration is active.
 
-After deployment, verify the public URL, mobile layout, project modals, keyboard navigation, metadata, and contact links.
+If the repository is already connected to Cloudflare Pages, the commit to `main` should trigger a new deployment automatically. Check **Workers & Pages → your project → Deployments** for the actual result.
 
 ## Before launch
+- Confirm `hello@kitsunestudio.design` is an inbox you own and monitor. It is currently used by the contact links; replace it throughout the HTML files if needed.
+- Canonical, Open Graph, robots, and sitemap currently use `https://kitsune-studio-7ix.pages.dev`. Update these if a different Cloudflare Pages hostname or a custom domain becomes the primary URL.
+- FORMA Objects, NOIR Atelier, and ORBIT Finance are concept explorations, not commissioned client projects.
+- No testimonials are fabricated. The testimonials section explains that verified client feedback will be added after real projects ship.
+- Review the site on mobile, test the preview tabs and contact links, and verify HTTPS after deployment.
 
-- **Verify contact before launch:** `hello@kitsunestudio.design` is the existing configured destination, but mailbox ownership, receipt, and deliverability have not been verified. Replace it in all HTML files if it is not the studio's real, monitored inbox.
-- Canonical URLs and sitemap currently use `https://kitsune-studio-7ix.pages.dev`. Update them if a custom domain becomes the primary domain.
-- `og-image.svg` is a custom social preview graphic; test how major platforms render it and export PNG/JPG if SVG previews are unsupported.
-- Connect a custom domain if desired.
-- Test all navigation, project case studies, and contact actions.
-- Verify accessibility and responsive layouts.
-
-## Concept disclaimer
-
-FORMA Objects, NOIR Atelier, and ORBIT Finance are fictional portfolio concepts. The page explicitly labels them as concepts; the illustrative mockups are not live client projects and make no claims about real business results.
+## Key files
+- `index.html` — homepage, styles, intro animation and interactions
+- `hero-kitsune.svg` — animated-hero fox illustration
+- `kitsune-logo.svg`, `kitsune-mark.svg` — brand assets
+- `forma-objects.html`, `noir-atelier.html`, `orbit-finance.html` — concept landing pages
+- `og-image.svg` — social-sharing image
+- `404.html`, `robots.txt`, `sitemap.xml` — supporting static-site files
