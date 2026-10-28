@@ -1,46 +1,36 @@
 # Kitsune Studio
 
-A motion-led, responsive website for an independent digital design studio.
+An independent digital studio website for ambitious brands — built as a fast, responsive static site for Cloudflare Pages.
 
-## Experience
-- Brief fox-power intro with skip control, session-aware replay, and reduced-motion support
-- Responsive hero and bento-style concept project gallery
-- Interactive business-category website previews: Commerce, Luxury, and SaaS / Fintech
-- Studio positioning, services, process, honest testimonials policy, contact CTA, and footer
-- Custom fox identity, semantic HTML, keyboard-friendly tabs, responsive navigation, SEO metadata
-- Static HTML/CSS/JavaScript; no framework build step required
+## The experience
 
-## Local preview
-Open `index.html` in a browser, or run a local static server:
-```bash
-python -m http.server 8000
-```
-Then open `http://localhost:8000`.
+- A cinematic Kitsune intro sequence with a skip control and reduced-motion support.
+- A distinct editorial hero with the studio's fox emblem.
+- Bento-style concept project showcase.
+- Interactive in-page design previews for commerce, luxury, and SaaS/fintech.
+- Studio positioning, services, process, honest testimonials section, contact CTA, and footer.
+- Responsive navigation, keyboard-operable tabs, social metadata, and static assets.
+- No framework or build step required.
 
-## Deploy with Cloudflare Pages
-The repository is structured as a static website. In Cloudflare Dashboard:
+## Deploy to Cloudflare Pages
 
-1. Go to **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Connect the GitHub repository `kpuneet1004-netizen/kitsune-studio`.
-3. Set production branch to `main`.
-4. Framework preset: `None`.
-5. Build command: leave empty.
-6. Build output directory: `/` or `.` (Cloudflare Pages asks for the repository root for this static site).
-7. Save and deploy. Future commits to `main` should automatically trigger deployments once Git integration is active.
+This repository is a static HTML site. The current file layout is the deployment output root.
 
-If the repository is already connected to Cloudflare Pages, the commit to `main` should trigger a new deployment automatically. Check **Workers & Pages → your project → Deployments** for the actual result.
+Recommended Cloudflare Pages settings:
+- Production branch: `main`
+- Build command: `exit 0`
+- Build output directory: `/` (repository root)
 
-## Before launch
-- Confirm `hello@kitsunestudio.design` is an inbox you own and monitor. It is currently used by the contact links; replace it throughout the HTML files if needed.
-- Canonical, Open Graph, robots, and sitemap currently use `https://kitsune-studio-7ix.pages.dev`. Update these if a different Cloudflare Pages hostname or a custom domain becomes the primary URL.
-- FORMA Objects, NOIR Atelier, and ORBIT Finance are concept explorations, not commissioned client projects.
-- No testimonials are fabricated. The testimonials section explains that verified client feedback will be added after real projects ship.
-- Review the site on mobile, test the preview tabs and contact links, and verify HTTPS after deployment.
+Connect this repository in the Cloudflare dashboard at **Workers & Pages → Create → Pages → Connect to Git**. Cloudflare Pages will deploy each push to the production branch automatically.
 
-## Key files
-- `index.html` — homepage, styles, intro animation and interactions
-- `hero-kitsune.svg` — animated-hero fox illustration
-- `kitsune-logo.svg`, `kitsune-mark.svg` — brand assets
-- `forma-objects.html`, `noir-atelier.html`, `orbit-finance.html` — concept landing pages
-- `og-image.svg` — social-sharing image
-- `404.html`, `robots.txt`, `sitemap.xml` — supporting static-site files
+Official guide: https://developers.cloudflare.com/pages/framework-guides/deploy-anything/
+
+## Project notes
+
+The FORMA Objects, NOIR Atelier, and ORBIT Finance pages are concept explorations, not paid client case studies. The homepage explicitly identifies them as concepts and intentionally does not invent client testimonials.
+
+Before promoting the site:
+1. Replace `hello@kitsunestudio.design` in `index.html` with the real studio contact email.
+2. Update canonical and social metadata URLs to the final custom domain once it's connected.
+3. Replace the testimonials placeholder with verified testimonials only after projects are delivered.
+4. Review all demo project links and copy before launch.
