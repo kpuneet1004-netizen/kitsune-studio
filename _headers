@@ -1,0 +1,17 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: SAMEORIGIN
+
+/kitsune-logo.svg
+  Cache-Control: public, max-age=86400
+
+/kitsune-mark.svg
+  Cache-Control: public, max-age=86400
+
+/hero-kitsune.svg
+  Cache-Control: public, max-age=86400
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
