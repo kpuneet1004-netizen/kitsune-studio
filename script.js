@@ -200,4 +200,57 @@
     motionTargets.forEach(element => revealObserver.observe(element));
   }
 
+
+  // Ambient motion: tiny drifting sparks in the welcome and a live page-progress line.
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const introParticles = document.querySelector('#studio-intro');
+  if (introParticles && !motionReduced && !introParticles.querySelector('.intro-particles')) {
+    const layer = document.createElement('div');
+    layer.className = 'intro-particles';
+    layer.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 26; i += 1) {
+      const particle = document.createElement('span');
+      particle.className = 'intro-particle';
+      const hue = i % 3 === 0 ? '#ff6500' : (i % 3 === 1 ? '#9b35ff' : '#f6f3ef');
+      particle.style.setProperty('--x', (4 + Math.random() * 92).toFixed(2) + '%');
+      particle.style.setProperty('--y', (18 + Math.random() * 82).toFixed(2) + '%');
+      particle.style.setProperty('--size', (2 + Math.random() * 3.5).toFixed(1) + 'px');
+      particle.style.setProperty('--duration', (5 + Math.random() * 8).toFixed(2) + 's');
+      particle.style.setProperty('--delay', (-Math.random() * 12).toFixed(2) + 's');
+      particle.style.setProperty('--drift', ((Math.random() - .5) * 100).toFixed(1) + 'px');
+      particle.style.setProperty('--particle-color', hue);
+      particle.style.setProperty('--particle-opacity', (.25 + Math.random() * .55).toFixed(2));
+      layer.appendChild(particle);
+    }
+    introParticles.prepend(layer);
+  }
+
+  const header = document.querySelector('.site-header');
+  let progressTicking = false;
+  const updateScrollProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    if (header) header.style.setProperty('--scroll-progress', String(Math.max(0, Math.min(1, progress))));
+    progressTicking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!progressTicking) {
+      window.requestAnimationFrame(updateScrollProgress);
+      progressTicking = true;
+    }
+  }, { passive: true });
+  updateScrollProgress();
+
+  // Subtle pointer depth on the hero artwork, with a clean reset on exit.
+  const heroArt = document.querySelector('.hero-art');
+  if (heroArt && !motionReduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    heroArt.addEventListener('pointermove', event => {
+      const bounds = heroArt.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - .5;
+      const y = (event.clientY - bounds.top) / bounds.height - .5;
+      heroArt.style.transform = 'perspective(1000px) rotateX(' + (-y * 2.5).toFixed(2) + 'deg) rotateY(' + (x * 3.5).toFixed(2) + 'deg)';
+    });
+    heroArt.addEventListener('pointerleave', () => { heroArt.style.transform = ''; });
+  }
+
 })();
