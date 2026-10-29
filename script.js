@@ -177,4 +177,27 @@
       window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + encodeURIComponent(body);
     });
   }
+
+  // Progressive reveal: sections and cards animate into view as you explore.
+  const motionTargets = [
+    ...document.querySelectorAll('.section-label, .section-heading, .about-grid, .about-stats, .work-card, .work-note, .concept-note, .belief-list article, .style-card, .style-selection, .service-card, .process-grid article, .contact-grid, .footer-main')
+  ];
+  const motionAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (motionAllowed && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-motion');
+    motionTargets.forEach((element, index) => {
+      element.classList.add('reveal-on-scroll');
+      const siblingIndex = element.parentElement ? [...element.parentElement.children].filter(child => child.matches('.work-card,.style-card,.service-card,.process-grid article,.belief-list article')).indexOf(element) : -1;
+      if (siblingIndex >= 0) element.dataset.revealDelay = String(Math.min(siblingIndex, 3));
+    });
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+    motionTargets.forEach(element => revealObserver.observe(element));
+  }
+
 })();
