@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb66f"/><stop offset=".55" stop-color="#ff793d"/><stop offset="1" stop-color="#d9492d"/></linearGradient></defs><circle cx="50" cy="50" r="47" fill="#151219" stroke="#3d3041" stroke-width="1.5"/><path d="M50 16 28 28 20 18 23 46 31 67 50 84 69 67 77 46 80 18 72 28Z" fill="url(#o)"/><path d="M23 18 40 37 50 16 60 37 77 18 69 48 50 63 31 48Z" fill="url(#o)"/><path d="M36 47q7-7 14 0M50 47q7-7 14 0" fill="none" stroke="#1b1418" stroke-width="3.5" stroke-linecap="round"/><path d="m44 57 6 5 6-5" fill="#1b1418"/><path d="M50 64 38 72q12 7 24 0Z" fill="#fff0df"/><path d="m80 30 4 9 9 4-9 4-4 9-4-9-9-4 9-4Z" fill="#aa8bff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="logo-title">
+<title id="logo-title">Kitsune Studio fox mark</title>
+<defs>
+  <linearGradient id="fox-fill" x1="20" y1="12" x2="104" y2="112" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC18A"/><stop offset=".48" stop-color="#FF8552"/><stop offset="1" stop-color="#D95738"/></linearGradient>
+  <linearGradient id="fox-line" x1="25" y1="18" x2="105" y2="104" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE0B8"/><stop offset="1" stop-color="#FF8552"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="122" height="122" rx="34" fill="#141119" stroke="#3A303F" stroke-width="2"/>
+<path d="M25 20 48 39 64 15 80 39 103 20 98 58Q93 87 64 108 35 87 30 58Z" fill="url(#fox-fill)"/>
+<path d="M25 20 48 39 43 60 30 58Z" fill="#FFD2A0" opacity=".9"/>
+<path d="M103 20 80 39 85 60 98 58Z" fill="#F16D46"/>
+<path d="M43 54Q51 47 58 55M70 55Q77 47 85 54" fill="none" stroke="#211821" stroke-width="4" stroke-linecap="round"/>
+<path d="M56 67 64 73 72 67 69 79 64 83 59 79Z" fill="#211821"/>
+<path d="M45 83Q54 91 64 91 74 91 83 83" fill="none" stroke="#FFE7D1" stroke-width="3" stroke-linecap="round"/>
+<path d="M101 72 105 82 115 86 105 90 101 100 97 90 87 86 97 82Z" fill="#B39AFF"/>
+<circle cx="101" cy="86" r="2" fill="#F3E9FF"/>
+</svg>
