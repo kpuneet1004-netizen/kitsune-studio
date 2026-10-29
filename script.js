@@ -1,5 +1,70 @@
 /* Kitsune Studio — small, dependency-free interactions */
 (() => {
+
+  // Welcome screen: playful, optional, and keyboard-dismissible.
+  const intro = document.querySelector('#studio-intro');
+  const introEnter = document.querySelector('#intro-enter');
+  const introSkip = document.querySelector('#intro-skip');
+  const introPlay = document.querySelector('#intro-play');
+  const introEmblem = document.querySelector('#intro-emblem');
+  const introWhisper = document.querySelector('#intro-whisper');
+  const introMessages = [
+    'Psst. The fox likes a little attention.',
+    'Excellent. You have officially poked the internet.',
+    'Tiny spark. Big ideas. That is the whole philosophy.',
+    'No templates were harmed in the making of this studio.',
+    'Okay, curious human. Let’s make something good.'
+  ];
+  let introMessageIndex = 0;
+
+  function leaveIntro() {
+    if (!intro || intro.classList.contains('is-gone')) return;
+    intro.classList.add('is-gone');
+    intro.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('intro-active');
+    window.setTimeout(() => {
+      const main = document.querySelector('#main');
+      if (main) main.focus({ preventScroll: true });
+    }, 80);
+  }
+
+  if (intro) {
+    document.body.classList.add('intro-active');
+    if (introEnter) introEnter.addEventListener('click', leaveIntro);
+    if (introSkip) introSkip.addEventListener('click', leaveIntro);
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') leaveIntro();
+    });
+  }
+
+  function nudgeTheSpark() {
+    if (introEmblem) {
+      introEmblem.classList.remove('is-spinning');
+      void introEmblem.offsetWidth;
+      introEmblem.classList.add('is-spinning');
+      window.setTimeout(() => introEmblem.classList.remove('is-spinning'), 1300);
+    }
+    if (introWhisper) {
+      introMessageIndex = (introMessageIndex + 1) % introMessages.length;
+      introWhisper.textContent = introMessages[introMessageIndex];
+    }
+  }
+
+  if (introPlay) introPlay.addEventListener('click', nudgeTheSpark);
+  if (introEmblem) introEmblem.addEventListener('click', nudgeTheSpark);
+
+  if (introEmblem && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    introEmblem.addEventListener('pointermove', event => {
+      const bounds = introEmblem.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      introEmblem.style.transform = 'perspective(800px) rotateX(' + (-y * 5).toFixed(2) + 'deg) rotateY(' + (x * 5).toFixed(2) + 'deg)';
+    });
+    introEmblem.addEventListener('pointerleave', () => {
+      introEmblem.style.transform = '';
+    });
+  }
+
   const menuButton = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('#nav-links');
 
