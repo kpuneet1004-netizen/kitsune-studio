@@ -18,24 +18,42 @@
   const welcome = document.querySelector('#welcome-screen');
   const welcomeEnter = document.querySelector('#welcome-enter');
   const welcomeSkip = document.querySelector('#welcome-skip');
+  let returnFocus = null;
   const dismissWelcome = () => {
     if (!welcome || welcome.hidden) return;
     welcome.classList.add('is-leaving');
     document.body.classList.remove('welcome-open');
     try { sessionStorage.setItem('kitsune-welcome-seen', '1'); } catch (_) {}
-    window.setTimeout(() => { welcome.hidden = true; welcome.classList.remove('is-active', 'is-leaving'); }, 600);
+    window.setTimeout(() => {
+      welcome.hidden = true;
+      welcome.classList.remove('is-active', 'is-leaving');
+      if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus({ preventScroll: true });
+    }, 600);
   };
   if (welcome) {
     let seen = false;
     try { seen = sessionStorage.getItem('kitsune-welcome-seen') === '1'; } catch (_) {}
     if (!seen) {
+      returnFocus = document.querySelector('.hero-actions .button-primary') || document.querySelector('#main');
       welcome.hidden = false;
       document.body.classList.add('welcome-open');
-      requestAnimationFrame(() => welcome.classList.add('is-active'));
+      requestAnimationFrame(() => {
+        welcome.classList.add('is-active');
+        if (welcomeEnter) welcomeEnter.focus({ preventScroll: true });
+      });
     }
     if (welcomeEnter) welcomeEnter.addEventListener('click', dismissWelcome);
     if (welcomeSkip) welcomeSkip.addEventListener('click', dismissWelcome);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !welcome.hidden) dismissWelcome(); });
+    welcome.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); dismissWelcome(); return; }
+      if (e.key !== 'Tab') return;
+      const focusable = [...welcome.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter(el => !el.hidden && el.getAttribute('aria-hidden') !== 'true');
+      if (!focusable.length) { e.preventDefault(); welcome.focus(); return; }
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
   }
 
   // The resume concept doubles as a shortcut into the relevant enquiry path.
@@ -92,7 +110,7 @@
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     const subject = encodeURIComponent('Kitsune Studio project inquiry — ' + data.get('project-type'));
-    const body = encodeURIComponent('Hi Kitsune Studio,\n\nI\'d like to discuss a website project.\n\nName: ' + data.get('name') + '\nEmail: ' + data.get('email') + '\nWebsite type: ' + data.get('project-type') + '\nApproximate budget: ' + (data.get('budget') || 'Not specified') + '\nPreferred launch: ' + (data.get('timeline') || 'Flexible / not specified') + '\nPreferred visual direction: ' + (data.get('preferred-style') || 'Not sure yet') + '\\nProject goals and context: ' + (data.get('goal') || 'Not specified yet') + '\n\nPlease let me know the next step.\n\nThanks!');
+    const body = encodeURIComponent('Hi Kitsune Studio,\n\nI\'d like to discuss a website project.\n\nName: ' + data.get('name') + '\nEmail: ' + data.get('email') + '\nWebsite type: ' + data.get('project-type') + '\nApproximate budget: ' + (data.get('budget') || 'Not specified') + '\nPreferred launch: ' + (data.get('timeline') || 'Flexible / not specified') + '\nPreferred visual direction: ' + (data.get('preferred-style') || 'Not sure yet') + '\nProject goals and context: ' + (data.get('goal') || 'Not specified yet') + '\n\nPlease let me know the next step.\n\nThanks!');
     if (note) note.textContent = 'Your email app should open with a draft ready to review. Press Send there to contact the studio.';
     window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + body;
   });
