@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+<defs>
+ <linearGradient id="fur" x1="94" y1="70" x2="395" y2="435" gradientUnits="userSpaceOnUse"><stop stop-color="#ff8b16"/><stop offset=".55" stop-color="#ff6500"/><stop offset="1" stop-color="#ff7900"/></linearGradient>
+ <linearGradient id="spark" x1="382" y1="184" x2="455" y2="255" gradientUnits="userSpaceOnUse"><stop stop-color="#c47aff"/><stop offset="1" stop-color="#8b2cff"/></linearGradient>
+ <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<!-- A long, mythical fox in motion: one continuous flame-like silhouette -->
+<path d="M90 199C119 143 170 111 222 103C218 72 244 38 282 20C267 69 279 109 305 139C321 111 343 84 372 69L347 154C368 179 379 203 390 231C399 256 415 269 431 275C413 284 399 281 385 270C347 246 327 224 304 211C275 195 260 170 253 140C225 163 202 194 188 225C216 200 247 190 278 195C226 211 197 253 187 292C176 337 191 371 224 394C176 388 143 359 128 320C113 281 117 242 137 211C111 234 95 269 94 311C70 276 69 233 90 199Z" fill="url(#fur)"/>
+<!-- sweeping body and tail, curled like a living flame -->
+<path d="M385 270C429 290 448 321 440 360C434 392 412 420 388 443C407 407 403 379 388 355C369 385 349 405 321 421C344 388 352 358 375 337C345 355 324 377 297 391C318 357 332 329 357 309C379 292 389 282 385 270Z" fill="url(#fur)"/>
+<path d="M224 394C263 412 310 402 345 376C323 411 288 435 245 439C192 443 147 414 123 373C103 338 100 294 114 258C117 307 143 352 178 376C191 385 207 391 224 394Z" fill="url(#fur)"/>
+<!-- inner flame cuts carve a sharper, less cartoonish silhouette -->
+<path d="M105 190C142 151 183 136 223 141C184 151 151 171 125 202C101 231 88 261 87 292C72 254 80 218 105 190Z" fill="#020203"/>
+<path d="M183 248C205 220 239 202 274 207C240 220 215 245 203 276C189 310 198 342 220 364C188 350 168 319 169 286C169 272 174 259 183 248Z" fill="#020203"/>
+<path d="M288 115C281 91 282 65 293 43L286 103L305 139Z" fill="#020203"/>
+<path d="M341 119L361 83L347 143Z" fill="#020203"/>
+<!-- alert eye and muzzle -->
+<path d="M360 236C370 240 378 247 383 256C371 254 362 248 356 240Z" fill="#020203"/>
+<circle cx="389" cy="274" r="4.8" fill="#020203"/>
+<!-- four-pointed violet spark -->
+<path d="M454 220C448 246 440 255 414 261C440 267 448 276 454 302C460 276 468 267 494 261C468 255 460 246 454 220Z" fill="url(#spark)" filter="url(#glow)"/>
+</svg>
