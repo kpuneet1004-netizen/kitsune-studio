@@ -33,7 +33,15 @@
   const introVideoUnleash = document.querySelector('#intro-video-unleash');
   let introPowerShown = false;
   let introLaunched = false;
-  const introPauseAt = 5.8;
+  const introRevealAt = 5.8;
+
+  // Keep the intro skippable even if the remote video stalls or fails to decode.
+  function revealUnleash() {
+    if (introPowerShown || !introVideoPower) return;
+    introPowerShown = true;
+    introVideoPower.hidden = false;
+    requestAnimationFrame(() => introVideoPower.classList.add('is-visible'));
+  }
 
   if (intro) {
     document.body.classList.add('intro-active');
@@ -42,23 +50,37 @@
       if (event.key === 'Escape') leaveIntro();
     });
 
+    // Inline fallback keeps the skip action available if this script fails to bind.
+    if (introSkip) introSkip.onclick = () => {
+      intro.classList.add('is-gone');
+      intro.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('intro-active');
+    };
+
     if (introVideo) {
       introVideo.addEventListener('timeupdate', () => {
-        if (!introPowerShown && introVideo.currentTime >= introPauseAt) {
-          introVideo.pause();
-          introPowerShown = true;
-          if (introVideoPower) {
-            introVideoPower.hidden = false;
-            requestAnimationFrame(() => introVideoPower.classList.add('is-visible'));
-          }
-        }
+        if (introVideo.currentTime >= introRevealAt) revealUnleash();
       });
       introVideo.addEventListener('ended', leaveIntro, { once: true });
-      introVideo.addEventListener('error', () => intro.classList.add('intro-video-fallback'), { once: true });
+      introVideo.addEventListener('error', () => {
+        intro.classList.add('intro-video-fallback');
+        revealUnleash();
+      });
+      introVideo.addEventListener('stalled', revealUnleash, { once: true });
+      introVideo.addEventListener('waiting', () => {
+        // If playback buffers at the seated moment, offer an immediate way through.
+        if (introVideo.currentTime >= 3.5) revealUnleash();
+      });
       const playback = introVideo.play();
       if (playback && typeof playback.catch === 'function') {
-        playback.catch(() => intro.classList.add('intro-video-fallback'));
+        playback.catch(() => {
+          intro.classList.add('intro-video-fallback');
+          revealUnleash();
+        });
       }
+      window.setTimeout(() => {
+        if (!introPowerShown && introVideo.readyState < 3) revealUnleash();
+      }, 12000);
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         introVideo.pause();
         leaveIntro();
@@ -70,14 +92,8 @@
       introLaunched = true;
       if (introVideoPower) introVideoPower.classList.add('is-launching');
       intro.classList.add('is-powering-up');
-      if (introVideo) {
-        const playback = introVideo.play();
-        if (playback && typeof playback.catch === 'function') {
-          playback.catch(() => leaveIntro());
-        }
-      } else {
-        leaveIntro();
-      }
+      // Let the original glow / energy burst play, then reveal the homepage.
+      window.setTimeout(leaveIntro, 1100);
     });
   }
 
