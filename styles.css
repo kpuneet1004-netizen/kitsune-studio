@@ -621,3 +621,16 @@ body.intro-active{overflow:hidden}
 .intro-video-fallback{background:#050507!important}
 @media (max-width:600px){.intro-video{object-position:center}.intro-video-brand{font-size:10px;letter-spacing:.25em}.intro-skip{right:18px;bottom:18px}}
 @media (prefers-reduced-motion:reduce){.intro-video{display:none}.intro-screen.intro-sequence{background:#050507}}
+
+
+/* Video-powered Kitsune opening screen */
+.intro-screen.intro-sequence{background:#000;isolation:isolate}
+.intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;background:#000}
+.intro-video-brand{position:absolute;top:clamp(24px,5vh,52px);left:50%;z-index:4;transform:translateX(-50%);font:500 11px var(--ks-font-mono);letter-spacing:.35em;color:#f6f3ef;text-shadow:0 1px 18px #000;pointer-events:none}
+.intro-video-brand span{color:#a9a2b2}
+.intro-skip{position:absolute;right:clamp(20px,4vw,48px);bottom:clamp(20px,4vh,42px);z-index:5;display:inline-flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid #ffffff45;border-radius:999px;background:#050507b8;color:#f6f3ef;font:500 10px var(--ks-font-mono);letter-spacing:.08em;cursor:pointer;backdrop-filter:blur(12px)}
+.intro-skip:hover{border-color:#ff6500;background:#171013}
+.intro-video-fallback .intro-video{display:none}
+.intro-video-fallback{background:#050507!important}
+@media (max-width:600px){.intro-video{object-position:center}.intro-video-brand{font-size:10px;letter-spacing:.25em}.intro-skip{right:18px;bottom:18px}}
+@media (prefers-reduced-motion:reduce){.intro-video{display:none}.intro-screen.intro-sequence{background:#050507}}
