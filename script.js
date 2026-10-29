@@ -29,72 +29,44 @@
   }
 
   const introVideo = document.querySelector('#intro-video');
-  const introVideoPower = document.querySelector('#intro-video-power');
-  const introVideoUnleash = document.querySelector('#intro-video-unleash');
-  let introPowerShown = false;
-  let introLaunched = false;
-  const introRevealAt = 5.8;
-
-  // Keep the intro skippable even if the remote video stalls or fails to decode.
-  function revealUnleash() {
-    if (introPowerShown || !introVideoPower) return;
-    introPowerShown = true;
-    introVideoPower.hidden = false;
-    requestAnimationFrame(() => introVideoPower.classList.add('is-visible'));
-  }
 
   if (intro) {
     document.body.classList.add('intro-active');
+
+    // Skip always takes the visitor straight to the homepage.
     if (introSkip) introSkip.addEventListener('click', leaveIntro);
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') leaveIntro();
     });
 
-    // Inline fallback keeps the skip action available if this script fails to bind.
-    if (introSkip) introSkip.onclick = () => {
-      intro.classList.add('is-gone');
-      intro.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('intro-active');
-    };
-
     if (introVideo) {
-      introVideo.addEventListener('timeupdate', () => {
-        if (introVideo.currentTime >= introRevealAt) revealUnleash();
-      });
+      // Normal path: let the entire video play, then reveal the homepage.
       introVideo.addEventListener('ended', leaveIntro, { once: true });
+
+      // If the remote asset fails, don't trap the visitor on the intro screen.
       introVideo.addEventListener('error', () => {
         intro.classList.add('intro-video-fallback');
-        revealUnleash();
-      });
-      introVideo.addEventListener('stalled', revealUnleash, { once: true });
-      introVideo.addEventListener('waiting', () => {
-        // If playback buffers at the seated moment, offer an immediate way through.
-        if (introVideo.currentTime >= 3.5) revealUnleash();
-      });
+        leaveIntro();
+      }, { once: true });
+
       const playback = introVideo.play();
       if (playback && typeof playback.catch === 'function') {
         playback.catch(() => {
           intro.classList.add('intro-video-fallback');
-          revealUnleash();
+          leaveIntro();
         });
       }
+
+      // Safety net for a video stream that hangs and never fires "ended".
       window.setTimeout(() => {
-        if (!introPowerShown && introVideo.readyState < 3) revealUnleash();
-      }, 12000);
+        if (!intro.classList.contains('is-gone')) leaveIntro();
+      }, 20000);
+
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         introVideo.pause();
         leaveIntro();
       }
     }
-
-    if (introVideoUnleash) introVideoUnleash.addEventListener('click', () => {
-      if (introLaunched) return;
-      introLaunched = true;
-      if (introVideoPower) introVideoPower.classList.add('is-launching');
-      intro.classList.add('is-powering-up');
-      // Let the original glow / energy burst play, then reveal the homepage.
-      window.setTimeout(leaveIntro, 1100);
-    });
   }
 
   function nudgeTheSpark() {
