@@ -22,6 +22,9 @@
 @media(max-width:850px){.hero{grid-template-columns:1fr}.visual{min-height:510px}.section-head{grid-template-columns:1fr;gap:16px}.cta-inner{align-items:flex-start;flex-direction:column}.navlinks{gap:15px}}
 @media(max-width:560px){.wrap{width:calc(100% - 34px)}.nav{height:68px}.brand{font-size:15px}.brand img{width:32px;height:32px}.navlinks a:first-child{display:none}.navlinks{font-size:10px}.nav-cta{padding:9px 10px;font-size:10px}.hero{padding-top:50px}.hero h1{font-size:clamp(46px,14vw,66px)}.visual{min-height:430px;padding:14px}.mock{inset:52px 14px 14px}.mock-nav{padding:0 9px}.mock-content{padding:18px}.mock h2{font-size:clamp(25px,8vw,38px)}.feature-row{left:18px;right:18px;bottom:18px;gap:5px}.feature{padding:8px;min-height:82px}.feature b{font-size:9px}.cards,.split{grid-template-columns:1fr}.section-head{margin-bottom:30px}.note{display:block}.note strong{display:block;margin-bottom:8px}.footer-inner{align-items:flex-start;flex-direction:column}.meta{gap:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Small-phone navigation safety: preserve the primary CTA without horizontal overflow. */
+@media(max-width:380px){.nav{gap:10px}.navlinks{display:none}.nav-cta{white-space:nowrap;padding:9px 10px;font-size:10px}.brand{flex:0 1 auto;min-width:0}.brand img{flex:0 0 auto}}
 </style>
 </head>
 <body>
