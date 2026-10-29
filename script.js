@@ -74,6 +74,33 @@
       group.querySelectorAll('button[data-value]').forEach(option=>{const active=option===button;option.classList.toggle('is-selected',active);option.setAttribute('aria-pressed',String(active));});
       applyState();
     }));
+    const useDirection=styleExplorer.querySelector('[data-use-direction]');
+    if(useDirection)useDirection.addEventListener('click',()=>{
+      const projectType=document.querySelector('#project-type');
+      const preferredStyle=document.querySelector('#preferred-style');
+      const goal=document.querySelector('#goal');
+      const typeLabels={business:'Business website',portfolio:'Portfolio website',resume:'Personal / Resume website'};
+      const paletteLabels={warm:'Warm neutrals',dark:'Dark',fresh:'Fresh',vivid:'Vivid'};
+      const layoutLabels={balanced:'Balanced',editorial:'Editorial flow',bento:'Bento grid'};
+      const typefaceLabels={clean:'Clean sans',serif:'Expressive serif',display:'Display'};
+      const direction='Design direction from Kitsune Studio: '+typeLabels[state.site]+', '+state.vibe+' visual vibe, '+layoutLabels[state.layout]+' layout, '+paletteLabels[state.palette]+' palette, '+typefaceLabels[state.type]+' typography, '+state.imagery+' imagery, '+state.motion+' motion.';
+      if(projectType){
+        const mapped={business:'Business landing page',portfolio:'Portfolio website',resume:'Resume / personal website'};
+        projectType.value=mapped[state.site];
+      }
+      if(preferredStyle){
+        const mapped={minimal:'Minimal',editorial:'Editorial',bold:'Bold',luxury:'Luxury'};
+        preferredStyle.value=mapped[state.vibe]||'';
+      }
+      if(goal&&!goal.value.includes('Design direction from Kitsune Studio:')){
+        goal.value=goal.value.trim() ? goal.value.trim()+'\\n\\n'+direction : direction;
+      }
+      const contact=document.querySelector('#contact');
+      if(contact){
+        contact.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+        window.setTimeout(()=>document.querySelector('#name')?.focus({preventScroll:true}),450);
+      }
+    });
     const reset=styleExplorer.querySelector('[data-config-reset]');
     if(reset)reset.addEventListener('click',()=>{
       Object.assign(state,defaults);
