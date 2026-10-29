@@ -398,3 +398,8 @@ button{color:inherit}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* Pricing content fit */
+.service-price strong.custom-price{font-size:28px;letter-spacing:-.04em}
+.work-card{cursor:pointer}
+.work-card:focus-visible{outline:2px solid var(--orange);outline-offset:5px}
