@@ -51,7 +51,7 @@
         item.setAttribute('aria-pressed', String(active));
       });
       styleCards.forEach(card => {
-        const categories = (card.dataset.category || '').split(/\\s+/);
+        const categories = (card.dataset.category || '').split(/\s+/);
         card.hidden = category !== 'all' && !categories.includes(category);
       });
     }));
