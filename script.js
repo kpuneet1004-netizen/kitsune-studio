@@ -28,25 +28,29 @@
     }, 80);
   }
 
+  const introVideo = document.querySelector('#intro-video');
+
   if (intro) {
     document.body.classList.add('intro-active');
-    if (introEnter) introEnter.addEventListener('click', () => {
-      if (intro.classList.contains('is-charging') || intro.classList.contains('is-launching')) return;
-      intro.classList.add('is-charging');
-      const caption = document.querySelector('#intro-caption');
-      if (caption) caption.textContent = 'POWER IS NOT GIVEN. IT IS AWAKENED.';
-      introEnter.disabled = true;
-      window.setTimeout(() => intro.classList.add('is-launching'), 1050);
-      window.setTimeout(leaveIntro, 1850);
-    });
-    const introPower = document.querySelector('#intro-power');
-    window.setTimeout(() => {
-      if (introPower && intro && !intro.classList.contains('is-gone')) introPower.style.pointerEvents = 'auto';
-    }, 3150);
     if (introSkip) introSkip.addEventListener('click', leaveIntro);
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') leaveIntro();
     });
+
+    if (introVideo) {
+      introVideo.addEventListener('ended', leaveIntro, { once: true });
+      introVideo.addEventListener('error', () => {
+        intro.classList.add('intro-video-fallback');
+      }, { once: true });
+      const playback = introVideo.play();
+      if (playback && typeof playback.catch === 'function') {
+        playback.catch(() => intro.classList.add('intro-video-fallback'));
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        introVideo.pause();
+        leaveIntro();
+      }
+    }
   }
 
   function nudgeTheSpark() {
