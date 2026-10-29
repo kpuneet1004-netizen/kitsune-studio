@@ -648,3 +648,11 @@ body.intro-active{overflow:hidden}
 .intro-video-power.is-launching{opacity:0;transform:translate(-50%,10px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
 .intro-screen.is-powering-up .intro-video{filter:brightness(1.18) saturate(1.12);transition:filter .4s ease}
 @media (max-width:600px){.intro-video-power{top:calc(50% + 28vw);width:min(230px,76vw)}}
+
+
+/* Reliability pass: controls remain clickable above the video on every viewport */
+.intro-screen.intro-sequence .intro-video{pointer-events:none}
+.intro-screen.intro-sequence .intro-skip{z-index:2147483647;pointer-events:auto;touch-action:manipulation}
+.intro-screen.intro-sequence .intro-video-power{z-index:2147483646;pointer-events:auto}
+.intro-screen.intro-sequence.is-gone{pointer-events:none}
+.intro-screen.intro-sequence .intro-video-power.is-visible{pointer-events:auto}
