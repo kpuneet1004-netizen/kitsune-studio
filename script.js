@@ -31,7 +31,7 @@
     const data = new FormData(form);
     const subject = encodeURIComponent('Kitsune Studio project inquiry — ' + data.get('project-type'));
     const body = encodeURIComponent('Hi Kitsune Studio,\n\nI\'d like to discuss a project.\n\nName: ' + data.get('name') + '\nWork email: ' + data.get('email') + '\nProject type: ' + data.get('project-type') + '\nWhat I\'d like to improve: ' + (data.get('goal') || 'Not specified yet') + '\n\nThanks!');
-    if (note) note.textContent = 'Your email draft is ready. Review it and press Send in your email app.';
+    if (note) note.textContent = 'Your email app should open with a draft ready to review. Press Send there to contact the studio.';
     window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + body;
   });
 })();
