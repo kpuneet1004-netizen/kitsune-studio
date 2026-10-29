@@ -524,3 +524,33 @@ body.intro-active{overflow:hidden}
   .intro-screen:before,.intro-copy,.intro-kicker,.intro-copy h1 em,.intro-description,.intro-actions,.intro-emblem,.intro-bottomline,.intro-float-top,.intro-float-bottom,.hero-copy .eyebrow,.hero h1,.hero-art,.art-glow,.hero-art .art-chip{animation:none!important}
   .js-motion .reveal-on-scroll{opacity:1;transform:none;transition:none}
 }
+
+
+/* Motion upgrade: make the welcome feel alive, then carry that energy into the site */
+.intro-screen{isolation:isolate}
+.intro-noise{z-index:0}
+.intro-screen:before{transform-origin:68% 48%;will-change:transform}
+.intro-screen .intro-topline,.intro-screen .intro-bottomline{flex-shrink:0}
+.intro-particles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.intro-particle{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:var(--particle-color);opacity:0;box-shadow:0 0 14px var(--particle-color);animation:particle-rise var(--duration) var(--delay) linear infinite}
+.intro-particle:nth-child(4n){border-radius:1px;transform:rotate(45deg)}
+.intro-screen.is-gone .intro-particles{animation:particle-fade .35s ease both}
+.site-header:after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:2px;background:linear-gradient(90deg,var(--orange),var(--purple));transform:scaleX(var(--scroll-progress,0));transform-origin:left;opacity:.9;pointer-events:none}
+.hero{overflow:clip}
+.hero-art{will-change:transform}
+.hero-art:after{content:"";position:absolute;inset:8%;border:1px solid #ffffff08;border-radius:50%;animation:hero-ring-pulse 7s ease-in-out infinite;pointer-events:none}
+.hero .hero-note .note-symbol{animation:note-spin 14s linear infinite}
+.hero h1 .accent-word{display:inline-block;animation:accent-breathe 5s ease-in-out infinite}
+.ticker{position:relative}
+.ticker:before,.ticker:after{content:"";position:absolute;top:0;bottom:0;width:clamp(16px,5vw,70px);z-index:2;pointer-events:none}
+.ticker:before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker:after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.work-card,.style-card,.service-card,.process-grid article{transition:transform .35s cubic-bezier(.2,.75,.25,1),border-color .35s,box-shadow .35s}
+.work-card:hover,.service-card:hover{transform:translateY(-6px)}
+.style-card:hover{transform:translateY(-4px)}
+@keyframes particle-rise{0%{opacity:0;translate:0 28px;scale:.65}12%{opacity:var(--particle-opacity)}78%{opacity:calc(var(--particle-opacity)*.65)}100%{opacity:0;translate:var(--drift) -110px;scale:1.15}}
+@keyframes particle-fade{to{opacity:0}}
+@keyframes hero-ring-pulse{0%,100%{transform:scale(.96);opacity:.35}50%{transform:scale(1.04);opacity:.9}}
+@keyframes note-spin{to{rotate:360deg}}
+@keyframes accent-breathe{0%,100%{text-shadow:0 0 0 #ff650000}50%{text-shadow:0 0 32px #ff650028}}
+@media(prefers-reduced-motion:reduce){.intro-particle,.hero-art:after,.hero .hero-note .note-symbol,.hero h1 .accent-word{animation:none!important}.work-card,.style-card,.service-card,.process-grid article{transition:none!important}}
