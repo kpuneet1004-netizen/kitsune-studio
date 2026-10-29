@@ -92,8 +92,12 @@
         const mapped={minimal:'Minimal',editorial:'Editorial',bold:'Bold',luxury:'Luxury'};
         preferredStyle.value=mapped[state.vibe]||'';
       }
-      if(goal&&!goal.value.includes('Design direction from Kitsune Studio:')){
-        goal.value=goal.value.trim() ? goal.value.trim()+'\n\n'+direction : direction;
+      if(goal){
+        // Replace an earlier generated direction instead of stacking stale briefs.
+        const existingGoal=goal.value.trim();
+        const briefStart=existingGoal.indexOf('Design direction from Kitsune Studio:');
+        const userGoal=briefStart>=0?existingGoal.slice(0,briefStart).trim():existingGoal;
+        goal.value=userGoal?userGoal+'\\n\\n'+direction:direction;
       }
       const contact=document.querySelector('#contact');
       if(contact){
