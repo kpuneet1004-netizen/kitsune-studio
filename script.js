@@ -1,140 +1,110 @@
+/* Kitsune Studio — small, dependency-free interactions */
 (() => {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('#nav-links');
-  if (toggle && nav) {
-    const closeMenu = () => { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open navigation'); };
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') !== 'true';
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      nav.classList.toggle('is-open', open);
-    });
-    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenu(); toggle.focus(); } });
-    document.addEventListener('click', e => { if (!nav.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
-  }
+  const menuButton = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('#nav-links');
 
-  // The resume concept doubles as a shortcut into the relevant enquiry path.
-  const resumeConcept = document.querySelector('.case-resume');
-  if (resumeConcept) resumeConcept.addEventListener('click', () => {
-    const projectType = document.querySelector('#project-type');
-    if (projectType) projectType.value = 'Resume / personal website';
-  });
-
-  // Section 4: controls update one complete website preview.
-  const styleExplorer = document.querySelector('[data-style-explorer]');
-  if (styleExplorer) {
-    const preview = styleExplorer.querySelector('[data-live-site]');
-    const feedback = styleExplorer.querySelector('#style-feedback');
-    const styleSelect = document.querySelector('#preferred-style');
-    const defaults = {site:'business',vibe:'minimal',layout:'balanced',palette:'warm',type:'clean',imagery:'photography',motion:'subtle'};
-    const state = {...defaults};
-    const copy = {
-      business:{logo:'FORM & FIELD',kicker:'INDEPENDENT CREATIVE STUDIO',headline:'Good ideas<br>deserve <em>good design.</em>',intro:'We bring strategy, design and thoughtful details together to help ambitious businesses move forward.',title:'Clarity is a<br>competitive edge.',body:'Good design is not decoration. It makes the important things easier to understand, creates trust, and gives every next step a reason to exist.',services:'Good work starts<br>with a <em>clear plan.</em>'},
-      portfolio:{logo:'ALEX MORI',kicker:'INDEPENDENT DESIGNER & CREATIVE',headline:'Ideas made<br><em>visible.</em>',intro:'A selected collection of thoughtful digital experiences, visual experiments and work made with purpose.',title:'A point of view<br>makes the work.',body:'Every project begins with a question. I combine clear thinking, a strong visual voice and careful craft to turn that question into something distinct.',services:'A considered process.<br><em>Distinctive work.</em>'},
-      resume:{logo:'YOUR NAME',kicker:'DESIGNER · BUILDER · PROBLEM SOLVER',headline:'A little about me.<br><em>A lot about what’s next.</em>',intro:'I connect ideas, people and practical problem-solving to make useful things happen. Here is what I do and how I think.',title:'Good work comes<br>from good questions.',body:'My approach blends curiosity with clear communication and thoughtful execution. I like complex challenges, collaborative teams and outcomes that make a difference.',services:'What I bring<br>to the <em>table.</em>'}
+  if (menuButton && navLinks) {
+    const closeMenu = () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+      navLinks.classList.remove('is-open');
     };
-    const images = {
-      photography:['https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=82','https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1100&q=82','https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=82','https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=82'],
-      graphic:['https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=82','https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1100&q=82','https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=900&q=82','https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=82'],
-      architecture:['https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=82','https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=82','https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=82','https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=82']
-    };
-    const classPrefixes=['vibe-','layout-','palette-','type-','imagery-','motion-'];
-    const applyState=()=>{
-      if(!preview)return;
-      classPrefixes.forEach(prefix=>[...preview.classList].filter(name=>name.startsWith(prefix)).forEach(name=>preview.classList.remove(name)));
-      preview.classList.add('vibe-'+state.vibe,'layout-'+state.layout,'palette-'+state.palette,'type-'+state.type,'imagery-'+state.imagery,'motion-'+state.motion);
-      const selected=copy[state.site];
-      preview.querySelectorAll('.demo-logo').forEach(el=>{el.innerHTML=selected.logo+'<span>®</span>';});
-      const values=[['[data-demo-kicker]',selected.kicker],['[data-demo-headline]',selected.headline],['[data-demo-intro]',selected.intro],['[data-demo-section-title]',selected.title],['[data-demo-section-copy]',selected.body],['.demo-services h3',selected.services]];
-      values.forEach(([selector,value])=>{const el=preview.querySelector(selector);if(el){if(selector.includes('headline')||selector.includes('title')||selector.includes('services'))el.innerHTML=value;else el.textContent=value;}});
-      const altText = {
-        photography:['Sunlit modern creative studio interior','Warm minimalist interior and carefully composed objects','Bright collaborative workspace','Sculptural design details'],
-        graphic:['Bold graphic design materials and color studies','Abstract flowing color forms','Colorful abstract composition','Abstract art and color composition'],
-        architecture:['Minimal architectural interior with natural light','Modern architectural space and material details','Architectural lines and restrained materials','Quiet contemporary architecture']
-      };
-      preview.querySelectorAll('img').forEach((img,index)=>{img.src=images[state.imagery][index%4];img.alt=altText[state.imagery][index%4];});
-      const demoMenu=preview.querySelector('.demo-mobile-menu');
-      if(demoMenu&&!demoMenu.dataset.wired){
-        demoMenu.dataset.wired='true';
-        demoMenu.addEventListener('click',()=>{
-          const nav=preview.querySelector('.demo-nav');
-          const open=nav.classList.toggle('is-menu-open');
-          demoMenu.setAttribute('aria-expanded',String(open));
-          demoMenu.textContent=open?'×':'☰';
-        });
-      }
-      if(feedback)feedback.textContent=({business:'Business website',portfolio:'Portfolio website',resume:'Personal / Resume website'}[state.site]+' · '+state.vibe+' vibe · '+state.layout+' layout. Scroll inside the frame to explore the full page.');
-      if(styleSelect){const name={minimal:'Minimal',editorial:'Editorial',bold:'Bold',luxury:'Luxury'}[state.vibe];if([...styleSelect.options].some(option=>option.value===name||option.text===name))styleSelect.value=name;}
-    };
-    styleExplorer.querySelectorAll('[data-option-group]').forEach(group=>group.addEventListener('click',event=>{
-      const button=event.target.closest('button[data-value]');
-      if(!button||!group.contains(button))return;
-      state[group.dataset.optionGroup]=button.dataset.value;
-      group.querySelectorAll('button[data-value]').forEach(option=>{const active=option===button;option.classList.toggle('is-selected',active);option.setAttribute('aria-pressed',String(active));});
-      applyState();
-    }));
-    const useDirection=styleExplorer.querySelector('[data-use-direction]');
-    if(useDirection)useDirection.addEventListener('click',()=>{
-      const projectType=document.querySelector('#project-type');
-      const preferredStyle=document.querySelector('#preferred-style');
-      const goal=document.querySelector('#goal');
-      const typeLabels={business:'Business website',portfolio:'Portfolio website',resume:'Personal / Resume website'};
-      const paletteLabels={warm:'Warm neutrals',dark:'Dark',fresh:'Fresh',vivid:'Vivid'};
-      const layoutLabels={balanced:'Balanced',editorial:'Editorial flow',bento:'Bento grid'};
-      const typefaceLabels={clean:'Clean sans',serif:'Expressive serif',display:'Display'};
-      const direction='Design direction from Kitsune Studio: '+typeLabels[state.site]+', '+state.vibe+' visual vibe, '+layoutLabels[state.layout]+' layout, '+paletteLabels[state.palette]+' palette, '+typefaceLabels[state.type]+' typography, '+state.imagery+' imagery, '+state.motion+' motion.';
-      if(projectType){
-        const mapped={business:'Business landing page',portfolio:'Portfolio website',resume:'Resume / personal website'};
-        projectType.value=mapped[state.site];
-      }
-      if(preferredStyle){
-        const mapped={minimal:'Minimal',editorial:'Editorial',bold:'Bold',luxury:'Luxury'};
-        preferredStyle.value=mapped[state.vibe]||'';
-      }
-      if(goal){
-        // Replace an earlier generated direction instead of stacking stale briefs.
-        const existingGoal=goal.value.trim();
-        const briefStart=existingGoal.indexOf('Design direction from Kitsune Studio:');
-        const userGoal=briefStart>=0?existingGoal.slice(0,briefStart).trim():existingGoal;
-        goal.value=userGoal?userGoal+'\\n\\n'+direction:direction;
-      }
-      const contact=document.querySelector('#contact');
-      if(contact){
-        contact.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-        window.setTimeout(()=>document.querySelector('#name')?.focus({preventScroll:true}),450);
-      }
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+      navLinks.classList.toggle('is-open', !isOpen);
     });
-    const reset=styleExplorer.querySelector('[data-config-reset]');
-    if(reset)reset.addEventListener('click',()=>{
-      Object.assign(state,defaults);
-      styleExplorer.querySelectorAll('[data-option-group]').forEach(group=>group.querySelectorAll('button[data-value]').forEach(button=>{const active=button.dataset.value===defaults[group.dataset.optionGroup];button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));}));
-      const viewport=styleExplorer.querySelector('.live-preview-viewport');
-      if(viewport)viewport.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
-      applyState();
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
     });
-    applyState();
   }
 
   const year = document.querySelector('#year');
-  if (year) year.textContent = new Date().getFullYear();
-  const revealTargets = document.querySelectorAll('.section-top, .project, .offer-detail, .process-grid article, .manifesto-inner, .contact-card, .style-card, .trust-card, .about-copy');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    revealTargets.forEach(el => el.classList.add('reveal'));
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
-    }), { threshold: 0.12 });
-    revealTargets.forEach(el => observer.observe(el));
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  let selectedStyle = '';
+  const styleCards = [...document.querySelectorAll('[data-style]')];
+  const styleMessage = document.querySelector('#style-message');
+  const styleContinue = document.querySelector('#style-continue');
+  const goalField = document.querySelector('#goal');
+  const projectType = document.querySelector('#project-type');
+
+  function updateDirection(style) {
+    selectedStyle = style;
+    styleCards.forEach(card => {
+      const active = card.dataset.style === style;
+      card.setAttribute('aria-pressed', String(active));
+    });
+    if (styleMessage) {
+      styleMessage.textContent = style
+        ? style + ' direction selected. We’ll use this as a starting point for your brief.'
+        : 'Choose a direction to add it to your project enquiry.';
+    }
+    if (styleContinue) {
+      styleContinue.textContent = style ? 'Use ' + style.toLowerCase() + ' direction ↗' : 'Use this direction ↗';
+    }
+    if (goalField) {
+      const current = goalField.value.trim();
+      const marker = 'Visual direction:';
+      const markerAt = current.indexOf(marker);
+      const userNotes = markerAt >= 0 ? current.slice(0, markerAt).trim() : current;
+      const directionLine = style ? marker + ' ' + style : '';
+      goalField.value = [userNotes, directionLine].filter(Boolean).join('\n\n');
+    }
   }
-  const form = document.querySelector('#project-form');
-  const note = document.querySelector('#form-note');
-  if (form) form.addEventListener('submit', e => {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const subject = encodeURIComponent('Kitsune Studio project inquiry — ' + data.get('project-type'));
-    const body = encodeURIComponent('Hi Kitsune Studio,\n\nI\'d like to discuss a website project.\n\nName: ' + data.get('name') + '\nEmail: ' + data.get('email') + '\nWebsite type: ' + data.get('project-type') + '\nApproximate budget: ' + (data.get('budget') || 'Not specified') + '\nPreferred launch: ' + (data.get('timeline') || 'Flexible / not specified') + '\nPreferred visual direction: ' + (data.get('preferred-style') || 'Not sure yet') + '\nProject goals and context: ' + (data.get('goal') || 'Not specified yet') + '\n\nPlease let me know the next step.\n\nThanks!');
-    if (note) note.textContent = 'Your email app should open with a draft ready to review. Press Send there to contact the studio.';
-    window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + body;
+
+  styleCards.forEach(card => card.addEventListener('click', () => {
+    updateDirection(card.dataset.style || '');
+  }));
+
+  document.querySelectorAll('[data-project-type]').forEach(link => {
+    link.addEventListener('click', () => {
+      const value = link.dataset.projectType;
+      if (projectType && value) {
+        const match = [...projectType.options].find(option => option.text.trim().toLowerCase() === value.trim().toLowerCase());
+        if (match) projectType.value = match.value || match.text;
+        else {
+          const fallback = [...projectType.options].find(option => option.text.toLowerCase().includes(value.toLowerCase()) || value.toLowerCase().includes(option.text.toLowerCase()));
+          if (fallback) projectType.value = fallback.value || fallback.text;
+        }
+      }
+    });
   });
+
+  const form = document.querySelector('#project-form');
+  const formNote = document.querySelector('#form-note');
+  if (form) {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const name = String(data.get('name') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const type = String(data.get('project-type') || '').trim();
+      const budget = String(data.get('budget') || '').trim();
+      const timeline = String(data.get('timeline') || 'Flexible / not sure').trim();
+      const goal = String(data.get('goal') || '').trim();
+      const subject = encodeURIComponent('Project enquiry — ' + (type || 'Kitsune Studio'));
+      const body = [
+        'Hi Kitsune Studio,',
+        '',
+        'I’d like to talk about a website project.',
+        '',
+        'Name: ' + name,
+        'Email: ' + email,
+        'Project type: ' + type,
+        'Budget: ' + budget,
+        'Timeline: ' + timeline,
+        '',
+        'Project notes:',
+        goal || 'Not added yet.',
+        '',
+        'Sent from the Kitsune Studio website.'
+      ].join('\n');
+      if (formNote) formNote.textContent = 'Your email draft is opening. Please review the details and send it from your mail app.';
+      window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + encodeURIComponent(body);
+    });
+  }
 })();
