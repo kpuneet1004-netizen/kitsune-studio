@@ -554,3 +554,57 @@ body.intro-active{overflow:hidden}
 @keyframes note-spin{to{rotate:360deg}}
 @keyframes accent-breathe{0%,100%{text-shadow:0 0 0 #ff650000}50%{text-shadow:0 0 32px #ff650028}}
 @media(prefers-reduced-motion:reduce){.intro-particle,.hero-art:after,.hero .hero-note .note-symbol,.hero h1 .accent-word{animation:none!important}.work-card,.style-card,.service-card,.process-grid article{transition:none!important}}
+
+
+/* Mythic arrival sequence — a silent, cinematic Kitsune power-up */
+body.intro-active{overflow:hidden}
+.intro-screen.intro-sequence{z-index:2000;display:block;isolation:isolate;background:#020203;padding:0;opacity:1;visibility:visible;transform:none;transition:opacity 1s ease,visibility 1s ease}
+.intro-sequence:before,.intro-sequence:after{display:none}
+.intro-sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 68%,#ff65000b,transparent 45%)}
+.intro-sky:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,#000 100%);opacity:.45}
+.intro-sky span{position:absolute;top:var(--sky-y,20%);left:-20%;width:140%;height:1px;background:linear-gradient(90deg,transparent,#ff650000,#ff65008a,#9b35ff5c,transparent);opacity:0;transform:rotate(-12deg);animation:sky-streak 1.8s var(--sky-delay,0s) ease-out both}
+.intro-sky span:nth-child(1){--sky-y:24%;--sky-delay:.8s}.intro-sky span:nth-child(2){--sky-y:38%;--sky-delay:1s}.intro-sky span:nth-child(3){--sky-y:56%;--sky-delay:1.2s}.intro-sky span:nth-child(4){--sky-y:72%;--sky-delay:1.4s}.intro-sky span:nth-child(5){--sky-y:83%;--sky-delay:1.6s}
+.intro-sequence-brand{position:absolute;top:clamp(24px,5vh,52px);left:50%;z-index:4;transform:translateX(-50%);font:500 11px var(--ks-font-mono);letter-spacing:.35em;color:#f6f3ef;opacity:0;animation:brand-arrive .8s 2.25s ease forwards}
+.intro-sequence-brand span{color:#77717e}
+.intro-sequence-caption{position:absolute;top:clamp(70px,12vh,110px);left:50%;z-index:4;width:max-content;max-width:90%;transform:translateX(-50%);font:500 9px var(--ks-font-mono);letter-spacing:.24em;color:#79717f;text-align:center;opacity:0;animation:caption-arrive .8s 2.5s ease forwards}
+.mythic-fox{position:absolute;z-index:3;left:50%;top:47%;width:min(58vw,440px);aspect-ratio:1;display:grid;place-items:center;opacity:0;transform:translate(-150vw,-12vh) rotate(-18deg) scale(.45);filter:drop-shadow(0 0 0 #ff650000);animation:fox-walk-to-center 2.3s .55s cubic-bezier(.2,.7,.18,1) forwards}
+.mythic-fox>img{position:relative;z-index:2;width:100%;height:auto;object-fit:contain;filter:grayscale(1) sepia(1) saturate(7) hue-rotate(335deg) drop-shadow(0 0 22px #ff65001c)}
+.fox-aura{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,#ff65002b 0, #9b35ff0c 38%,transparent 70%);filter:blur(26px);opacity:0;transform:scale(.4)}
+.fox-eye{position:absolute;z-index:4;top:47%;width:8px;height:8px;border-radius:50%;background:#fff4c7;opacity:0;box-shadow:0 0 8px 4px #ff6500,0 0 28px 12px #ff6500,0 0 65px 25px #ff2c00;transform:scale(.1)}
+.fox-eye-left{left:43%}.fox-eye-right{right:43%}
+.fox-trail{position:absolute;z-index:1;inset:4%;border:1px solid #ff650000;border-radius:50%;transform:scale(.5) rotate(-30deg)}
+.intro-power{position:absolute;z-index:5;left:50%;top:calc(47% + min(29vw,220px));transform:translate(-50%,18px);width:260px;text-align:center;opacity:0;pointer-events:none;animation:power-arrive .65s 2.8s ease forwards}
+.intro-power>p{margin:0 0 14px;font:500 8px var(--ks-font-mono);letter-spacing:.22em;color:#9c94a5}
+.unleash-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:58px;padding:12px 17px;border:1px solid #ff65008a;border-radius:999px;background:#100b0c;color:#fff;box-shadow:0 0 30px #ff650015,inset 0 0 20px #ff650008;font:500 11px var(--ks-font-mono);letter-spacing:.18em;cursor:pointer;transition:background .3s,border-color .3s,box-shadow .3s,transform .3s}
+.unleash-button:hover{transform:translateY(-2px);border-color:#ff6500;background:#1b0c09;box-shadow:0 0 40px #ff650044,inset 0 0 22px #ff650018}
+.unleash-button i{margin-left:auto;color:#ff6500;font-style:normal}
+.power-icon{font-size:25px;line-height:1;color:#ff6500;text-shadow:0 0 14px #ff6500}
+.intro-skip{position:absolute;right:clamp(20px,4vw,48px);bottom:clamp(20px,4vh,38px);z-index:10;font:500 10px var(--ks-font-mono);letter-spacing:.08em;opacity:.58}
+.intro-skip:hover{opacity:1}
+.intro-charge{position:absolute;z-index:6;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 48%,#fff7d8 0,#ff6500 12%,#ff3c00b8 25%,#9b35ff48 46%,transparent 70%);transform:scale(.02);mix-blend-mode:screen}
+.intro-flash{position:absolute;z-index:7;inset:-30%;pointer-events:none;opacity:0;transform:scale(.05);border-radius:50%;background:radial-gradient(circle,#fff 0,#ffb05b 12%,#ff6500 23%,#9b35ffad 42%,transparent 68%)}
+.intro-sequence.is-charging .mythic-fox{animation:fox-awaken .85s ease-in-out forwards;filter:drop-shadow(0 0 42px #ff6500)}
+.intro-sequence.is-charging .fox-aura{animation:aura-bloom 1.2s ease forwards}
+.intro-sequence.is-charging .fox-eye{animation:eyes-ignite .65s .12s ease forwards}
+.intro-sequence.is-charging .fox-trail{animation:trail-awaken .9s ease forwards}
+.intro-sequence.is-charging .intro-sequence-caption{color:#ffd5ad;text-shadow:0 0 18px #ff6500;opacity:1}
+.intro-sequence.is-charging .intro-power{animation:power-fade .25s ease forwards}
+.intro-sequence.is-charging .intro-charge{animation:charge-pulse 1.35s .12s ease-in forwards}
+.intro-sequence.is-launching .intro-flash{animation:flash-expand 1.15s ease-in forwards}
+.intro-sequence.is-launching{animation:screen-out .9s .35s ease forwards;pointer-events:none}
+@keyframes fox-walk-to-center{0%{opacity:0;transform:translate(-150vw,-12vh) rotate(-18deg) scale(.45)}8%{opacity:1}18%{transform:translate(-110vw,-16vh) rotate(-12deg) scale(.56)}30%{transform:translate(-72vw,-7vh) rotate(-6deg) scale(.7)}43%{transform:translate(-40vw,-13vh) rotate(-10deg) scale(.82)}55%{transform:translate(-18vw,-4vh) rotate(-3deg) scale(.94)}67%{transform:translate(-4vw,-1vh) rotate(2deg) scale(1.02)}78%,100%{opacity:1;transform:translate(-50%,-50%) rotate(0) scale(1)}}
+@keyframes brand-arrive{to{opacity:.9}}
+@keyframes caption-arrive{to{opacity:1}}
+@keyframes power-arrive{to{opacity:1;transform:translate(-50%,0);pointer-events:auto}}
+@keyframes sky-streak{0%{opacity:0;transform:translateX(-15%) rotate(-12deg)}40%{opacity:.8}100%{opacity:0;transform:translateX(130%) rotate(-12deg)}}
+@keyframes aura-bloom{0%{opacity:.25;transform:scale(.4)}45%{opacity:1;transform:scale(1.6)}100%{opacity:.9;transform:scale(1.2)}}
+@keyframes eyes-ignite{0%{opacity:0;transform:scale(.1)}55%{opacity:1;transform:scale(1.8)}100%{opacity:1;transform:scale(1.2)}}
+@keyframes trail-awaken{to{border-color:#ff65007a;transform:scale(1.18) rotate(12deg);box-shadow:0 0 55px #ff650025}}
+@keyframes fox-awaken{0%{filter:drop-shadow(0 0 12px #ff650044)}40%{filter:drop-shadow(0 0 75px #ff6500) drop-shadow(0 0 140px #9b35ff)}100%{filter:drop-shadow(0 0 38px #ff6500) drop-shadow(0 0 85px #9b35ff);transform:translate(-50%,-50%) scale(1.07)}}
+@keyframes power-fade{to{opacity:0;transform:translate(-50%,12px)}}
+@keyframes charge-pulse{0%{opacity:0;transform:scale(.02)}25%{opacity:.95;transform:scale(.65)}65%{opacity:1;transform:scale(1.6)}100%{opacity:0;transform:scale(3.4)}}
+@keyframes flash-expand{0%{opacity:0;transform:scale(.05)}35%{opacity:1;transform:scale(.65)}100%{opacity:1;transform:scale(2.6)}}
+@keyframes screen-out{to{opacity:0;visibility:hidden}}
+.intro-screen.is-gone .intro-sequence-brand,.intro-screen.is-gone .intro-sequence-caption{opacity:0}
+@media(max-width:600px){.mythic-fox{width:min(82vw,360px);top:43%}.intro-power{top:calc(43% + min(41vw,180px));width:220px}.intro-sequence-brand{font-size:10px}.intro-sequence-caption{font-size:8px;letter-spacing:.15em}.fox-eye{width:6px;height:6px}}
+@media(prefers-reduced-motion:reduce){.intro-sky span,.intro-sequence-brand,.intro-sequence-caption,.mythic-fox,.intro-power{animation:none!important}.intro-sequence-brand,.intro-sequence-caption{opacity:1}.mythic-fox{opacity:1;left:50%;top:43%;transform:translate(-50%,-50%);filter:none}.intro-power{opacity:1;top:calc(43% + 180px);transform:translateX(-50%);pointer-events:auto}.intro-charge,.intro-flash{animation:none!important}}
