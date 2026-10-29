@@ -1,0 +1,57 @@
+/* Kitsune Studio — case study pages */
+.case-shell{width:min(var(--ks-content-max),calc(100% - var(--ks-gutter)*2));margin-inline:auto}
+.case-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:20px;border-bottom:1px solid var(--ks-line)}
+.case-back{font-size:12px;color:var(--ks-muted)}
+.case-back:hover{color:var(--ks-brand-orange)}
+.case-hero{padding-block:clamp(56px,9vw,110px) 54px}
+.case-kicker{font:500 10px/1.5 var(--ks-font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ks-brand-orange)}
+.case-hero h1{max-width:900px;margin:18px 0;font-size:clamp(44px,8vw,88px);line-height:.98;letter-spacing:-.08em}
+.case-hero h1 em{font-family:Georgia,serif;font-weight:400;color:var(--ks-brand-orange)}
+.case-intro{max-width:650px;color:var(--ks-muted);font-size:clamp(15px,1.8vw,18px);line-height:1.8}
+.case-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.case-meta span{padding:9px 12px;border:1px solid var(--ks-line);border-radius:8px;color:var(--ks-muted);font:500 9px var(--ks-font-mono);letter-spacing:.06em;text-transform:uppercase}
+.case-preview{position:relative;overflow:hidden;border:1px solid #ffffff20;border-radius:22px;background:#17171e;box-shadow:0 30px 90px #0005}
+.case-browser{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid #0002;background:#f0eee9;color:#3a3835}
+.case-browser i{width:7px;height:7px;border-radius:50%;background:#b6afa6}
+.case-browser span{margin-left:10px;font:500 9px var(--ks-font-mono);letter-spacing:.07em}
+.case-visual{min-height:420px;padding:clamp(24px,6vw,70px);display:flex;flex-direction:column;justify-content:space-between}
+.case-visual.northline{background:#e8e5de;color:#20201e}
+.case-visual.northline .case-visual-nav,.case-visual.portfolio .case-visual-nav,.case-visual.profile .case-visual-nav{display:flex;justify-content:space-between;gap:20px;font:500 9px var(--ks-font-mono);letter-spacing:.08em}
+.case-visual.northline .case-visual-brand{font-size:24px;font-weight:800;letter-spacing:-.08em}
+.case-visual.northline .case-visual-brand span{color:#e85c2b}
+.case-visual.northline h2{max-width:700px;margin:55px 0 30px;font-size:clamp(45px,9vw,100px);line-height:.9;letter-spacing:-.09em}
+.case-visual.northline h2 em{font-family:Georgia,serif;font-weight:400;color:#d75c31}
+.case-visual-foot{display:flex;justify-content:space-between;gap:20px;padding-top:16px;border-top:1px solid currentColor;font:500 8px var(--ks-font-mono);letter-spacing:.08em}
+.case-visual.portfolio{position:relative;min-height:500px;background:#d5c5b5;color:#30251f}
+.case-visual.portfolio h2{position:relative;z-index:2;margin:80px 0 20px;font:400 clamp(48px,9vw,105px)/.9 Georgia,serif;letter-spacing:-.075em}
+.case-visual.portfolio h2 em{color:#a5482f}
+.case-visual-portrait{position:absolute;right:12%;top:25%;width:24%;height:55%;background:linear-gradient(135deg,#b6a08c,#59473d);border-radius:48% 48% 2px 2px;box-shadow:inset -20px 0 40px #1d17152b}
+.case-visual.profile{min-height:450px;display:grid;grid-template-columns:.7fr 1.3fr;padding:0;background:#f1efe9;color:#242321}
+.case-visual.profile .profile-side{padding:clamp(20px,4vw,45px);background:#e1ddd3}
+.profile-monogram{display:grid;place-items:center;width:clamp(70px,12vw,120px);aspect-ratio:1;margin:55px 0 20px;border-radius:50%;background:#252523;color:#ffb17b;font:400 clamp(30px,5vw,54px) Georgia,serif}
+.profile-side strong{display:block;font-size:clamp(14px,2vw,21px)}
+.profile-side small{display:block;margin-top:8px;color:#777067;font:500 8px var(--ks-font-mono)}
+.profile-main{padding:clamp(22px,5vw,58px)}
+.profile-main>span{font:500 9px var(--ks-font-mono);letter-spacing:.1em}
+.profile-main h2{margin:55px 0 18px;font-size:clamp(32px,6vw,65px);line-height:.98;letter-spacing:-.08em}
+.profile-main h2 em{font-family:Georgia,serif;font-weight:400;color:#b35e3c}
+.profile-main p{max-width:420px;color:#6c6860;font-size:12px;line-height:1.8}
+.profile-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:30px}
+.profile-tags span{padding:7px 9px;border:1px solid #cbc6bb;font:500 7px var(--ks-font-mono)}
+.case-content{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(28px,7vw,90px);padding-block:75px;border-bottom:1px solid var(--ks-line)}
+.case-content h2{margin:0;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.06em}
+.case-content h2 em{font-family:Georgia,serif;font-weight:400;color:var(--ks-brand-orange)}
+.case-copy p{margin:0 0 18px;color:var(--ks-muted);font-size:14px;line-height:1.9}
+.case-copy p:last-child{margin-bottom:0}
+.case-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-block:35px 75px}
+.case-point{padding:20px;border:1px solid var(--ks-line);border-radius:14px;background:var(--ks-surface)}
+.case-point span{color:var(--ks-brand-orange);font:500 10px var(--ks-font-mono)}
+.case-point h3{margin:20px 0 8px;font-size:17px;letter-spacing:-.04em}
+.case-point p{margin:0;color:var(--ks-muted);font-size:12px;line-height:1.8}
+.case-disclaimer{margin:0 0 70px;padding:16px 18px;border-left:2px solid var(--ks-brand-orange);background:var(--ks-surface);color:var(--ks-muted);font-size:11px;line-height:1.8}
+.case-cta{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-bottom:80px;padding:clamp(24px,5vw,48px);border:1px solid #ffffff1c;border-radius:22px;background:linear-gradient(120deg,#17141d,#111116)}
+.case-cta h2{margin:0;font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-.07em}
+.case-cta p{margin:12px 0 0;color:var(--ks-muted);font-size:12px}
+.case-footer{padding-block:22px;border-top:1px solid var(--ks-line);color:var(--ks-muted);font-size:10px}
+@media(max-width:700px){.case-content{grid-template-columns:1fr;gap:20px;padding-block:50px}.case-visual{min-height:340px}.case-visual.profile{grid-template-columns:1fr}.case-visual.profile .profile-side{padding:24px}.profile-monogram{margin:24px 0 14px}.profile-main h2{margin-top:35px}.case-points{grid-template-columns:1fr;padding-bottom:50px}.case-cta{align-items:flex-start;flex-direction:column}.case-disclaimer{margin-bottom:50px}.case-visual.portfolio h2{margin-top:70px}.case-visual-portrait{right:6%;top:28%;width:34%;height:50%}}
+@media(prefers-reduced-motion:reduce){.case-shell *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
