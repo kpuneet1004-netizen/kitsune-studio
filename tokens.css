@@ -1,0 +1,27 @@
+/* Kitsune Studio Design System — canonical tokens */
+:root {
+  --ks-brand-orange: #FF6500;
+  --ks-brand-purple: #9B35FF;
+  --ks-bg: #0B0B0E;
+  --ks-surface: #111116;
+  --ks-surface-raised: #17171E;
+  --ks-text: #F6F3EF;
+  --ks-muted: #AAA7B1;
+  --ks-line: #292830;
+  --ks-radius-sm: 8px;
+  --ks-radius-md: 14px;
+  --ks-radius-lg: 22px;
+  --ks-content-max: 1180px;
+  --ks-gutter: clamp(20px, 4vw, 48px);
+  --ks-space-1: 4px;
+  --ks-space-2: 8px;
+  --ks-space-3: 12px;
+  --ks-space-4: 16px;
+  --ks-space-6: 24px;
+  --ks-space-8: 32px;
+  --ks-space-12: 48px;
+  --ks-space-16: 64px;
+  --ks-font-display: "DM Sans", sans-serif;
+  --ks-font-body: "DM Sans", sans-serif;
+  --ks-font-mono: "DM Mono", monospace;
+}
