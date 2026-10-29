@@ -38,6 +38,13 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !welcome.hidden) dismissWelcome(); });
   }
 
+  // The resume concept doubles as a shortcut into the relevant enquiry path.
+  const resumeConcept = document.querySelector('.case-resume');
+  if (resumeConcept) resumeConcept.addEventListener('click', () => {
+    const projectType = document.querySelector('#project-type');
+    if (projectType) projectType.value = 'Resume / personal website';
+  });
+
   // Style gallery filters and carry the chosen direction into the enquiry form.
   const styleExplorer = document.querySelector('[data-style-explorer]');
   if (styleExplorer) {
