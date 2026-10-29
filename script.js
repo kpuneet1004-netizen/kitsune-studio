@@ -93,7 +93,7 @@
         preferredStyle.value=mapped[state.vibe]||'';
       }
       if(goal&&!goal.value.includes('Design direction from Kitsune Studio:')){
-        goal.value=goal.value.trim() ? goal.value.trim()+'\\n\\n'+direction : direction;
+        goal.value=goal.value.trim() ? goal.value.trim()+'\n\n'+direction : direction;
       }
       const contact=document.querySelector('#contact');
       if(contact){
