@@ -328,4 +328,4 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 .ticker-group{display:flex;align-items:center;justify-content:space-around;gap:40px;padding-right:40px;flex:0 0 auto}
 .ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.ticker-track{animation:none!important;transform:none!important;will-change:auto}.reveal,.reveal.is-visible{transition:none!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none!important;transform:none!important;will-change:auto}.ticker-group[aria-hidden="true"]{display:none}.reveal,.reveal.is-visible{transition:none!important;transform:none!important}}
