@@ -30,7 +30,7 @@
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     const subject = encodeURIComponent('Kitsune Studio project inquiry — ' + data.get('project-type'));
-    const body = encodeURIComponent('Hi Kitsune Studio,\n\nI\'d like to discuss a project.\n\nName: ' + data.get('name') + '\nWork email: ' + data.get('email') + '\nProject type: ' + data.get('project-type') + '\nWhat I\'d like to improve: ' + (data.get('goal') || 'Not specified yet') + '\n\nThanks!');
+    const body = encodeURIComponent('Hi Kitsune Studio,\n\nI\'d like to discuss a website project.\n\nName: ' + data.get('name') + '\nEmail: ' + data.get('email') + '\nWebsite type: ' + data.get('project-type') + '\nApproximate budget: ' + (data.get('budget') || 'Not specified') + '\nPreferred launch: ' + (data.get('timeline') || 'Flexible / not specified') + '\nProject goals and context: ' + (data.get('goal') || 'Not specified yet') + '\n\nPlease let me know the next step.\n\nThanks!');
     if (note) note.textContent = 'Your email app should open with a draft ready to review. Press Send there to contact the studio.';
     window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + body;
   });
