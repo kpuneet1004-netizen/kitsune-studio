@@ -14,48 +14,6 @@
     document.addEventListener('click', e => { if (!nav.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
   }
 
-  // First-visit welcome: brief, dismissible, and never shown again in this tab session.
-  const welcome = document.querySelector('#welcome-screen');
-  const welcomeEnter = document.querySelector('#welcome-enter');
-  const welcomeSkip = document.querySelector('#welcome-skip');
-  let returnFocus = null;
-  const dismissWelcome = () => {
-    if (!welcome || welcome.hidden) return;
-    welcome.classList.add('is-leaving');
-    document.body.classList.remove('welcome-open');
-    try { sessionStorage.setItem('kitsune-welcome-seen', '1'); } catch (_) {}
-    window.setTimeout(() => {
-      welcome.hidden = true;
-      welcome.classList.remove('is-active', 'is-leaving');
-      if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus({ preventScroll: true });
-    }, 600);
-  };
-  if (welcome) {
-    let seen = false;
-    try { seen = sessionStorage.getItem('kitsune-welcome-seen') === '1'; } catch (_) {}
-    if (!seen) {
-      returnFocus = document.querySelector('.hero-actions .button-primary') || document.querySelector('#main');
-      welcome.hidden = false;
-      document.body.classList.add('welcome-open');
-      requestAnimationFrame(() => {
-        welcome.classList.add('is-active');
-        if (welcomeEnter) welcomeEnter.focus({ preventScroll: true });
-      });
-    }
-    if (welcomeEnter) welcomeEnter.addEventListener('click', dismissWelcome);
-    if (welcomeSkip) welcomeSkip.addEventListener('click', dismissWelcome);
-    welcome.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { e.preventDefault(); dismissWelcome(); return; }
-      if (e.key !== 'Tab') return;
-      const focusable = [...welcome.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
-        .filter(el => !el.hidden && el.getAttribute('aria-hidden') !== 'true');
-      if (!focusable.length) { e.preventDefault(); welcome.focus(); return; }
-      const first = focusable[0], last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    });
-  }
-
   // The resume concept doubles as a shortcut into the relevant enquiry path.
   const resumeConcept = document.querySelector('.case-resume');
   if (resumeConcept) resumeConcept.addEventListener('click', () => {
