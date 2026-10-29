@@ -61,14 +61,19 @@
 
   document.querySelectorAll('[data-project-type]').forEach(link => {
     link.addEventListener('click', () => {
-      const value = link.dataset.projectType;
+      const value = (link.dataset.projectType || '').trim().toLowerCase();
       if (projectType && value) {
-        const match = [...projectType.options].find(option => option.text.trim().toLowerCase() === value.trim().toLowerCase());
+        const aliases = [
+          { test: v => v.includes('landing'), option: 'Landing page' },
+          { test: v => v.includes('portfolio') || v.includes('resume') || v.includes('personal'), option: 'Resume / portfolio website — ₹4,999' },
+          { test: v => v.includes('business'), option: 'Business website — custom quote' },
+          { test: v => v.includes('redesign'), option: 'Website redesign' }
+        ];
+        const alias = aliases.find(item => item.test(value));
+        const match = alias
+          ? [...projectType.options].find(option => option.text.trim().toLowerCase().startsWith(alias.option.toLowerCase()))
+          : [...projectType.options].find(option => option.text.trim().toLowerCase().includes(value));
         if (match) projectType.value = match.value || match.text;
-        else {
-          const fallback = [...projectType.options].find(option => option.text.toLowerCase().includes(value.toLowerCase()) || value.toLowerCase().includes(option.text.toLowerCase()));
-          if (fallback) projectType.value = fallback.value || fallback.text;
-        }
       }
     });
   });
