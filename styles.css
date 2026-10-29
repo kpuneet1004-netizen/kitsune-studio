@@ -524,3 +524,83 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
   .live-site-preview,.demo-image-card img{transition:none!important}
   .demo-image-card:hover img{transform:none!important}
 }
+
+/* Product pass: tighter page rhythm and less nested scrolling */
+.section{padding-top:clamp(30px,3.2vw,44px)!important;padding-bottom:clamp(30px,3.2vw,44px)!important}
+.section-top{margin-bottom:20px;gap:clamp(14px,2.4vw,26px)}
+.section-eyebrow{margin-bottom:10px}
+.about-section{align-items:center;gap:clamp(24px,4vw,48px)}
+.about-intro h2{margin-top:.65rem}
+.about-copy{padding-top:0}
+.about-copy p{line-height:1.65;margin-bottom:.7rem}
+.style-section{padding-top:clamp(30px,3.2vw,44px)!important}
+.offer-section,.contact-section{padding-block:clamp(34px,3.6vw,48px)!important}
+.trust-section{padding-top:clamp(30px,3.2vw,44px)!important}
+.process-grid article{min-height:180px}
+.case-study-heading{margin-top:28px}
+.style-configurator{margin-top:1rem;gap:14px}
+.style-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:0 12px;padding:13px 14px}
+.configurator-heading,.style-control-group:has([data-option-group="site"]),.style-control-group:has([data-option-group="layout"]),.config-reset{grid-column:1/-1}
+.configurator-heading{padding-bottom:10px}
+.configurator-heading p{font-size:.8rem;line-height:1.45;margin-top:.35rem}
+.style-control-group{padding:9px 0 8px}
+.style-control-group legend{font-size:8px;margin-bottom:7px}
+.config-option{min-height:31px;padding:6px 8px;font-size:.75rem}
+.config-chip{padding:7px 8px;font-size:.71rem}
+.option-chips{gap:5px}
+.palette-options{gap:4px}
+.palette-option{padding:4px 3px 5px}
+.palette-option i{height:13px}
+.palette-option span{font-size:.6rem}
+.config-reset{margin-top:9px;padding-top:8px}
+.live-preview-viewport{height:clamp(480px,44vw,560px);max-height:560px}
+.demo-hero{padding:24px clamp(16px,2.6vw,28px);gap:18px;min-height:0}
+.demo-hero-art{min-height:180px;max-height:230px}
+.demo-hero h2{font-size:clamp(28px,4.4vw,46px);margin:12px 0 10px}
+.demo-hero-copy>p{line-height:1.6;margin-bottom:14px}
+.demo-hero-foot{margin-top:17px;padding-top:9px}
+.demo-trust-strip{padding:8px 12px}
+.demo-intro-section,.demo-work-section,.demo-services{padding:22px clamp(16px,2.6vw,28px)}
+.demo-intro-grid{padding-top:16px;gap:15px}
+.demo-work-heading{padding:16px 0 12px}
+.demo-image-grid{grid-template-rows:repeat(2,minmax(90px,1fr));gap:6px}
+.demo-image-card-large{min-height:190px}
+.demo-image-card-small{min-height:90px}
+.demo-services h3{padding:16px 0 13px}
+.demo-service-grid b{margin:8px 0 5px}
+.demo-service-grid article{padding-top:9px;padding-bottom:16px}
+.demo-quote{padding:22px clamp(16px,3vw,28px)}
+.demo-quote>span{font-size:30px}
+.demo-quote blockquote{margin:5px auto 12px;font-size:clamp(22px,3.5vw,34px)}
+.demo-cta{padding:20px clamp(16px,2.6vw,28px)}
+.demo-cta h3{font-size:clamp(24px,3.4vw,34px);margin-top:7px}
+.demo-footer{gap:9px;padding:13px clamp(16px,2.6vw,28px) 9px}
+.demo-footer nav{padding-bottom:9px}
+@media(max-width:980px){
+ .style-configurator{grid-template-columns:minmax(205px,245px) minmax(0,1fr);gap:12px}
+ .style-controls{padding:12px}
+ .live-preview-viewport{height:520px}
+ .demo-hero{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+ .section{padding-block:clamp(28px,5vw,38px)!important}
+ .style-configurator{grid-template-columns:minmax(0,1fr);gap:12px}
+ .style-controls{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px}
+ .live-preview-viewport{height:500px;max-height:65vh}
+ .demo-hero{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ .style-controls{grid-template-columns:minmax(0,1fr);padding:13px}
+ .configurator-heading,.style-control-group:has([data-option-group="site"]),.style-control-group:has([data-option-group="layout"]),.config-reset{grid-column:auto}
+ .style-control-group{padding:8px 0}
+ .live-preview-viewport{height:460px;max-height:62vh}
+ .demo-hero{grid-template-columns:minmax(0,1fr);padding:20px 13px}
+ .demo-hero-art{min-height:180px;max-height:205px}
+ .demo-intro-section,.demo-work-section,.demo-services{padding:20px 13px}
+ .demo-image-card-large{min-height:180px}
+ .demo-image-card-small{min-height:135px}
+ .demo-quote{padding:20px 14px}
+ .demo-cta{padding:19px 13px}
+ .case-study-heading{margin-top:24px}
+}
+@media(prefers-reduced-motion:reduce){.config-option,.config-chip,.palette-option{transition:none!important}}
