@@ -323,3 +323,12 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 .case-study-card:nth-child(2) .case-card-art,.case-study-card:nth-child(3) .case-card-art{min-height:clamp(220px,23vw,310px)}
 @media(max-width:980px){.case-study-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.case-study-card:nth-child(n){grid-column:auto}.case-study-card .case-card-art{min-height:220px}}
 @media(max-width:520px){.case-study-grid{grid-template-columns:minmax(0,1fr)}.case-study-card:nth-child(n){grid-column:auto}}
+
+
+/* Audit fixes: accessible marquee motion and predictable welcome focus */
+.ticker-track{width:max-content;min-width:max-content;justify-content:flex-start;gap:0;animation:ticker-scroll 34s linear infinite;will-change:transform}
+.ticker-group{display:flex;align-items:center;justify-content:space-around;gap:40px;padding-right:40px;flex:0 0 auto}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.welcome-screen[role="dialog"]{overscroll-behavior:contain}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none!important;transform:none!important;will-change:auto}.welcome-screen{transition:none!important}.reveal,.reveal.is-visible{transition:none!important;transform:none!important}}
