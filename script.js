@@ -48,7 +48,22 @@
       preview.querySelectorAll('.demo-logo').forEach(el=>{el.innerHTML=selected.logo+'<span>®</span>';});
       const values=[['[data-demo-kicker]',selected.kicker],['[data-demo-headline]',selected.headline],['[data-demo-intro]',selected.intro],['[data-demo-section-title]',selected.title],['[data-demo-section-copy]',selected.body],['.demo-services h3',selected.services]];
       values.forEach(([selector,value])=>{const el=preview.querySelector(selector);if(el){if(selector.includes('headline')||selector.includes('title')||selector.includes('services'))el.innerHTML=value;else el.textContent=value;}});
-      preview.querySelectorAll('img').forEach((img,index)=>{img.src=images[state.imagery][index%4];});
+      const altText = {
+        photography:['Sunlit modern creative studio interior','Warm minimalist interior and carefully composed objects','Bright collaborative workspace','Sculptural design details'],
+        graphic:['Bold graphic design materials and color studies','Abstract flowing color forms','Colorful abstract composition','Abstract art and color composition'],
+        architecture:['Minimal architectural interior with natural light','Modern architectural space and material details','Architectural lines and restrained materials','Quiet contemporary architecture']
+      };
+      preview.querySelectorAll('img').forEach((img,index)=>{img.src=images[state.imagery][index%4];img.alt=altText[state.imagery][index%4];});
+      const demoMenu=preview.querySelector('.demo-mobile-menu');
+      if(demoMenu&&!demoMenu.dataset.wired){
+        demoMenu.dataset.wired='true';
+        demoMenu.addEventListener('click',()=>{
+          const nav=preview.querySelector('.demo-nav');
+          const open=nav.classList.toggle('is-menu-open');
+          demoMenu.setAttribute('aria-expanded',String(open));
+          demoMenu.textContent=open?'×':'☰';
+        });
+      }
       if(feedback)feedback.textContent=({business:'Business website',portfolio:'Portfolio website',resume:'Personal / Resume website'}[state.site]+' · '+state.vibe+' vibe · '+state.layout+' layout. Scroll inside the frame to explore the full page.');
       if(styleSelect){const name={minimal:'Minimal',editorial:'Editorial',bold:'Bold',luxury:'Luxury'}[state.vibe];if([...styleSelect.options].some(option=>option.value===name||option.text===name))styleSelect.value=name;}
     };
