@@ -1,30 +1,34 @@
-# Kitsune Studio — v2
+# Kitsune Studio
 
-A responsive static website for Kitsune Studio, with a dark editorial visual system, fox emblem, product-design concept showcases, service offer, process, and project inquiry flow.
+A clean rebuild of the Kitsune Studio website, implemented from the canonical design system with semantic HTML, responsive CSS, and lightweight vanilla JavaScript.
 
-## Site files
+## Source of truth
 
-- `index.html` — homepage and SEO/social metadata
-- `styles.css` — responsive layout, visual styling, focus states, and reduced-motion support
-- `script.js` — mobile navigation, scroll reveals, current year, and email-based project inquiry
-- `kitsune-logo.svg` — fox logo used by the site
-- `social-preview.svg` — Open Graph and social-sharing artwork
+- `index.html` — homepage structure, copy, project concepts, style selector, services, and enquiry form
+- `tokens.css` — canonical colors, typography, spacing, radii, and content width
+- `styles.css` — rebuilt responsive component and layout styling; all design decisions reference the `--ks-*` tokens
+- `script.js` — accessible mobile navigation, visual direction selection, enquiry prefill, and email-draft handoff
+- `DESIGN-SYSTEM.md` — brand rules and implementation guidance
+- `kitsune-logo.svg` / `kitsune-mark.svg` — brand marks
+- `social-preview.svg` / `og-image.svg` — social sharing artwork
+
+## Design direction
+
+Dark editorial canvas, fox-orange primary actions, purple secondary accents, DM Sans and DM Mono typography, considered spacing, crisp borders, and expressive typographic project mockups.
 
 ## Deployment
 
-The repository is connected to Cloudflare Pages. Keep the current Git integration and production branch intact; commits to the production branch should trigger deployment automatically.
+The repository is configured for Cloudflare Pages. Commits to `main` should trigger a deployment if the existing Pages Git integration remains active.
 
-Canonical URL and social preview are configured for:
-https://kitsune-studio-7ix.pages.dev/
+Production URL: https://kitsune-studio-7ix.pages.dev/
 
-## Before promoting the site
+## Important behavior
 
-1. Confirm that `hello@kitsunestudio.design` is a real, monitored inbox. It is used by the contact link and inquiry form.
-2. All portfolio case-study pages are self-initiated concepts. Do not present illustrative product metrics or concept interfaces as commissioned client work or measured client outcomes.
-3. The inquiry form opens a pre-filled email draft. It does not store submissions or send data to a backend.
+The project enquiry form opens a pre-filled email draft to `hello@kitsunestudio.design`; it does not submit to a backend or store data. Confirm that the inbox is monitored before promoting the site. Portfolio visuals are illustrative concept studies, not commissioned client work or claims of measured client outcomes.
 
+## Release checklist
 
-## Design system
-
-- `tokens.css` — canonical brand, color, typography, spacing, and radius tokens
-- `DESIGN-SYSTEM.md` — design principles, component guidance, and release checklist
+- Verify the Cloudflare Pages deployment and inspect the live site.
+- Test the layout at phone, tablet, and desktop widths.
+- Test keyboard navigation, focus states, reduced motion, and form validation.
+- Verify contrast and confirm the enquiry inbox is monitored.
