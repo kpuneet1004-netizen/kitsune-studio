@@ -604,3 +604,99 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
  .case-study-heading{margin-top:24px}
 }
 @media(prefers-reduced-motion:reduce){.config-option,.config-chip,.palette-option{transition:none!important}}
+
+
+/* Responsive repair: prevent tablet navigation collisions and keep the configurator usable */
+@media (min-width: 761px) and (max-width: 980px) {
+  .nav {
+    height: 68px;
+    position: relative;
+  }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 8px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: calc(-1 * var(--page-gutter));
+    right: calc(-1 * var(--page-gutter));
+    z-index: 20;
+    width: auto;
+    padding: 12px var(--page-gutter) 16px;
+    background: rgba(15,13,19,.98);
+    border: 1px solid rgba(255,255,255,.1);
+    border-top: 0;
+    box-shadow: 0 18px 35px rgba(0,0,0,.3);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 4px;
+    white-space: normal;
+  }
+  .nav-links .nav-cta { padding: 12px 14px; margin-top: 5px; }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .style-configurator {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .style-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .configurator-heading,
+  .style-control-group:has([data-option-group="site"]),
+  .style-control-group:has([data-option-group="layout"]),
+  .config-reset {
+    grid-column: 1 / -1;
+  }
+  .live-preview-viewport {
+    height: 520px;
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-links a { white-space: normal; }
+  .live-preview-viewport {
+    width: 100%;
+    max-width: 100%;
+  }
+  .style-configurator,
+  .style-controls,
+  .live-preview-shell {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .live-preview-viewport { overflow: auto; }
+}
+
+@media (max-width: 380px) {
+  .brand { gap: 7px; font-size: 18px; }
+  .brand img { width: 32px; height: 32px; }
+  .style-controls { padding: 11px; }
+  .config-chip { font-size: .68rem; }
+}
