@@ -1,46 +1,57 @@
 # Kitsune Studio Design System
 
-Version 1.1 · Canonical tokens wired into the live site stylesheet stack.
+Version 2.0 — canonical system for the rebuilt site.
 
 ## Brand direction
-Dark editorial base, fox-orange as the primary action color, star-purple as the secondary accent, high-contrast typography, subtle borders, generous spacing, and responsive card layouts.
+
+A dark editorial base with a confident fox-orange primary action, star-purple secondary accent, high-contrast typography, subtle borders, responsive compositions, and motion used with restraint. The brand should feel crafted and distinctive without sacrificing clarity or usability.
 
 ## Color tokens
+
 | Token | Value | Role |
 |---|---|---|
-| Brand orange | `#FF6500` | Primary CTA, focus/active accents |
-| Brand purple | `#9B35FF` | Star accent, secondary highlights |
+| Brand orange | `#FF6500` | Primary actions, active states, focus accents |
+| Brand purple | `#9B35FF` | Secondary accent, expressive highlights |
 | Background | `#0B0B0E` | Main canvas |
-| Surface | `#111116` | Cards and panels |
-| Raised surface | `#17171E` | Secondary panels |
+| Surface | `#111116` | Section and card surfaces |
+| Raised surface | `#17171E` | Elevated cards and panels |
 | Primary text | `#F6F3EF` | Main text |
 | Muted text | `#AAA7B1` | Supporting text |
 | Border | `#292830` | Dividers and card edges |
 
 ## Typography
-- UI/body: DM Sans
-- Utility/metadata: DM Mono
-- Headings: DM Sans with tight tracking and responsive clamp sizing
-- Body copy should remain comfortably readable; mono uppercase labels are for metadata only.
 
-## Layout
-- Content max width: 1180px
-- Responsive page gutter: `clamp(20px, 4vw, 48px)`
-- Spacing tokens: 4, 8, 12, 16, 24, 32, 48, 64px
-- Use the existing responsive breakpoints and component layout rules in `styles.css`.
+- Body and display: DM Sans.
+- Metadata and labels: DM Mono.
+- Headings use tight tracking and responsive `clamp()` sizing.
+- Body copy should remain readable and concise; mono uppercase labels are reserved for metadata.
+
+## Layout and spacing
+
+- Content max width: 1180px.
+- Responsive gutter: `clamp(20px, 4vw, 48px)`.
+- Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64px.
+- Radii: 8, 14, and 22px.
+- Mobile-first responsive adjustments; avoid horizontal overflow.
 
 ## Components
-- Sticky translucent header with navigation
-- Brand lockup using the fox logo
-- Primary and secondary CTA links
-- Responsive cards and concept showcases
-- Inquiry flow and accessible focus/skip-link styles
-- Reduced-motion-aware reveal effects
 
-## Implementation
-- `tokens.css` is loaded before `styles.css` from `index.html`.
-- Existing site styling remains authoritative for established components; the `--ks-*` variables provide a stable design-system API for future sections and refactors.
-- The current repository is already configured for Cloudflare Pages; commits to `main` should trigger a deployment when the Pages Git integration is active.
+- Sticky translucent navigation and fox brand lockup.
+- High-contrast primary and outlined secondary CTAs.
+- Editorial hero with animated emblem/orbits.
+- Bento-style project concepts.
+- Belief statements, visual-style selector, service cards, and process grid.
+- Accessible enquiry form with an email-draft handoff.
+- Visible focus indicators, skip link, semantic landmarks, and reduced-motion support.
 
-## Release checks still required
-Verify contrast against WCAG 2.2 AA, test keyboard navigation and forms, check responsive layouts on real devices, confirm the inquiry inbox is monitored, and inspect the Cloudflare Pages deployment result.
+## Implementation rules
+
+- `tokens.css` is loaded before `styles.css`.
+- Use `--ks-*` variables as the canonical design-system API.
+- Keep JavaScript dependency-free and progressively enhance interactions.
+- Avoid presenting illustrative concepts as commissioned client work or claiming unmeasured outcomes.
+- The form opens an email draft; it is not a backend submission endpoint.
+
+## Release checks
+
+Verify WCAG 2.2 AA contrast, keyboard navigation, form validation, mobile layouts, reduced-motion behavior, external font/image behavior, monitored enquiry inbox, and Cloudflare Pages deployment.
