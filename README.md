@@ -22,3 +22,9 @@ https://kitsune-studio-7ix.pages.dev/
 1. Confirm that `hello@kitsunestudio.design` is a real, monitored inbox. It is used by the contact link and inquiry form.
 2. All portfolio case-study pages are self-initiated concepts. Do not present illustrative product metrics or concept interfaces as commissioned client work or measured client outcomes.
 3. The inquiry form opens a pre-filled email draft. It does not store submissions or send data to a backend.
+
+
+## Design system
+
+- `tokens.css` — canonical brand, color, typography, spacing, and radius tokens
+- `DESIGN-SYSTEM.md` — design principles, component guidance, and release checklist
