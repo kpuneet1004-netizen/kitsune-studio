@@ -634,3 +634,17 @@ body.intro-active{overflow:hidden}
 .intro-video-fallback{background:#050507!important}
 @media (max-width:600px){.intro-video{object-position:center}.intro-video-brand{font-size:10px;letter-spacing:.25em}.intro-skip{right:18px;bottom:18px}}
 @media (prefers-reduced-motion:reduce){.intro-video{display:none}.intro-screen.intro-sequence{background:#050507}}
+
+
+/* Unleash pauses the motion-design sequence at the seated pose */
+.intro-video-power{position:absolute;z-index:6;left:50%;top:calc(50% + min(25vw,190px));width:min(260px,78vw);transform:translate(-50%,14px);text-align:center;opacity:0;transition:opacity .45s ease,transform .45s ease}
+.intro-video-power[hidden]{display:none}
+.intro-video-power.is-visible{opacity:1;transform:translate(-50%,0)}
+.intro-video-power>p{margin:0 0 12px;color:#c5bdce;font:500 9px var(--ks-font-mono);letter-spacing:.22em;text-shadow:0 1px 12px #000}
+.intro-video-power .unleash-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:58px;padding:12px 17px;border:1px solid #ff6500aa;border-radius:999px;background:#100b0ce8;color:#fff;box-shadow:0 0 32px #ff650035,inset 0 0 20px #ff650010;font:500 11px var(--ks-font-mono);letter-spacing:.16em;cursor:pointer;backdrop-filter:blur(10px);transition:background .25s,border-color .25s,box-shadow .25s}
+.intro-video-power .unleash-button:hover{background:#241016;border-color:#ff6500;box-shadow:0 0 42px #ff650070,inset 0 0 22px #ff650022}
+.intro-video-power .power-icon{font-size:18px;color:#ff8a35}
+.intro-video-power .unleash-button i{margin-left:auto;color:#ff8a35;font-style:normal}
+.intro-video-power.is-launching{opacity:0;transform:translate(-50%,10px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.intro-screen.is-powering-up .intro-video{filter:brightness(1.18) saturate(1.12);transition:filter .4s ease}
+@media (max-width:600px){.intro-video-power{top:calc(50% + 28vw);width:min(230px,76vw)}}
