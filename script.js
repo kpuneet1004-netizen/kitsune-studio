@@ -218,6 +218,7 @@
       item.setAttribute('aria-selected', String(option.selected));
       item.addEventListener('click', () => {
         select.selectedIndex = index;
+        wrapper.removeAttribute('aria-invalid');
         select.dispatchEvent(new Event('change', { bubbles: true }));
         update();
         list.hidden = true;
@@ -282,6 +283,14 @@
   if (form) {
     form.addEventListener('submit', event => {
       event.preventDefault();
+      const missingSelect = [...form.querySelectorAll('.select-control[data-required="true"]')].find(control => !control.querySelector('select').value);
+      form.querySelectorAll('.select-control').forEach(control => control.removeAttribute('aria-invalid'));
+      if (missingSelect) {
+        missingSelect.setAttribute('aria-invalid', 'true');
+        missingSelect.querySelector('.select-trigger').focus();
+        if (formNote) formNote.textContent = 'Please choose an option for each required dropdown before preparing your enquiry.';
+        return;
+      }
       if (!form.reportValidity()) return;
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
