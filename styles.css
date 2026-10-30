@@ -705,3 +705,91 @@ body.intro-active{overflow:hidden}
   .resume-tags{gap:4px}
   .resume-tags i{font-size:5px}
 }
+
+
+/* Section 02 — true bento work layout */
+.work-grid{
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-auto-flow:row;
+  align-items:stretch;
+  gap:18px;
+}
+.work-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  padding:14px;
+  border:1px solid #ffffff12;
+  border-radius:var(--ks-radius-lg,22px);
+  background:linear-gradient(145deg,#15151b 0%,#101014 100%);
+  transition:border-color .25s ease,background .25s ease,transform .25s ease;
+}
+.work-card:hover{
+  border-color:#ff650055;
+  background:linear-gradient(145deg,#19171d 0%,#111116 100%);
+  transform:translateY(-3px);
+}
+.work-business{grid-column:span 7}
+.work-portfolio{grid-column:span 5}
+.work-resume{grid-column:span 5}
+.work-note{
+  grid-column:span 7;
+  min-height:100%;
+  align-items:center;
+  padding:clamp(24px,4vw,46px);
+  background:
+    radial-gradient(ellipse at 90% 10%,#9b35ff1a,transparent 42%),
+    linear-gradient(145deg,#19151f,#111116 72%);
+}
+.work-card-top{align-items:center;min-height:24px;margin-bottom:12px;font-size:9px}
+.work-card-top span:last-child{white-space:nowrap}
+.business-mock,.portfolio-mock,.resume-mock{
+  flex:1;
+  min-height:360px;
+  border-radius:12px;
+}
+.business-mock{min-height:405px}
+.business-visual{min-height:320px}
+.portfolio-title{min-height:320px}
+.resume-mock{min-height:405px}
+.work-card-meta{align-items:flex-start;padding:17px 3px 4px}
+.work-card-meta h3{font-size:clamp(16px,1.6vw,20px)}
+.work-card-meta p{max-width:36ch;line-height:1.6}
+.work-index{padding-top:5px}
+.work-note>div{max-width:440px}
+.work-note h3{font-size:clamp(28px,3.5vw,43px)}
+.concept-note{max-width:760px}
+@media(max-width:900px){
+  .work-grid{gap:14px}
+  .work-card{padding:11px}
+  .work-business{grid-column:span 7}
+  .work-portfolio{grid-column:span 5}
+  .work-resume{grid-column:span 5}
+  .work-note{grid-column:span 7;padding:25px 20px}
+  .business-mock,.portfolio-mock,.resume-mock{min-height:330px}
+  .business-mock{min-height:370px}
+  .business-visual,.portfolio-title{min-height:275px}
+  .resume-mock{min-height:370px}
+}
+@media(max-width:680px){
+  .work-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .work-business,.work-portfolio,.work-resume,.work-note{grid-column:1}
+  .work-card{padding:11px;border-radius:16px}
+  .work-card-top{font-size:8px}
+  .business-mock,.portfolio-mock,.resume-mock{min-height:340px}
+  .business-mock{min-height:360px}
+  .business-visual,.portfolio-title{min-height:270px}
+  .resume-mock{min-height:350px}
+  .work-card-meta{padding:15px 2px 3px}
+  .work-card-meta h3{font-size:18px}
+  .work-note{min-height:280px;padding:26px 21px}
+}
+@media(max-width:380px){
+  .work-card-top{align-items:flex-start}
+  .work-card-top span:last-child{font-size:7px}
+  .business-mock,.portfolio-mock,.resume-mock{min-height:310px}
+  .business-mock{min-height:330px}
+  .business-visual,.portfolio-title{min-height:240px}
+  .resume-mock{min-height:320px}
+}
