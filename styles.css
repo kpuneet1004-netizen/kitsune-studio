@@ -845,3 +845,8 @@ body.intro-active{overflow:hidden}
 .select-option:hover,.select-option:focus-visible{background:#24202a;outline:none}
 .select-option[aria-selected="true"]{background:#ff65001b;color:#ff8b43}
 .select-control[aria-invalid="true"] .select-trigger{border-color:#ff6868}
+
+
+/* Conditional enquiry budget field */
+#budget-field[hidden]{display:none!important}
+.budget-timeline-row:not(.has-budget){grid-template-columns:1fr}
