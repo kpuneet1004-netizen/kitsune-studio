@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kitsune-studio-7ix.pages.dev/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://kitsune-studio-7ix.pages.dev/case-study-kohi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kitsune-studio-7ix.pages.dev/demo-kohi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://kitsune-studio-7ix.pages.dev/case-study-northline.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://kitsune-studio-7ix.pages.dev/case-study-ar.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://kitsune-studio-7ix.pages.dev/case-study-profile.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
