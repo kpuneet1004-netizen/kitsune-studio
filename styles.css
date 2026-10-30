@@ -868,3 +868,43 @@ body.intro-active{overflow:hidden}
     transform:none;
   }
 }
+
+
+/* About stats: consistent mobile rows and balanced metric typography */
+@media(max-width:680px){
+  .about-stats{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:0;
+    margin-top:30px;
+    padding-top:0;
+    border-top:1px solid var(--line);
+  }
+  .about-stats>div{
+    display:grid;
+    grid-template-columns:76px minmax(0,1fr);
+    align-items:center;
+    column-gap:14px;
+    min-height:60px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .about-stats strong,
+  .about-stats>div:nth-child(2)>strong{
+    display:block;
+    width:auto;
+    margin:0;
+    font-size:24px;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:-.065em;
+    text-align:left;
+    transform:none;
+    font-variant-numeric:tabular-nums;
+  }
+  .about-stats span{
+    display:block;
+    font-size:11px;
+    line-height:1.45;
+  }
+}
