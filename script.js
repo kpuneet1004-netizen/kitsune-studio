@@ -175,6 +175,108 @@
     });
   });
 
+  // Custom select menus keep the option panel inside the form column on every screen size.
+  document.querySelectorAll('.field select').forEach(select => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'select-control';
+    wrapper.dataset.required = select.required ? 'true' : 'false';
+    select.required = false;
+    select.classList.add('select-native-source');
+    select.tabIndex = -1;
+    select.setAttribute('aria-hidden', 'true');
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'select-trigger';
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.textContent = select.options[select.selectedIndex]?.text || 'Choose an option';
+    wrapper.appendChild(trigger);
+
+    const list = document.createElement('div');
+    list.className = 'select-options';
+    list.setAttribute('role', 'listbox');
+    list.hidden = true;
+    wrapper.appendChild(list);
+
+    const update = () => {
+      trigger.textContent = select.options[select.selectedIndex]?.text || 'Choose an option';
+      wrapper.classList.toggle('has-value', Boolean(select.value));
+      [...list.children].forEach((item, index) => {
+        item.setAttribute('aria-selected', String(select.options[index].value === select.value));
+      });
+    };
+
+    [...select.options].forEach((option, index) => {
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'select-option';
+      item.setAttribute('role', 'option');
+      item.textContent = option.text;
+      item.setAttribute('aria-selected', String(option.selected));
+      item.addEventListener('click', () => {
+        select.selectedIndex = index;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        update();
+        list.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+        wrapper.classList.remove('is-open');
+      });
+      list.appendChild(item);
+    });
+
+    const close = () => {
+      list.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      wrapper.classList.remove('is-open');
+    };
+    trigger.addEventListener('click', () => {
+      const opening = list.hidden;
+      document.querySelectorAll('.select-control.is-open').forEach(open => {
+        open.classList.remove('is-open');
+        open.querySelector('.select-options').hidden = true;
+        open.querySelector('.select-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (opening) {
+        list.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+        wrapper.classList.add('is-open');
+      } else close();
+    });
+    trigger.addEventListener('keydown', event => {
+      if (event.key === 'Escape') close();
+      if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        list.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+        wrapper.classList.add('is-open');
+        list.querySelector('.select-option')?.focus();
+      }
+    });
+    list.addEventListener('keydown', event => {
+      const items = [...list.querySelectorAll('.select-option')];
+      const current = items.indexOf(document.activeElement);
+      if (event.key === 'Escape') { event.preventDefault(); close(); trigger.focus(); }
+      if (event.key === 'ArrowDown') { event.preventDefault(); items[Math.min(current + 1, items.length - 1)]?.focus(); }
+      if (event.key === 'ArrowUp') { event.preventDefault(); if (current <= 0) trigger.focus(); else items[current - 1]?.focus(); }
+      if (event.key === 'Tab') close();
+    });
+    select.addEventListener('change', update);
+    update();
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.select-control')) {
+      document.querySelectorAll('.select-control.is-open').forEach(open => {
+        open.classList.remove('is-open');
+        open.querySelector('.select-options').hidden = true;
+        open.querySelector('.select-trigger').setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
   const form = document.querySelector('#project-form');
   const formNote = document.querySelector('#form-note');
   if (form) {
