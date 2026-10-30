@@ -941,3 +941,12 @@ body.intro-active{overflow:hidden}
 @media(max-width:900px){.work-kohi{grid-column:span 7}.work-kohi .kohi-mock{min-height:370px}.kohi-mock-body{min-height:275px}}
 @media(max-width:680px){.work-kohi{grid-column:1}.work-kohi .kohi-mock{min-height:340px;padding:14px}.kohi-mock-body{min-height:260px;grid-template-columns:1.1fr .9fr}.kohi-mock-body strong{font-size:clamp(28px,8vw,42px)}.kohi-mock-cup{height:190px}.kohi-mock-foot{font-size:5px}.kohi-mock-nav>span{font-size:5px}}
 @media(max-width:380px){.work-kohi .kohi-mock{min-height:310px}.kohi-mock-body{min-height:235px}.kohi-mock-cup{height:170px}.kohi-mock-body strong{font-size:27px}}
+
+/* Balanced bento rhythm with café concept leading the collection */
+@media(min-width:681px){
+  .work-kohi{grid-column:span 7}
+  .work-business{grid-column:span 5}
+  .work-portfolio{grid-column:span 5}
+  .work-resume{grid-column:span 7}
+  .work-note{grid-column:span 12}
+}
