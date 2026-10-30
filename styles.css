@@ -969,3 +969,10 @@ body.intro-active{overflow:hidden}
 @media(max-width:900px){.work-kohi .kohi-thumbnail{min-height:370px;height:370px}}
 @media(max-width:680px){.work-kohi .kohi-thumbnail{min-height:340px;height:340px;border-radius:10px}}
 @media(max-width:380px){.work-kohi .kohi-thumbnail{min-height:310px;height:310px}}
+
+
+.work-kohi .kohi-thumbnail{position:relative;flex:1;min-height:405px;height:405px;overflow:hidden;background:#111116;border-radius:12px}
+.work-kohi .kohi-thumbnail img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+@media(max-width:900px){.work-kohi .kohi-thumbnail{min-height:370px;height:370px}}
+@media(max-width:680px){.work-kohi .kohi-thumbnail{min-height:340px;height:340px;border-radius:10px}}
+@media(max-width:380px){.work-kohi .kohi-thumbnail{min-height:310px;height:310px}}
