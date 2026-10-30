@@ -656,3 +656,52 @@ body.intro-active{overflow:hidden}
 .intro-screen.intro-sequence .intro-video-power{z-index:2147483646;pointer-events:auto}
 .intro-screen.intro-sequence.is-gone{pointer-events:none}
 .intro-screen.intro-sequence .intro-video-power.is-visible{pointer-events:auto}
+
+
+/* Mobile-first case-study consistency pass */
+.work-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:clamp(24px,3vw,40px) 22px}
+.work-card{display:flex;flex-direction:column;min-width:0;height:100%;border-radius:var(--ks-radius-md)}
+.work-card-top{min-height:30px;align-items:flex-start}
+.work-card-top span:last-child{white-space:nowrap;color:var(--orange)}
+.business-mock,.portfolio-mock,.resume-mock{width:100%;height:clamp(330px,34vw,410px);min-height:0;flex:none}
+.business-visual,.portfolio-title{min-height:0;flex:1}
+.resume-mock{grid-template-columns:.8fr 1.2fr}
+.work-card-meta{flex:1;align-items:flex-start}
+.work-card:focus-visible{outline-offset:6px}
+.work-card:active{transform:scale(.995)}
+@media(max-width:900px){
+  .work-grid{gap:28px 16px}
+  .business-mock,.portfolio-mock,.resume-mock{height:340px}
+}
+@media(max-width:680px){
+  .work-grid{grid-template-columns:minmax(0,1fr);gap:30px}
+  .work-card-top{font-size:8px;min-height:24px;margin-bottom:10px}
+  .business-mock,.portfolio-mock,.resume-mock{height:clamp(300px,92vw,390px);min-height:0;border-radius:var(--ks-radius-md)}
+  .business-mock,.portfolio-mock{padding:15px 14px 13px}
+  .business-visual{min-height:0;flex:1;padding:24px 8px}
+  .business-visual>strong{font-size:clamp(42px,12vw,62px)}
+  .shape-a{width:38%;height:52%;right:1%;top:18%}
+  .shape-b{width:25%;height:36%;right:15%;bottom:8%}
+  .portfolio-title{min-height:0;flex:1;padding-top:clamp(35px,10vw,54px)}
+  .portfolio-title>strong{font-size:clamp(38px,10.5vw,58px);max-width:90%}
+  .portrait-abstract{right:1%;top:28px;width:39%;height:65%}
+  .portfolio-nav>span:nth-child(2){display:none}
+  .portfolio-nav>span:last-child{font-size:6px}
+  .resume-mock{grid-template-columns:.78fr 1.22fr}
+  .resume-side{padding:16px 11px}
+  .resume-main{padding:20px 14px}
+  .resume-main>strong{font-size:clamp(25px,7.5vw,36px)}
+  .work-card-meta{padding-top:14px;gap:12px}
+  .work-card-meta h3{font-size:18px}
+  .work-card-meta p{font-size:12px;line-height:1.55}
+  .work-index{flex:none}
+  .work-note{min-height:0}
+}
+@media(max-width:380px){
+  .work-card-top span:last-child{font-size:7px}
+  .business-mock,.portfolio-mock,.resume-mock{height:300px}
+  .mock-top>span{display:none}
+  .resume-main{padding:16px 10px}
+  .resume-tags{gap:4px}
+  .resume-tags i{font-size:5px}
+}
