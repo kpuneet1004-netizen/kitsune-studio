@@ -234,13 +234,13 @@
     mobileButton.hidden = false;
     openButton.setAttribute('aria-expanded', 'true');
     if (!loaded) {
-      frame.src = '/demo-kohi.html';
+      frame.src = 'https://twilight-recipe-742a.kpuneet1004.workers.dev/';
       loaded = true;
     }
     setMode(window.matchMedia('(max-width: 680px)').matches ? 'mobile' : 'desktop');
     status.textContent = 'Interactive preview loading…';
     frame.addEventListener('load', () => {
-      status.textContent = 'Preview loaded · interact with the site below';
+      status.textContent = 'Live Kōhī site loaded · interact with the site below';
     }, { once: true });
     window.setTimeout(() => viewport.scrollIntoView({behavior: 'smooth', block: 'start'}), 60);
   });
