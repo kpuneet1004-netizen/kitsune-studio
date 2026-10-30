@@ -91,6 +91,17 @@
 
 .kohi-preview-actions button[hidden],.kohi-preview-viewport[hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.kohi-preview-viewport{transition:none}}
+
+/* Match the embedded preview's actual viewport to the selected device width */
+.kohi-preview-viewport{box-sizing:border-box;width:100%;max-width:none;overflow:hidden}
+.kohi-preview-viewport iframe{box-sizing:border-box;width:100%;max-width:100%;display:block}
+.kohi-preview-viewport.is-mobile{box-sizing:border-box;width:min(390px,100%);max-width:390px;margin-inline:auto;padding:0;overflow:hidden}
+.kohi-preview-viewport.is-mobile iframe{box-sizing:border-box;width:100%;max-width:100%;height:844px;min-height:844px;display:block}
+@media(max-width:680px){
+ .kohi-preview-viewport.is-mobile{width:100%;max-width:390px}
+ .kohi-preview-viewport.is-mobile iframe{height:78vh;min-height:640px}
+}
+
 </style>
 </head>
 <body>
@@ -236,7 +247,7 @@
     mobileButton.hidden = phoneView;
     openButton.setAttribute('aria-expanded', 'true');
     if (!loaded) {
-      frame.src = 'https://twilight-recipe-742a.kpuneet1004.workers.dev/';
+      frame.src = 'https://twilight-recipe-742a.kpuneet1004.workers.dev/?preview=20261030';
       loaded = true;
     }
     setMode(phoneView ? 'mobile' : 'desktop');
