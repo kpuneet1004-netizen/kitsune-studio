@@ -808,3 +808,40 @@ body.intro-active{overflow:hidden}
 @media(max-width:680px){
   .field select{padding-right:46px;background-position:right 15px center}
 }
+
+
+/* Bounded custom dropdowns: option panels stay within the form column */
+.select-control{position:relative;width:100%;min-width:0}
+.field .select-native-source{
+  position:absolute!important;width:1px!important;height:1px!important;min-width:0!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;border:0!important;opacity:0!important;pointer-events:none!important;
+}
+.field .select-trigger{
+  display:flex;width:100%;min-height:46px;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 15px;border:1px solid #35313d;border-radius:var(--ks-radius-sm);
+  background:#15141a;color:var(--text);text-align:left;font-size:12px;line-height:1.45;cursor:pointer;
+}
+.select-trigger::after{
+  content:"";flex:0 0 9px;width:9px;height:9px;margin:0 3px 4px 0;
+  border-right:1.5px solid #c9c4d0;border-bottom:1.5px solid #c9c4d0;
+  transform:rotate(45deg);transition:transform .18s ease;
+}
+.select-control.is-open .select-trigger::after{transform:translateY(4px) rotate(225deg)}
+.select-trigger:focus-visible,.select-control.is-open .select-trigger{border-color:var(--orange);outline:none;box-shadow:0 0 0 2px #ff650015}
+.select-control:not(.has-value) .select-trigger{color:#aaa6b2}
+.select-options{
+  position:absolute;z-index:30;top:calc(100% + 6px);left:0;right:0;width:100%;
+  max-height:min(220px,34vh);overflow-y:auto;overscroll-behavior:contain;
+  padding:5px;border:1px solid #3a3542;border-radius:10px;background:#15141a;
+  box-shadow:0 14px 32px #0008;
+}
+.select-options[hidden]{display:none}
+.select-option{
+  display:block;width:100%;padding:11px 12px;border:0;border-radius:6px;
+  background:transparent;color:var(--text);text-align:left;font-size:12px;line-height:1.45;
+  white-space:normal;overflow-wrap:anywhere;cursor:pointer;
+}
+.select-option:hover,.select-option:focus-visible{background:#24202a;outline:none}
+.select-option[aria-selected="true"]{background:#ff65001b;color:#ff8b43}
+.select-control[aria-invalid="true"] .select-trigger{border-color:#ff6868}
