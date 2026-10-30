@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Kōhī café website preview</title><desc id="desc">Desktop and mobile website preview with warm cream background, elegant serif typography, olive accents and café photography.</desc>
+<defs><clipPath id="desktop"><rect x="350" y="56" width="810" height="535" rx="10"/></clipPath><clipPath id="mobile"><rect x="68" y="115" width="245" height="480" rx="9"/></clipPath></defs>
+<rect width="1200" height="650" fill="#111116"/>
+<text x="40" y="31" fill="#aaa7b1" font-family="monospace" font-size="14" letter-spacing="2">01 / CAFÉ LANDING PAGE</text><text x="1160" y="31" text-anchor="end" fill="#ff6500" font-family="monospace" font-size="14" letter-spacing="1">OPEN CASE STUDY ↗</text>
+<rect x="350" y="56" width="810" height="535" rx="10" fill="#f4efe5"/>
+<g clip-path="url(#desktop)">
+<rect x="350" y="56" width="810" height="68" fill="#f4efe5"/><text x="380" y="100" fill="#27251f" font-family="Georgia,serif" font-size="36" letter-spacing="-3">kōhī<tspan fill="#c86b42">.</tspan></text>
+<g fill="#65665a" font-family="Arial,sans-serif" font-size="10"><text x="800" y="94">OUR STORY</text><text x="890" y="94">MENU</text><text x="950" y="94">THE SPACE</text><text x="1030" y="94">FIND US</text></g><rect x="1080" y="75" width="66" height="32" fill="#242820"/>
+<text x="1113" y="95" fill="#f4efe5" text-anchor="middle" font-family="Arial,sans-serif" font-size="9">RESERVE ↗</text>
+<path d="M350 124H1160" stroke="#d4cfc4"/>
+<text x="390" y="180" fill="#737c5c" font-family="monospace" font-size="10" letter-spacing="2">A NEIGHBOURHOOD COFFEE HOUSE</text>
+<text x="390" y="245" fill="#27251f" font-family="Georgia,serif" font-size="58" letter-spacing="-3">A little</text><text x="390" y="300" fill="#27251f" font-family="Georgia,serif" font-size="58" letter-spacing="-3">pause in your</text><text x="390" y="356" fill="#687354" font-family="Georgia,serif" font-size="62" font-style="italic" letter-spacing="-4">everyday.</text>
+<text x="390" y="391" fill="#77766b" font-family="Arial,sans-serif" font-size="13">Good coffee, seasonal plates, and a space to slow down.</text>
+<rect x="390" y="420" width="138" height="48" fill="#242820"/><text x="407" y="449" fill="#f4efe5" font-family="Arial,sans-serif" font-size="12">Find your table ↗</text><text x="550" y="449" fill="#27251f" font-family="Arial,sans-serif" font-size="12">Explore the menu ↓</text>
+<image href="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&amp;fit=crop&amp;w=800&amp;q=85" x="740" y="124" width="420" height="467" preserveAspectRatio="xMidYMid slice"/>
+<rect x="350" y="124" width="390" height="467" fill="#f4efe5" opacity=".08"/>
+</g>
+<rect x="68" y="115" width="245" height="480" rx="9" fill="#f4efe5" stroke="#d8d0c2"/>
+<g clip-path="url(#mobile)">
+<rect x="68" y="115" width="245" height="26" fill="#46513c"/><text x="190" y="131" text-anchor="middle" fill="#f4efe5" font-family="Arial,sans-serif" font-size="6" letter-spacing=".7">NOW BREWING IN YOUR NEIGHBOURHOOD</text>
+<text x="85" y="173" fill="#27251f" font-family="Georgia,serif" font-size="25" letter-spacing="-2">kōhī<tspan fill="#c86b42">.</tspan></text><path d="M68 190H313" stroke="#d4cfc4"/><text x="86" y="226" fill="#737c5c" font-family="monospace" font-size="7" letter-spacing="1">A NEIGHBOURHOOD COFFEE HOUSE</text>
+<text x="85" y="275" fill="#27251f" font-family="Georgia,serif" font-size="34" letter-spacing="-2">A little pause</text><text x="85" y="311" fill="#27251f" font-family="Georgia,serif" font-size="34" letter-spacing="-2">in your</text><text x="85" y="346" fill="#687354" font-family="Georgia,serif" font-size="38" font-style="italic" letter-spacing="-2">everyday.</text>
+<text x="85" y="372" fill="#77766b" font-family="Arial,sans-serif" font-size="8">Good coffee, seasonal plates, and a</text><text x="85" y="384" fill="#77766b" font-family="Arial,sans-serif" font-size="8">space to slow down.</text>
+<rect x="85" y="403" width="103" height="31" fill="#242820"/><text x="96" y="422" fill="#f4efe5" font-family="Arial,sans-serif" font-size="8">Find your table ↗</text>
+<image href="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&amp;fit=crop&amp;w=500&amp;q=80" x="85" y="454" width="210" height="180" preserveAspectRatio="xMidYMid slice"/>
+</g>
+</svg>
