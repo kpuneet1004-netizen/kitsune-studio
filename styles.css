@@ -950,3 +950,14 @@ body.intro-active{overflow:hidden}
   .work-resume{grid-column:span 7}
   .work-note{grid-column:span 12}
 }
+
+
+/* Keep the infinity symbol optically the same size as the numeric metrics */
+@media(max-width:680px){
+  .about-stats>div:nth-child(2)>strong{
+    font-size:24px;
+    line-height:1;
+    letter-spacing:-.065em;
+    transform:none;
+  }
+}
