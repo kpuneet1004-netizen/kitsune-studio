@@ -278,6 +278,31 @@
     }
   });
 
+  // Show the budget question only for business websites and redesigns.
+  const projectTypeSelect = document.querySelector('#project-type');
+  const budgetSelect = document.querySelector('#budget');
+  const budgetField = document.querySelector('#budget-field');
+  const budgetTimelineRow = document.querySelector('#budget-timeline-row');
+  const syncBudgetVisibility = () => {
+    if (!projectTypeSelect || !budgetField || !budgetTimelineRow || !budgetSelect) return;
+    const selectedType = projectTypeSelect.value;
+    const needsBudget = selectedType.startsWith('Business website') || selectedType === 'Website redesign';
+    budgetField.hidden = !needsBudget;
+    budgetTimelineRow.classList.toggle('has-budget', needsBudget);
+    budgetSelect.required = needsBudget;
+    const budgetControl = budgetField.querySelector('.select-control');
+    if (budgetControl) {
+      budgetControl.dataset.required = needsBudget ? 'true' : 'false';
+      budgetControl.removeAttribute('aria-invalid');
+    }
+    if (!needsBudget) {
+      budgetSelect.selectedIndex = 0;
+      budgetSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  };
+  projectTypeSelect?.addEventListener('change', syncBudgetVisibility);
+  syncBudgetVisibility();
+
   const form = document.querySelector('#project-form');
   const formNote = document.querySelector('#form-note');
   if (form) {
