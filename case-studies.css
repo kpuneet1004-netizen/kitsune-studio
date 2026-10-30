@@ -147,3 +147,9 @@
   .case-visual-nav span{font-size:6px}
   .case-project-link strong{font-size:11px}
 }
+
+.case-demo-launch{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:18px 0 36px;padding:22px 24px;border:1px solid var(--ks-line);border-radius:var(--ks-radius-md);background:var(--ks-surface)}
+.case-demo-launch span{font:500 9px var(--ks-font-mono);letter-spacing:.12em;color:var(--ks-brand-orange)}
+.case-demo-launch p{margin:7px 0 0;color:var(--ks-muted);font-size:12px;line-height:1.6}
+.case-demo-launch .button{flex-shrink:0}
+@media(max-width:700px){.case-demo-launch{align-items:stretch;flex-direction:column;gap:16px;margin-bottom:28px;padding:18px}.case-demo-launch .button{width:100%;justify-content:center}}
