@@ -921,3 +921,23 @@ body.intro-active{overflow:hidden}
     transform:none;
   }
 }
+
+/* Kohi cafe project card in selected-work bento */
+.work-kohi{grid-column:span 7}
+.work-kohi .kohi-mock{flex:1;min-height:405px;padding:18px 20px 14px;overflow:hidden;background:#f0e7d8;color:#29251f;border-radius:12px}
+.kohi-mock-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:13px;border-bottom:1px solid #29251f2b}
+.kohi-mock-nav>b{font:25px Georgia,serif;letter-spacing:-.07em}.kohi-mock-nav>b span{color:#c86b42}.kohi-mock-nav>span{font:6px var(--ks-font-mono);letter-spacing:.05em}
+.kohi-mock-body{display:grid;grid-template-columns:1.1fr .9fr;gap:6px;align-items:center;min-height:305px}
+.kohi-mock-body small{font:7px var(--ks-font-mono);letter-spacing:.1em;color:#74432e}
+.kohi-mock-body strong{display:block;margin:15px 0 20px;font:400 clamp(31px,4.2vw,54px)/.92 Georgia,serif;letter-spacing:-.07em}.kohi-mock-body strong em{font-weight:400;color:#74432e}.kohi-mock-body i{font:7px var(--ks-font-mono);font-style:normal;border-bottom:1px solid #74432e;padding-bottom:4px}
+.kohi-mock-cup{position:relative;display:grid;place-items:center;height:215px;background:#ded0ba;overflow:hidden}
+.kohi-mock-cup:before{content:"";position:absolute;right:-25px;top:-30px;width:155px;height:155px;border-radius:50%;background:#c7b291}
+.kohi-mock-cup:after{content:"";position:absolute;left:-30px;bottom:-75px;width:230px;height:130px;background:#8b5a3c;transform:rotate(-13deg)}
+.kohi-mock-cup div{position:absolute;z-index:1;width:105px;height:95px;border-radius:10px 10px 36px 36px;background:linear-gradient(90deg,#e8d9c5,#fff4e2 55%,#d7c4ab);box-shadow:10px 12px 20px #4b2d1f25}
+.kohi-mock-cup div:before{content:"";position:absolute;top:-7px;left:6px;right:6px;height:18px;border-radius:50%;background:#55301f;border:5px solid #f4e9d8}
+.kohi-mock-cup div:after{content:"";position:absolute;right:-30px;top:19px;width:32px;height:39px;border:8px solid #e8d8c2;border-left:0;border-radius:0 50% 50% 0}
+.kohi-mock-cup span{position:absolute;z-index:2;top:93px;font:italic 18px Georgia,serif;color:#74432e}
+.kohi-mock-foot{display:flex;justify-content:space-between;gap:10px;padding-top:11px;border-top:1px solid #29251f2b;font:6px var(--ks-font-mono);letter-spacing:.06em}
+@media(max-width:900px){.work-kohi{grid-column:span 7}.work-kohi .kohi-mock{min-height:370px}.kohi-mock-body{min-height:275px}}
+@media(max-width:680px){.work-kohi{grid-column:1}.work-kohi .kohi-mock{min-height:340px;padding:14px}.kohi-mock-body{min-height:260px;grid-template-columns:1.1fr .9fr}.kohi-mock-body strong{font-size:clamp(28px,8vw,42px)}.kohi-mock-cup{height:190px}.kohi-mock-foot{font-size:5px}.kohi-mock-nav>span{font-size:5px}}
+@media(max-width:380px){.work-kohi .kohi-mock{min-height:310px}.kohi-mock-body{min-height:235px}.kohi-mock-cup{height:170px}.kohi-mock-body strong{font-size:27px}}
