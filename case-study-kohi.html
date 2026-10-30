@@ -1,6 +1,262 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0B0B0E"><meta name="description" content="Kōhī is a fictional café landing page concept by Kitsune Studio, exploring warm visual identity, menu storytelling, and mobile-first hospitality design."><title>kōhī — Café Landing Page Concept | Kitsune Studio</title><link rel="icon" href="/kitsune-logo.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/tokens.css"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/case-studies.css"></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><nav class="case-shell case-nav"><a class="brand" href="/" aria-label="Kitsune Studio home"><img src="/kitsune-logo.svg" alt="" width="38" height="38"><span>kitsune<span class="brand-light">studio</span></span></a><a class="case-back" href="/#work">← Back to selected work</a></nav></header><main id="main" class="case-shell">
-<section class="case-hero"><div class="case-kicker">CASE STUDY 01 / CAFÉ LANDING PAGE</div><h1>A softer place<br><em>to land.</em></h1><p class="case-intro">kōhī is a fictional neighbourhood café concept designed around the feeling of taking a proper pause. The landing page uses warm editorial typography, tactile colour, and a clear path from first impression to menu to visit.</p><div class="case-meta"><span>Hospitality / café</span><span>Brand direction + landing page UI</span><span>Concept study · 2026</span></div></section>
-<section class="case-preview" aria-label="Kōhī café landing page concept preview"><div class="case-browser"><i></i><i></i><i></i><span>KŌHĪ / COFFEE, SLOWLY</span></div><div class="kohi-preview"><div class="kohi-nav"><b>kōhī<span>.</span></b><span>OUR STORY　 THE MENU　 FIND US</span></div><div class="kohi-hero"><div><small>A LITTLE PAUSE IN THE CITY</small><h2>Good coffee.<br><em>Good company.</em></h2><p>Slow mornings, thoughtful cups, and a corner of the world that asks you to take your time.</p><span class="kohi-cta">EXPLORE THE MENU ↗</span></div><div class="kohi-cup-art"><div class="kohi-sun"></div><div class="kohi-cup"><span>kōhī</span></div><small>TAKE IT SLOW ✳</small></div></div><div class="kohi-foot"><span>MADE SLOWLY · SERVED WARMLY</span><span>YOUR TABLE IS WAITING ↗</span></div></div></section>
-<section class="case-demo-launch"><div><span class="case-kicker">STEP INSIDE THE CONCEPT</span><h2>Not just a mockup.<br>Explore the whole page.</h2><p>Explore the full mobile-first landing page: café story, ambience and food gallery, signature menu, house specialities, reservation request form, and footer.</p></div><a class="case-button" href="/demo-kohi.html">Launch interactive preview ↗</a></section>
-<section class="case-details"><article><span>01 / THE INTENT</span><h2>Make the mood immediate.</h2><p>The first screen should feel like the café itself: welcoming, unhurried, and unmistakably warm. An oversized serif headline and a simple coffee-cup illustration establish the atmosphere without making visitors wait for the point.</p></article><article><span>02 / THE STRUCTURE</span><h2>From discovery to reservation.</h2><p>The page flows from the café story into a photo gallery of ambience and food, then a concise menu and house specialities. A dedicated reservation request form makes the next step clear, with practical visit information nearby. On mobile, sections stack into an easy, thumb-friendly journey.</p></article><article><span>03 / THE VISUAL SYSTEM</span><h2>Warmth without clutter.</h2><p>Oat, espresso, terracotta, and muted green create a hospitality palette. Photography adds appetite and atmosphere; editorial type, fine dividers, and restrained cards keep the menu and reservation action legible.</p></article></section>
-<section class="case-next"><div><span class="case-kicker">MADE FOR YOUR BUSINESS</span><h2>Your brand has its own story.</h2><p>This is a fictional concept, not a commissioned client project. We can shape a distinct direction around your real audience, offer, and goals.</p></div><a class="case-button" href="/#contact">Build something of your own ↗</a></section></main><footer class="case-footer case-shell"><span>© 2026 Kitsune Studio</span><a href="/#work">Back to all projects ↑</a></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B0B0E">
+<meta name="description" content="Explore the Kōhī café website concept by Kitsune Studio: project brief, UX goals, visual system, responsive design decisions, and a fully interactive website preview.">
+<title>Kōhī — Café Website Case Study | Kitsune Studio</title>
+<link rel="icon" href="/kitsune-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/case-studies.css">
+<style>
+.kohi-case{padding-bottom:40px}
+.kohi-case .case-hero{padding-bottom:45px}
+.kohi-case .case-hero h1 em{color:#c78a65}
+.kohi-cover{position:relative;overflow:hidden;margin:0 0 72px;padding:clamp(22px,5vw,64px);background:#f4efe5;color:#27251f;border-radius:18px}
+.kohi-cover-top{display:flex;justify-content:space-between;gap:16px;padding-bottom:17px;border-bottom:1px solid #27251f30;font:10px/1.5 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.kohi-cover-grid{display:grid;grid-template-columns:1fr .8fr;gap:32px;align-items:center;padding:clamp(34px,7vw,82px) 0}
+.kohi-cover h2{margin:0;font:400 clamp(54px,9vw,112px)/.88 'Playfair Display',Georgia,serif;letter-spacing:-.075em}
+.kohi-cover h2 em{color:#74432e;font-weight:400}
+.kohi-cover p{max-width:340px;margin:22px 0 0;color:#777064;font-size:13px;line-height:1.8}
+.kohi-cover-art{position:relative;min-height:300px;display:grid;place-items:center;background:#e6d8c4;border-radius:48% 48% 8px 8px;overflow:hidden}
+.kohi-cover-art:before{content:"";position:absolute;width:72%;aspect-ratio:1;border-radius:50%;background:#d4bba0;top:10%;left:14%}
+.kohi-cover-cup{position:relative;z-index:1;display:grid;place-items:center;width:48%;height:160px;border-radius:8px 8px 38px 38px;background:linear-gradient(100deg,#eee5d7,#fffaf1 45%,#d8c5ae);box-shadow:15px 24px 30px #60432d20;transform:rotate(-7deg)}
+.kohi-cover-cup:after{content:"";position:absolute;right:-25%;top:25%;width:38%;height:48%;border:12px solid #e6d8c4;border-left:0;border-radius:0 50% 50% 0}
+.kohi-cover-cup span{font:italic 28px 'Playfair Display',Georgia,serif;color:#74432e}
+.kohi-cover-art small{position:absolute;bottom:18px;left:18px;font:9px 'DM Mono',monospace;letter-spacing:.13em}
+.kohi-cover-bottom{display:flex;justify-content:space-between;gap:12px;padding-top:15px;border-top:1px solid #27251f30;font:9px 'DM Mono',monospace;letter-spacing:.08em}
+.kohi-section{padding:clamp(38px,6vw,72px) 0;border-top:1px solid #ffffff1a}
+.kohi-section-head{display:grid;grid-template-columns:.55fr 1fr;gap:30px;margin-bottom:30px}
+.kohi-index{font:10px 'DM Mono',monospace;letter-spacing:.12em;color:#ff6500}
+.kohi-section h2{max-width:740px;margin:0;font-size:clamp(32px,5vw,56px);line-height:1.03;letter-spacing:-.065em}
+.kohi-section h2 em{font-family:'Playfair Display',Georgia,serif;font-weight:400;color:#c78a65}
+.kohi-lead{max-width:720px;margin:0 0 28px;color:#c0bbc5;font-size:clamp(15px,1.6vw,18px);line-height:1.8}
+.kohi-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.kohi-info-card{padding:22px;border:1px solid #ffffff17;border-radius:12px;background:#111116}
+.kohi-info-card small{font:10px 'DM Mono',monospace;letter-spacing:.1em;color:#ff8a43}
+.kohi-info-card h3{margin:19px 0 9px;font-size:18px;letter-spacing:-.04em}
+.kohi-info-card p,.kohi-info-card li{margin:0;color:#aaa5b1;font-size:12px;line-height:1.8}
+.kohi-info-card ul{padding-left:17px;margin:0}
+.kohi-split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kohi-panel{padding:clamp(22px,3vw,34px);border:1px solid #ffffff17;border-radius:14px;background:#111116}
+.kohi-panel h3{margin:0 0 12px;font-size:20px;letter-spacing:-.04em}
+.kohi-panel p,.kohi-panel li{color:#aaa5b1;font-size:13px;line-height:1.8}
+.kohi-panel ul{padding-left:18px;margin-bottom:0}
+.kohi-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:22px}
+.kohi-swatch{min-width:0}
+.kohi-swatch-chip{height:68px;border-radius:8px;border:1px solid #ffffff18}
+.kohi-swatch b,.kohi-swatch span{display:block;overflow-wrap:anywhere;font-size:10px}
+.kohi-swatch b{margin-top:8px}.kohi-swatch span{margin-top:3px;color:#898491;font:9px 'DM Mono',monospace}
+.kohi-type-sample{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.kohi-type-sample>div{padding:22px;border:1px solid #ffffff16;border-radius:12px}
+.kohi-type-sample small{color:#ff8a43;font:9px 'DM Mono',monospace;letter-spacing:.1em}
+.kohi-type-serif{margin-top:18px;font:clamp(29px,4vw,48px)/1 'Playfair Display',Georgia,serif;letter-spacing:-.06em}
+.kohi-type-sans{margin-top:18px;font:600 clamp(24px,3vw,36px)/1.05 'DM Sans',sans-serif;letter-spacing:-.06em}
+.kohi-preview-shell{margin-top:28px;padding:12px;border:1px solid #ffffff20;border-radius:16px;background:#111116}
+.kohi-preview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:5px 5px 14px}
+.kohi-preview-status{display:flex;align-items:center;gap:8px;color:#aaa5b1;font-size:11px}
+.kohi-preview-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#8ed7a0;box-shadow:0 0 0 4px #8ed7a018}
+.kohi-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
+.kohi-preview-actions button,.kohi-preview-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 13px;border:1px solid #ffffff22;border-radius:7px;background:#19181f;color:#f6f3ef;font:500 11px 'DM Sans',sans-serif;cursor:pointer}
+.kohi-preview-actions button[aria-pressed="true"]{border-color:#ff6500;color:#ff995e}
+.kohi-preview-actions .kohi-preview-close{display:none}
+.kohi-preview-viewport{width:100%;margin:0 auto;overflow:hidden;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5;transition:max-width .25s ease}
+.kohi-preview-viewport.is-mobile{max-width:390px}
+.kohi-preview-viewport iframe{display:block;width:100%;height:min(78vh,850px);min-height:600px;border:0;background:#f4efe5}
+.kohi-preview-viewport.is-mobile iframe{height:740px;min-height:740px}
+.kohi-preview-hint{margin:12px 5px 3px;color:#8e8995;font-size:10px;line-height:1.6}
+.kohi-outcome-note{padding:18px 20px;border-left:2px solid #ff6500;background:#151319;color:#b6b1bd;font-size:12px;line-height:1.8}
+@media(max-width:680px){
+ .kohi-cover{margin-bottom:45px;border-radius:12px}
+ .kohi-cover-grid{grid-template-columns:1fr;gap:28px;padding:44px 0}
+ .kohi-cover-art{min-height:230px}
+ .kohi-cover-bottom{font-size:8px}
+ .kohi-section{padding:40px 0}
+ .kohi-section-head{grid-template-columns:1fr;gap:12px}
+ .kohi-grid-3,.kohi-split,.kohi-type-sample{grid-template-columns:1fr}
+ .kohi-info-card{padding:19px}
+ .kohi-swatches{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .kohi-preview-shell{padding:8px}
+ .kohi-preview-toolbar{align-items:flex-start}
+ .kohi-preview-status{width:100%}
+ .kohi-preview-viewport iframe{height:72vh;min-height:540px}
+ .kohi-preview-viewport.is-mobile iframe{height:700px;min-height:700px}
+}
+@media(prefers-reduced-motion:reduce){.kohi-preview-viewport{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><nav class="case-shell case-nav"><a class="brand" href="/" aria-label="Kitsune Studio home"><img src="/kitsune-logo.svg" alt="" width="38" height="38"><span>kitsune<span class="brand-light">studio</span></span></a><a class="case-back" href="/#work">← Back to selected work</a></nav></header>
+<main id="main" class="case-shell kohi-case">
+<section class="case-hero">
+<div class="case-kicker">CASE STUDY 01 / HOSPITALITY · WEBSITE DESIGN</div>
+<h1>A softer place<br><em>to land.</em></h1>
+<p class="case-intro">Kōhī is a Japanese-inspired neighbourhood café website concept built around one clear feeling: make a visitor slow down, feel welcome, discover the menu, and know how to plan a visit.</p>
+<div class="case-meta"><span>Brand concept: Kōhī</span><span>Responsive website · UX/UI</span><span>Concept study · 2026</span></div>
+</section>
+
+<section class="kohi-cover" aria-label="Kōhī visual direction preview">
+<div class="kohi-cover-top"><span>KŌHĪ / COFFEE, SLOWLY</span><span>HOSPITALITY · DIGITAL EXPERIENCE</span></div>
+<div class="kohi-cover-grid"><div><div class="case-kicker" style="color:#74432e">A LITTLE PAUSE IN THE CITY</div><h2>Good coffee.<br><em>Good company.</em></h2><p>Slow mornings, thoughtful cups, and a corner of the world that asks you to take your time.</p></div><div class="kohi-cover-art" aria-hidden="true"><div class="kohi-cover-cup"><span>kōhī</span></div><small>TAKE IT SLOW ✳</small></div></div>
+<div class="kohi-cover-bottom"><span>MADE SLOWLY · SERVED WARMLY</span><span>YOUR TABLE IS WAITING ↗</span></div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">01 / THE BRAND</span><h2>Build a digital space that feels like <em>the café itself.</em></h2></div>
+<p class="kohi-lead">Kōhī is a fictional café brand concept for this design study, not a verified operating business. Its identity imagines a calm, Japanese-inspired kissaten: considered coffee, a small menu of comforting food, and an unhurried neighbourhood atmosphere.</p>
+<div class="kohi-grid-3">
+<article class="kohi-info-card"><small>BRAND PERSONALITY</small><h3>Warm, thoughtful, unhurried</h3><p>Editorial rather than trendy. Human rather than corporate. Quiet confidence without visual clutter.</p></article>
+<article class="kohi-info-card"><small>INTENDED AUDIENCE</small><h3>People looking for a pause</h3><p>Local coffee drinkers, casual meet-ups, remote workers, and guests exploring a café before visiting.</p></article>
+<article class="kohi-info-card"><small>CORE PROMISE</small><h3>A little room to slow down</h3><p>Use the digital experience to communicate the mood, show what is served, and make the visit easy to plan.</p></article>
+</div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">02 / THE BRIEF</span><h2>Turn atmosphere into a <em>clear next step.</em></h2></div>
+<p class="kohi-lead">The supplied project files describe a front-end café website concept. A formal client brief and user-research findings were not included, so these requirements are presented as design goals inferred from the delivered experience—not as client-validated requirements.</p>
+<div class="kohi-split">
+<article class="kohi-panel"><h3>Design goals</h3><ul><li>Communicate the café’s personality in the first screen.</li><li>Make story, menu, location, and visit information easy to find.</li><li>Show food and drinks with clear imagery and labels.</li><li>Support comfortable browsing on phones as well as desktop.</li><li>Offer a reservation-request interaction without implying a real booking is made.</li></ul></article>
+<article class="kohi-panel"><h3>Experience requirements</h3><ul><li>Responsive navigation with clear section anchors.</li><li>Editorial story and café-philosophy sections.</li><li>Photo gallery and featured menu / specials.</li><li>Visit details and a front-end reservation form.</li><li>Accessible labels, keyboard focus, meaningful alt text, and reduced-motion support.</li></ul></article>
+</div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">03 / THE PROBLEM</span><h2>A café site must do more than <em>look delicious.</em></h2></div>
+<p class="kohi-lead">Hospitality websites can lean too heavily on atmosphere and leave practical questions unanswered—or become functional directories with no sense of place. Kōhī explores a balance between emotional appeal and useful information.</p>
+<div class="kohi-grid-3">
+<article class="kohi-info-card"><small>CHALLENGE 01</small><h3>Communicate the feeling quickly</h3><p>Visitors should recognise the café’s character before they scroll through a long story.</p></article>
+<article class="kohi-info-card"><small>CHALLENGE 02</small><h3>Make the menu easy to scan</h3><p>Food photography, names, and categories should work together rather than compete for attention.</p></article>
+<article class="kohi-info-card"><small>CHALLENGE 03</small><h3>Remove friction from planning</h3><p>Navigation and visit information should be easy to reach, especially on a small screen.</p></article>
+</div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">04 / THE SOLUTION</span><h2>One warm, editorial journey from <em>discovery to visit.</em></h2></div>
+<div class="kohi-split">
+<article class="kohi-panel"><h3>Information architecture</h3><p>Hero → café story → philosophy → gallery → featured specials → wider menu → visit / reservation request → footer.</p><p>The order introduces the mood first, then provides more detail for visitors who are deciding what to order or whether to visit.</p></article>
+<article class="kohi-panel"><h3>Interaction design</h3><ul><li>Mobile menu with Escape and outside-click behaviour.</li><li>Scroll-reveal effects with reduced-motion preferences respected.</li><li>Continuous menu marquee with pause / resume control.</li><li>Form validation and a demo confirmation state.</li><li>Clear focus styles and semantic section structure.</li></ul></article>
+</div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">05 / DESIGN SYSTEM</span><h2>Soft neutrals, grounded accents, <em>editorial type.</em></h2></div>
+<p class="kohi-lead">The system uses warm paper tones as the canvas, coffee brown for emphasis, terracotta for small moments of energy, and muted green to bring in a natural note.</p>
+<div class="kohi-panel">
+<h3>Colour palette</h3>
+<div class="kohi-swatches">
+<div class="kohi-swatch"><div class="kohi-swatch-chip" style="background:#f4efe5"></div><b>Oat paper</b><span>#F4EFE5</span></div>
+<div class="kohi-swatch"><div class="kohi-swatch-chip" style="background:#27251f"></div><b>Espresso</b><span>#27251F</span></div>
+<div class="kohi-swatch"><div class="kohi-swatch-chip" style="background:#74432e"></div><b>Coffee</b><span>#74432E</span></div>
+<div class="kohi-swatch"><div class="kohi-swatch-chip" style="background:#c86b42"></div><b>Terracotta</b><span>#C86B42</span></div>
+<div class="kohi-swatch"><div class="kohi-swatch-chip" style="background:#4b5b43"></div><b>Olive leaf</b><span>#4B5B43</span></div>
+</div>
+<div class="kohi-type-sample"><div><small>DISPLAY / PLAYFAIR DISPLAY</small><div class="kohi-type-serif">Good coffee.<br><em>Good company.</em></div></div><div><small>BODY / DM SANS</small><div class="kohi-type-sans">Thoughtful by nature.</div><p style="margin:12px 0 0;color:#aaa5b1;font-size:12px;line-height:1.8">Readable, direct supporting copy balances the expressive serif display face.</p></div></div>
+</div>
+<div class="kohi-grid-3" style="margin-top:14px">
+<article class="kohi-info-card"><small>LAYOUT</small><h3>Responsive grids</h3><p>Flexible columns, consistent image frames, and deliberate section spacing across screen sizes.</p></article>
+<article class="kohi-info-card"><small>COMPONENTS</small><h3>Quiet utility</h3><p>Simple links, menu cards, fine dividers, form fields, and buttons use a restrained visual language.</p></article>
+<article class="kohi-info-card"><small>MOTION</small><h3>Subtle, optional movement</h3><p>Reveal and hover transitions add texture without becoming the primary experience.</p></article>
+</div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">06 / MOBILE-FIRST UX</span><h2>Keep the essentials within <em>easy reach.</em></h2></div>
+<div class="kohi-split">
+<article class="kohi-panel"><h3>Small-screen priorities</h3><ul><li>Navigation collapses into a touch-friendly menu.</li><li>Content becomes a single-column reading flow.</li><li>Menu cards and gallery images reflow without horizontal page scrolling.</li><li>Form fields use full-width targets and clear labels.</li><li>Typography scales with viewport size and content remains readable.</li></ul></article>
+<article class="kohi-panel"><h3>Accessibility & resilience</h3><ul><li>Semantic landmarks and descriptive image text.</li><li>Keyboard-visible focus states.</li><li>Reduced-motion preference support.</li><li>Lazy-loaded below-the-fold photography.</li><li>Form validation and a visible demo response.</li></ul></article>
+</div>
+</section>
+
+<section class="kohi-section" id="interactive-preview">
+<div class="kohi-section-head"><span class="kohi-index">07 / INTERACTIVE PREVIEW</span><h2>Step inside the website. <em>Explore it yourself.</em></h2></div>
+<p class="kohi-lead">This preview loads the complete interactive concept inside the case study. Use its navigation, browse the menu and gallery, and try the reservation-request form. The form is a demo only; it does not make a real booking.</p>
+<div class="kohi-preview-shell">
+<div class="kohi-preview-toolbar">
+<div class="kohi-preview-status" id="preview-status">Preview ready when you are</div>
+<div class="kohi-preview-actions">
+<button type="button" id="preview-open" class="kohi-preview-launch" aria-expanded="false" aria-controls="kohi-preview-frame">Open interactive preview ↗</button>
+<button type="button" id="preview-desktop" aria-pressed="true" hidden>Desktop</button>
+<button type="button" id="preview-mobile" aria-pressed="false" hidden>Mobile</button>
+<button type="button" id="preview-close" class="kohi-preview-close" hidden>Close preview ×</button>
+</div>
+</div>
+<div class="kohi-preview-viewport" id="preview-viewport" hidden>
+<iframe id="kohi-preview-frame" title="Interactive Kōhī café website preview" src="about:blank" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+</div>
+<p class="kohi-preview-hint">Interactive demo · Scroll inside the preview to explore the whole site. Switch between desktop and mobile widths to inspect responsive behaviour.</p>
+</div>
+</section>
+
+<section class="kohi-section">
+<div class="kohi-section-head"><span class="kohi-index">08 / HANDOFF & LIMITATIONS</span><h2>A clear concept, with honest <em>boundaries.</em></h2></div>
+<div class="kohi-split">
+<article class="kohi-panel"><h3>Included in the concept</h3><ul><li>Responsive front-end website and visual system.</li><li>Story, philosophy, gallery, featured specials, menu, and visit sections.</li><li>Interactive navigation, motion, and reservation-request UI.</li><li>Basic semantic and accessibility-minded implementation.</li></ul></article>
+<article class="kohi-panel"><h3>Before a real launch</h3><ul><li>Replace placeholder address, hours, contact details, menu items, and provisional prices with approved information.</li><li>Connect the reservation flow to a real booking system and implement privacy / server-side validation.</li><li>Confirm photography rights and test external image loading.</li><li>Run real-device browser checks and a performance audit.</li></ul></article>
+</div>
+<p class="kohi-outcome-note" style="margin-top:16px">Project integrity note: this is a self-initiated concept based on the supplied files. No commissioned client work, user research, conversion lift, performance score, or business outcome is claimed. The design goals above are inferred from the implementation and project notes.</p>
+</section>
+
+<section class="case-next"><div><span class="case-kicker">YOUR BRAND, YOUR STORY</span><h2>Build a digital experience that feels like you.</h2><p>We can shape a direction around your real audience, content, and business goals—rather than forcing your brand into a template.</p></div><a class="case-button" href="/#contact">Start a project ↗</a></section>
+</main>
+<footer class="case-footer case-shell"><span>© 2026 Kitsune Studio</span><a href="/#work">Back to all projects ↑</a></footer>
+<script>
+(() => {
+  const openButton = document.querySelector('#preview-open');
+  const closeButton = document.querySelector('#preview-close');
+  const desktopButton = document.querySelector('#preview-desktop');
+  const mobileButton = document.querySelector('#preview-mobile');
+  const viewport = document.querySelector('#preview-viewport');
+  const frame = document.querySelector('#kohi-preview-frame');
+  const status = document.querySelector('#preview-status');
+  let loaded = false;
+
+  const setMode = mode => {
+    const isMobile = mode === 'mobile';
+    viewport.classList.toggle('is-mobile', isMobile);
+    desktopButton.setAttribute('aria-pressed', String(!isMobile));
+    mobileButton.setAttribute('aria-pressed', String(isMobile));
+    status.textContent = isMobile ? 'Mobile viewport · 390px' : 'Desktop viewport · responsive width';
+  };
+
+  openButton.addEventListener('click', () => {
+    viewport.hidden = false;
+    openButton.hidden = true;
+    closeButton.hidden = false;
+    desktopButton.hidden = false;
+    mobileButton.hidden = false;
+    openButton.setAttribute('aria-expanded', 'true');
+    if (!loaded) {
+      frame.src = '/demo-kohi.html';
+      loaded = true;
+    }
+    setMode(window.matchMedia('(max-width: 680px)').matches ? 'mobile' : 'desktop');
+    status.textContent = 'Interactive preview loading…';
+    frame.addEventListener('load', () => {
+      status.textContent = 'Preview loaded · interact with the site below';
+    }, { once: true });
+    window.setTimeout(() => viewport.scrollIntoView({behavior: 'smooth', block: 'start'}), 60);
+  });
+
+  closeButton.addEventListener('click', () => {
+    viewport.hidden = true;
+    openButton.hidden = false;
+    closeButton.hidden = true;
+    desktopButton.hidden = true;
+    mobileButton.hidden = true;
+    openButton.setAttribute('aria-expanded', 'false');
+    status.textContent = 'Preview ready when you are';
+    openButton.focus();
+  });
+
+  desktopButton.addEventListener('click', () => setMode('desktop'));
+  mobileButton.addEventListener('click', () => setMode('mobile'));
+})();
+</script>
+</body>
+</html>
