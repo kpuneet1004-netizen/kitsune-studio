@@ -85,6 +85,7 @@
  .kohi-preview-shell{padding:8px}
  .kohi-preview-toolbar{align-items:flex-start}
  .kohi-preview-status{width:100%}
+ .kohi-preview-actions #preview-desktop,.kohi-preview-actions #preview-mobile{display:none!important}
  .kohi-preview-viewport iframe{height:72vh;min-height:540px}
  .kohi-preview-viewport.is-mobile iframe{height:920px;min-height:920px;border-radius:38px;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch}
 }
@@ -231,14 +232,15 @@
     viewport.hidden = false;
     openButton.hidden = true;
     closeButton.hidden = false;
-    desktopButton.hidden = false;
-    mobileButton.hidden = false;
+    const phoneView = window.matchMedia('(max-width: 680px)').matches;
+    desktopButton.hidden = phoneView;
+    mobileButton.hidden = phoneView;
     openButton.setAttribute('aria-expanded', 'true');
     if (!loaded) {
       frame.src = 'https://twilight-recipe-742a.kpuneet1004.workers.dev/';
       loaded = true;
     }
-    setMode(window.matchMedia('(max-width: 680px)').matches ? 'mobile' : 'desktop');
+    setMode(phoneView ? 'mobile' : 'desktop');
     status.textContent = 'Interactive preview loading…';
     frame.addEventListener('load', () => {
       status.textContent = 'Live Kōhī site loaded · interact with the site below';
