@@ -981,3 +981,24 @@ body.intro-active{overflow:hidden}
 /* Keep the complete uploaded Kōhī editorial thumbnail visible without cropping */
 .work-kohi .kohi-thumbnail{background:#111116;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .work-kohi .kohi-thumbnail img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+
+
+/* Consistent 3:2 project preview ratio across desktop and mobile */
+.work-card .kohi-thumbnail,
+.work-card .business-mock,
+.work-card .portfolio-mock,
+.work-card .resume-mock{
+  width:100%;
+  aspect-ratio:3 / 2;
+  height:auto;
+  min-height:0;
+  flex:0 0 auto;
+  overflow:hidden;
+}
+.work-card .kohi-thumbnail img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
