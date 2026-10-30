@@ -850,3 +850,21 @@ body.intro-active{overflow:hidden}
 /* Conditional enquiry budget field */
 #budget-field[hidden]{display:none!important}
 .budget-timeline-row:not(.has-budget){grid-template-columns:1fr}
+
+
+/* Make the infinity metric as visually prominent as the other stats */
+.about-stats>div:nth-child(2)>strong{
+  display:inline-block;
+  font-size:clamp(32px,3.4vw,40px);
+  line-height:.85;
+  letter-spacing:-.08em;
+  transform:translateY(3px);
+}
+@media(max-width:680px){
+  .about-stats>div:nth-child(2)>strong{
+    width:72px;
+    font-size:34px;
+    line-height:1;
+    transform:none;
+  }
+}
