@@ -161,20 +161,87 @@
       const value = (link.dataset.projectType || '').trim().toLowerCase();
       if (projectType && value) {
         const aliases = [
-          { test: v => v.includes('resume'), option: 'Resume Site — ₹4,999' },
-          { test: v => v.includes('portfolio'), option: 'Portfolio Site — ₹9,999' },
-          { test: v => v.includes('landing'), option: 'Landing Page — ₹14,999' },
-          { test: v => v.includes('business'), option: 'Business Site — custom quote' },
-          { test: v => v.includes('redesign'), option: 'Website redesign' }
+          { test: v => v.includes('resume'), option: 'resume' },
+          { test: v => v.includes('portfolio'), option: 'portfolio' },
+          { test: v => v.includes('landing'), option: 'landing' },
+          { test: v => v.includes('business'), option: 'business' },
+          { test: v => v.includes('redesign'), option: 'redesign' }
         ];
         const alias = aliases.find(item => item.test(value));
         const match = alias
-          ? [...projectType.options].find(option => option.text.trim().toLowerCase().startsWith(alias.option.toLowerCase()))
+          ? [...projectType.options].find(option => option.value === alias.option)
           : [...projectType.options].find(option => option.text.trim().toLowerCase().includes(value));
-        if (match) projectType.value = match.value || match.text;
+        if (match) {
+          projectType.value = match.value || match.text;
+          projectType.dispatchEvent(new Event('change', { bubbles: true }));
+        }
       }
     });
   });
+
+  // Currency selector keeps service prices and enquiry options in sync.
+  const clientRegion = document.querySelector('#client-region');
+  const currencyButtons = [...document.querySelectorAll('[data-currency]')];
+  const servicePrices = [...document.querySelectorAll('[data-price-inr][data-price-usd]')];
+  const projectOptions = {
+    india: {
+      resume: 'Resume Site — ₹11,500',
+      portfolio: 'Portfolio Site — custom quote',
+      landing: 'Landing Page — ₹28,500',
+      business: 'Business Site — custom quote'
+    },
+    overseas: {
+      resume: 'Resume Site — $120',
+      portfolio: 'Portfolio Site — custom quote',
+      landing: 'Landing Page — $300',
+      business: 'Business Site — custom quote'
+    }
+  };
+  const budgetOptions = {
+    india: ['Choose a range', 'Under ₹10,000', '₹10,000–₹25,000', '₹25,000–₹50,000', '₹50,000+', 'Not sure yet'],
+    overseas: ['Choose a range', 'Under $100', '$100–$300', '$300–$750', '$750+', 'Not sure yet']
+  };
+  const updateCustomSelect = select => {
+    const wrapper = select?.closest('.select-control');
+    if (!wrapper) return;
+    const list = wrapper.querySelector('.select-options');
+    [...select.options].forEach((option, index) => {
+      if (list?.children[index]) list.children[index].textContent = option.text;
+    });
+    const trigger = wrapper.querySelector('.select-trigger');
+    if (trigger) trigger.textContent = select.options[select.selectedIndex]?.text || 'Choose an option';
+  };
+  const setCurrency = currency => {
+    const region = currency === 'USD' ? 'overseas' : 'india';
+    if (clientRegion && clientRegion.value !== region) {
+      clientRegion.value = region;
+      clientRegion.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    currencyButtons.forEach(button => {
+      const active = button.dataset.currency === currency;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    servicePrices.forEach(price => { price.textContent = price.dataset['price' + currency]; });
+    const currentOptions = projectOptions[region];
+    Object.entries(currentOptions).forEach(([value, label]) => {
+      const option = [...(projectType?.options || [])].find(item => item.value === value);
+      if (option) option.textContent = label;
+    });
+    if (projectType) updateCustomSelect(projectType);
+    const budget = document.querySelector('#budget');
+    if (budget) {
+      const currentValue = budget.value;
+      budgetOptions[region].forEach((label, index) => {
+        if (budget.options[index]) budget.options[index].textContent = label;
+      });
+      if (currentValue && [...budget.options].some(option => option.value === currentValue)) budget.value = currentValue;
+      updateCustomSelect(budget);
+    }
+  };
+  currencyButtons.forEach(button => button.addEventListener('click', () => setCurrency(button.dataset.currency)));
+  clientRegion?.addEventListener('change', () => setCurrency(clientRegion.value === 'overseas' ? 'USD' : 'INR'));
+  setCurrency(clientRegion?.value === 'overseas' ? 'USD' : 'INR');
 
   // Custom select menus keep the option panel inside the form column on every screen size.
   document.querySelectorAll('.field select').forEach(select => {
@@ -287,7 +354,7 @@
   const syncBudgetVisibility = () => {
     if (!projectTypeSelect || !budgetField || !budgetTimelineRow || !budgetSelect) return;
     const selectedType = projectTypeSelect.value;
-    const needsBudget = selectedType.startsWith('Business Site') || selectedType === 'Website redesign';
+    const needsBudget = selectedType === 'business' || selectedType === 'redesign';
     budgetField.hidden = !needsBudget;
     budgetTimelineRow.classList.toggle('has-budget', needsBudget);
     budgetSelect.required = needsBudget;
@@ -321,7 +388,8 @@
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
-      const type = String(data.get('project-type') || '').trim();
+      const type = String(projectType?.options[projectType.selectedIndex]?.text || data.get('project-type') || '').trim();
+      const region = String(data.get('client-region') || 'india') === 'overseas' ? 'Outside India · USD ($)' : 'India · INR (₹)';
       const budget = String(data.get('budget') || '').trim();
       const timeline = String(data.get('timeline') || 'Flexible / not sure').trim();
       const goal = String(data.get('goal') || '').trim();
@@ -333,6 +401,7 @@
         '',
         'Name: ' + name,
         'Email: ' + email,
+        'Client region / currency: ' + region,
         'Project type: ' + type,
         'Budget: ' + budget,
         'Timeline: ' + timeline,
