@@ -1002,3 +1002,17 @@ body.intro-active{overflow:hidden}
   object-fit:cover;
   object-position:center;
 }
+
+
+/* Pricing currency toggle */
+.currency-switch-wrap{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin:-8px 0 20px}
+.currency-switch-label{font:500 9px/1.4 var(--ks-font-mono);letter-spacing:.12em;color:var(--muted)}
+.currency-switch{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid #ffffff1c;border-radius:999px;background:#111116}
+.currency-option{appearance:none;border:0;border-radius:999px;padding:10px 14px;background:transparent;color:var(--muted);font:500 11px/1.2 var(--ks-font-sans);cursor:pointer;transition:background .2s,color .2s}
+.currency-option.is-active{background:var(--orange);color:#0b0b0e}
+.currency-option:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+@media(max-width:680px){
+ .currency-switch-wrap{align-items:flex-start;flex-direction:column;gap:9px;margin:0 0 18px}
+ .currency-switch{width:100%;box-sizing:border-box}
+ .currency-option{flex:1;padding:11px 8px;text-align:center;font-size:10px}
+}
