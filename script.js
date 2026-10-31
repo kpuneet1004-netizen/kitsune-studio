@@ -222,7 +222,7 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    servicePrices.forEach(price => { price.textContent = price.dataset['price' + currency]; });
+    servicePrices.forEach(price => { price.textContent = currency === 'USD' ? price.dataset.priceUsd : price.dataset.priceInr; });
     const currentOptions = projectOptions[region];
     Object.entries(currentOptions).forEach(([value, label]) => {
       const option = [...(projectType?.options || [])].find(item => item.value === value);
