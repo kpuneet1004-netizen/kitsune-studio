@@ -233,7 +233,10 @@
     if (budget) {
       const currentValue = budget.value;
       budgetOptions[region].forEach((label, index) => {
-        if (budget.options[index]) budget.options[index].textContent = label;
+        if (budget.options[index]) {
+          budget.options[index].textContent = label;
+          budget.options[index].value = index === 0 ? '' : label;
+        }
       });
       if (currentValue && [...budget.options].some(option => option.value === currentValue)) budget.value = currentValue;
       updateCustomSelect(budget);
