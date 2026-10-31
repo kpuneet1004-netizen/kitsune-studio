@@ -185,15 +185,15 @@
   const servicePrices = [...document.querySelectorAll('[data-price-inr][data-price-usd]')];
   const projectOptions = {
     india: {
-      resume: 'Resume Site — ₹11,500',
+      resume: 'Resume Site — ₹11,999',
       portfolio: 'Portfolio Site — custom quote',
-      landing: 'Landing Page — ₹28,500',
+      landing: 'Landing Page — ₹29,999',
       business: 'Business Site — custom quote'
     },
     overseas: {
-      resume: 'Resume Site — $120',
+      resume: 'Resume Site — $119',
       portfolio: 'Portfolio Site — custom quote',
-      landing: 'Landing Page — $300',
+      landing: 'Landing Page — $299',
       business: 'Business Site — custom quote'
     }
   };
