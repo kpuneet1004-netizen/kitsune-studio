@@ -287,7 +287,7 @@
   const syncBudgetVisibility = () => {
     if (!projectTypeSelect || !budgetField || !budgetTimelineRow || !budgetSelect) return;
     const selectedType = projectTypeSelect.value;
-    const needsBudget = selectedType.startsWith('Business website') || selectedType === 'Website redesign';
+    const needsBudget = selectedType.startsWith('Business Site') || selectedType === 'Website redesign';
     budgetField.hidden = !needsBudget;
     budgetTimelineRow.classList.toggle('has-budget', needsBudget);
     budgetSelect.required = needsBudget;
