@@ -161,9 +161,10 @@
       const value = (link.dataset.projectType || '').trim().toLowerCase();
       if (projectType && value) {
         const aliases = [
-          { test: v => v.includes('landing'), option: 'Landing page' },
-          { test: v => v.includes('portfolio') || v.includes('resume') || v.includes('personal'), option: 'Resume / portfolio website — ₹4,999' },
-          { test: v => v.includes('business'), option: 'Business website — custom quote' },
+          { test: v => v.includes('resume'), option: 'Resume Site — ₹4,999' },
+          { test: v => v.includes('portfolio'), option: 'Portfolio Site — ₹9,999' },
+          { test: v => v.includes('landing'), option: 'Landing Page — ₹14,999' },
+          { test: v => v.includes('business'), option: 'Business Site — custom quote' },
           { test: v => v.includes('redesign'), option: 'Website redesign' }
         ];
         const alias = aliases.find(item => item.test(value));
