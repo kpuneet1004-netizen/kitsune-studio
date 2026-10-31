@@ -216,7 +216,7 @@ button{color:inherit}
 .style-selection .eyebrow{font-size:8px;color:var(--orange)}
 .style-selection p{margin:6px 0 0;color:var(--muted);font-size:12px}
 /* Services and process */
-.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .service-card{position:relative;display:flex;flex-direction:column;min-height:345px;padding:22px;border:1px solid #ffffff18;border-radius:var(--ks-radius-md);background:var(--surface);transition:transform .25s var(--ease),border-color .25s}
 .service-card:hover{transform:translateY(-4px);border-color:#ff650055}
 .service-featured{background:linear-gradient(145deg,#1b1421,#121116);border-color:#9b35ff44}
