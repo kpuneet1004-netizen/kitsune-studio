@@ -223,6 +223,12 @@
       button.setAttribute('aria-pressed', String(active));
     });
     servicePrices.forEach(price => { price.textContent = currency === 'USD' ? price.dataset.priceUsd : price.dataset.priceInr; });
+    const pricingNote = document.querySelector('#pricing-note');
+    if (pricingNote) {
+      pricingNote.textContent = currency === 'USD'
+        ? 'Resume Site: $119. Landing Page: $299. Portfolio and Business Sites are custom quoted. Domain, paid services, copywriting, and maintenance are separate unless included in the agreed scope.'
+        : 'Resume Site: ₹11,999. Landing Page: ₹29,999. Portfolio and Business Sites are custom quoted. Domain, paid services, copywriting, and maintenance are separate unless included in the agreed scope.';
+    }
     const currentOptions = projectOptions[region];
     Object.entries(currentOptions).forEach(([value, label]) => {
       const option = [...(projectType?.options || [])].find(item => item.value === value);
