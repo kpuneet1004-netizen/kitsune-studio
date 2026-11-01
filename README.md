@@ -28,7 +28,7 @@ Production URL: https://kitsune-studio-7ix.pages.dev/
 
 ## Important behavior
 
-The project enquiry form opens a pre-filled email draft to `hello@kitsunestudio.design`; it does not submit to a backend or store data. Confirm that the inbox is monitored before promoting the site. All case studies and demos are illustrative concept studies, not commissioned client work or claims of measured client outcomes. Elena Rossi and her six portfolio projects are fictional. Current service pricing: resume / portfolio ₹4,999; landing page ₹9,999; business websites custom-quoted according to required page count and scope.
+The project enquiry form opens a pre-filled email draft to `hello@kitsunestudio.design`; it does not submit to a backend or store data. Confirm that the inbox is monitored before promoting the site. All case studies and demos are illustrative concept studies, not commissioned client work or claims of measured client outcomes. Elena Rossi and her six portfolio projects are fictional. Current service pricing: resume site ₹11,999 (India) / $119 (overseas); landing page ₹29,999 (India) / $299 (overseas); portfolio and business websites are custom-quoted according to required page count and scope.
 
 ## Release checklist
 
