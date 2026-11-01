@@ -188,7 +188,7 @@
 
 <section class="kohi-section" id="interactive-preview">
 <div class="kohi-section-head"><span class="kohi-index">07 / INTERACTIVE PREVIEW</span><h2>Step inside the website. <em>Explore it yourself.</em></h2></div>
-<p class="kohi-lead">This preview loads the complete interactive concept inside the case study. Use its navigation, browse the menu and gallery, and try the reservation-request form. The form is a demo only; it does not make a real booking.</p>
+<p class="kohi-lead">This preview loads the locally hosted interactive concept, so it remains available without relying on a third-party embed. Use its navigation, browse the menu and gallery, and try the reservation-request form. The form is a demo only; it does not make a real booking.</p>
 <div class="kohi-preview-shell">
 <div class="kohi-preview-toolbar">
 <div class="kohi-preview-status" id="preview-status">Preview ready when you are</div>
@@ -246,7 +246,7 @@
     mobileButton.hidden = phoneView;
     openButton.setAttribute('aria-expanded', 'true');
     if (!loaded) {
-      frame.src = 'https://twilight-recipe-742a.kpuneet1004.workers.dev/?preview=20261030';
+      frame.src = '/demo-kohi.html';
       loaded = true;
     }
     setMode(phoneView ? 'mobile' : 'desktop');
