@@ -254,11 +254,6 @@
     budgetField.hidden = !needsBudget;
     budgetTimelineRow.classList.toggle('has-budget', needsBudget);
     budgetSelect.required = needsBudget;
-    const budgetControl = budgetField.querySelector('.select-control');
-    if (budgetControl) {
-      budgetControl.dataset.required = needsBudget ? 'true' : 'false';
-      budgetControl.removeAttribute('aria-invalid');
-    }
     if (!needsBudget) {
       budgetSelect.selectedIndex = 0;
       budgetSelect.dispatchEvent(new Event('change', { bubbles: true }));
