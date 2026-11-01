@@ -265,6 +265,9 @@
     mobileButton.hidden = true;
     openButton.setAttribute('aria-expanded', 'false');
     status.textContent = 'Preview ready when you are';
+    // Stop the remote page and its media/network activity while the preview is closed.
+    frame.src = 'about:blank';
+    loaded = false;
     openButton.focus();
   });
 
