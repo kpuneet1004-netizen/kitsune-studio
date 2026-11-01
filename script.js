@@ -201,16 +201,6 @@
     india: ['Choose a range', 'Under ₹10,000', '₹10,000–₹25,000', '₹25,000–₹50,000', '₹50,000+', 'Not sure yet'],
     overseas: ['Choose a range', 'Under $100', '$100–$300', '$300–$750', '$750+', 'Not sure yet']
   };
-  const updateCustomSelect = select => {
-    const wrapper = select?.closest('.select-control');
-    if (!wrapper) return;
-    const list = wrapper.querySelector('.select-options');
-    [...select.options].forEach((option, index) => {
-      if (list?.children[index]) list.children[index].textContent = option.text;
-    });
-    const trigger = wrapper.querySelector('.select-trigger');
-    if (trigger) trigger.textContent = select.options[select.selectedIndex]?.text || 'Choose an option';
-  };
   const setCurrency = currency => {
     const region = currency === 'USD' ? 'overseas' : 'india';
     if (clientRegion && clientRegion.value !== region) {
@@ -234,7 +224,6 @@
       const option = [...(projectType?.options || [])].find(item => item.value === value);
       if (option) option.textContent = label;
     });
-    if (projectType) updateCustomSelect(projectType);
     const budget = document.querySelector('#budget');
     if (budget) {
       const currentValue = budget.value;
@@ -245,7 +234,6 @@
         }
       });
       if (currentValue && [...budget.options].some(option => option.value === currentValue)) budget.value = currentValue;
-      updateCustomSelect(budget);
     }
   };
   currencyButtons.forEach(button => button.addEventListener('click', () => setCurrency(button.dataset.currency)));
