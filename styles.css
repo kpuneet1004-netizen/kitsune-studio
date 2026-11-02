@@ -1000,3 +1000,16 @@ body.intro-active{overflow:hidden}
   object-fit: contain;
   object-position: center;
 }
+
+
+/* Enquiry form: constrain controls to the panel on narrow screens. */
+#project-form, #project-form .field, #project-form .form-row { min-width: 0; }
+#project-form .field select, #project-form .field input, #project-form .field textarea {
+  box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0;
+}
+#project-type { font-size: 12px; }
+#project-type option { font-size: 14px; }
+@media (max-width: 680px) {
+  .contact-panel { min-width: 0; }
+  #project-form .field select { padding-left: 12px; padding-right: 38px; }
+}
