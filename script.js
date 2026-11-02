@@ -192,9 +192,9 @@
     },
     overseas: {
       resume: 'Resume Site',
-      portfolio: 'Portfolio Site — custom quote',
+      portfolio: 'Portfolio Site',
       landing: 'Landing Page',
-      business: 'Business Site — custom quote'
+      business: 'Business Site'
     }
   };
   const budgetOptions = {
