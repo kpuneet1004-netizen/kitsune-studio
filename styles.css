@@ -1002,14 +1002,35 @@ body.intro-active{overflow:hidden}
 }
 
 
-/* Enquiry form: constrain controls to the panel on narrow screens. */
-#project-form, #project-form .field, #project-form .form-row { min-width: 0; }
-#project-form .field select, #project-form .field input, #project-form .field textarea {
-  box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0;
+/* Enquiry form: keep every control inside the panel on narrow screens. */
+#project-form,
+#project-form .field,
+#project-form .form-row,
+#project-form .form-row > .field {
+  min-width: 0;
+  max-width: 100%;
 }
+#project-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+#project-form .field select,
+#project-form .field input,
+#project-form .field textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+#project-form .field select { text-overflow: ellipsis; }
 #project-type { font-size: 12px; }
 #project-type option { font-size: 14px; }
 @media (max-width: 680px) {
-  .contact-panel { min-width: 0; }
+  .contact-panel, .contact-grid, #project-form {
+    min-width: 0;
+    max-width: 100%;
+  }
+  #project-form .form-row { grid-template-columns: minmax(0, 1fr); }
   #project-form .field select { padding-left: 12px; padding-right: 38px; }
 }
