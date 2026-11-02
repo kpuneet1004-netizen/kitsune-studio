@@ -197,7 +197,6 @@
 <div class="kohi-preview-toolbar">
 <div class="kohi-preview-status" id="preview-status">Preview ready when you are</div>
 <div class="kohi-preview-actions">
-<a class="kohi-preview-launch" href="https://kohicafe.kitsune-studio.workers.dev/" target="_blank" rel="noopener noreferrer">Open live Kōhī site ↗</a>
 <button type="button" id="preview-open" class="kohi-preview-launch" aria-expanded="false" aria-controls="kohi-preview-frame">Try embedded preview</button>
 <button type="button" id="preview-desktop" aria-pressed="true" hidden>Desktop</button>
 <button type="button" id="preview-mobile" aria-pressed="false" hidden>Mobile</button>
@@ -207,7 +206,7 @@
 <div class="kohi-preview-viewport" id="preview-viewport" hidden>
 <iframe id="kohi-preview-frame" title="Interactive Kōhī café website preview" src="about:blank" loading="lazy" scrolling="yes" allow="clipboard-read; clipboard-write"></iframe>
 </div>
-<p class="kohi-preview-hint">If the embedded view shows a blocked-content message, use “Open live Kōhī site” above. The Worker may need to permit embedding from kitsune-studio-7ix.pages.dev in its security headers.</p>
+<p class="kohi-preview-hint">The full Kōhī website loads inside this frame. Browse the menu, gallery, navigation, and demo reservation form without leaving the case study.</p>
 </div>
 </section>
 
@@ -257,7 +256,7 @@
     setMode(phoneView ? 'mobile' : 'desktop');
     status.textContent = 'Interactive preview loading…';
     frame.addEventListener('load', () => {
-      status.textContent = 'Preview frame loaded. If content is blocked, open the live site in a new tab.';
+      status.textContent = 'Preview frame loaded.';
     }, { once: true });
     window.setTimeout(() => viewport.scrollIntoView({behavior: 'smooth', block: 'start'}), 60);
   });
