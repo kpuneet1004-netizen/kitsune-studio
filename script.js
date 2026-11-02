@@ -240,6 +240,113 @@
   clientRegion?.addEventListener('change', () => setCurrency(clientRegion.value === 'overseas' ? 'USD' : 'INR'));
   setCurrency(clientRegion?.value === 'overseas' ? 'USD' : 'INR');
 
+  // Use an in-page listbox so native option popups cannot escape the mobile viewport.
+  const customSelects = new Map();
+  function enhanceSelect(select) {
+    if (!select || customSelects.has(select)) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-select';
+    wrapper.dataset.forSelect = select.id;
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+    select.classList.add('custom-select-native');
+    select.setAttribute('aria-hidden', 'true');
+    select.tabIndex = -1;
+    select.required = false;
+
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'custom-select-trigger';
+    trigger.setAttribute('role', 'combobox');
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-controls', select.id + '-listbox');
+    trigger.setAttribute('aria-label', select.labels?.[0]?.textContent || 'Choose an option');
+    wrapper.appendChild(trigger);
+
+    const listbox = document.createElement('div');
+    listbox.className = 'custom-select-listbox';
+    listbox.id = select.id + '-listbox';
+    listbox.setAttribute('role', 'listbox');
+    listbox.hidden = true;
+    wrapper.appendChild(listbox);
+
+    let activeIndex = Math.max(0, select.selectedIndex);
+    const currentOption = () => select.options[select.selectedIndex];
+    const refresh = () => {
+      trigger.textContent = currentOption()?.textContent || 'Choose an option';
+      trigger.dataset.placeholder = String(!select.value);
+      trigger.setAttribute('aria-valuetext', trigger.textContent);
+      [...listbox.children].forEach((item, index) => {
+        item.setAttribute('aria-selected', String(index === select.selectedIndex));
+        item.classList.toggle('is-selected', index === select.selectedIndex);
+      });
+    };
+    const close = (focusTrigger = false) => {
+      wrapper.classList.remove('is-open', 'opens-up');
+      listbox.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      if (focusTrigger) trigger.focus();
+    };
+    const open = () => {
+      document.querySelectorAll('.custom-select.is-open').forEach(openWrapper => {
+        if (openWrapper !== wrapper) openWrapper.querySelector('.custom-select-trigger')?.click();
+      });
+      listbox.replaceChildren();
+      [...select.options].forEach((option, index) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'custom-select-option';
+        item.setAttribute('role', 'option');
+        item.textContent = option.textContent;
+        item.disabled = option.disabled;
+        item.setAttribute('aria-selected', String(index === select.selectedIndex));
+        item.addEventListener('click', () => {
+          select.selectedIndex = index;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          refresh();
+          close(true);
+        });
+        listbox.appendChild(item);
+      });
+      wrapper.classList.add('is-open');
+      listbox.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+      const rect = trigger.getBoundingClientRect();
+      const below = window.innerHeight - rect.bottom - 12;
+      const above = rect.top - 12;
+      const openUp = below < Math.min(200, above) && above > below;
+      wrapper.classList.toggle('opens-up', openUp);
+      listbox.style.maxHeight = Math.max(100, Math.min(240, window.innerHeight * 0.4, (openUp ? above : below) - 8)) + 'px';
+      activeIndex = Math.max(0, select.selectedIndex);
+      listbox.querySelectorAll('[role="option"]')[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    };
+    trigger.addEventListener('click', () => listbox.hidden ? open() : close());
+    trigger.addEventListener('keydown', event => {
+      if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(event.key)) {
+        event.preventDefault();
+        if (listbox.hidden) open();
+        else {
+          const options = [...listbox.querySelectorAll('[role="option"]:not(:disabled)')];
+          if (event.key === 'ArrowDown') activeIndex = Math.min(options.length - 1, activeIndex + 1);
+          if (event.key === 'ArrowUp') activeIndex = Math.max(0, activeIndex - 1);
+          if (event.key === 'Enter' || event.key === ' ') options[activeIndex]?.click();
+          else options[activeIndex]?.scrollIntoView({ block: 'nearest' });
+        }
+      } else if (event.key === 'Escape') close(true);
+    });
+    select.addEventListener('change', () => { refresh(); });
+    document.addEventListener('click', event => {
+      if (!wrapper.contains(event.target)) close();
+    });
+    customSelects.set(select, { trigger, listbox, refresh, open, close });
+    refresh();
+  }
+
+  enhanceSelect(clientRegion);
+  enhanceSelect(projectType);
+  enhanceSelect(document.querySelector('#budget'));
+  
   // Keep native select elements intact for keyboard, screen-reader, and browser validation support.
 
   // Show the budget question only for business websites and redesigns.
@@ -266,7 +373,7 @@
     form.addEventListener('submit', event => {
       event.preventDefault();
       // Native controls retain built-in required/email validation and focus behavior.
-      if (!form.reportValidity()) return;
+      if (projectType && !projectType.value) {\n        const custom = customSelects.get(projectType);\n        custom?.open();\n        custom?.trigger.focus();\n        return;\n      }\n      if (budgetSelect?.required && !budgetSelect.value) {\n        const custom = customSelects.get(budgetSelect);\n        custom?.open();\n        custom?.trigger.focus();\n        return;\n      }\n      if (!form.reportValidity()) return;
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
