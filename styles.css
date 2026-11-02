@@ -1034,3 +1034,111 @@ body.intro-active{overflow:hidden}
   #project-form .form-row { grid-template-columns: minmax(0, 1fr); }
   #project-form .field select { padding-left: 12px; padding-right: 38px; }
 }
+
+
+/* Custom in-panel select menus: unlike native popups, these remain viewport-bounded. */
+#project-form .custom-select {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+#project-form .custom-select-native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+#project-form .custom-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 12px 38px 12px 14px;
+  border: 1px solid var(--line, #303036);
+  border-radius: 7px;
+  background: #151519;
+  color: var(--text, #f6f3ef);
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+#project-form .custom-select-trigger::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  pointer-events: none;
+}
+#project-form .custom-select-trigger:focus-visible {
+  outline: 2px solid var(--orange, #ff6500);
+  outline-offset: 2px;
+}
+#project-form .custom-select-listbox {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #3a393f;
+  border-radius: 8px;
+  background: #17171c;
+  box-shadow: 0 12px 30px #0009;
+}
+#project-form .custom-select.opens-up .custom-select-listbox {
+  top: auto;
+  bottom: calc(100% + 5px);
+}
+#project-form .custom-select-listbox[hidden] { display: none; }
+#project-form .custom-select-option {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text, #f6f3ef);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+#project-form .custom-select-option:hover,
+#project-form .custom-select-option:focus-visible,
+#project-form .custom-select-option.is-selected {
+  background: #29282f;
+  color: var(--text, #f6f3ef);
+}
+#project-form .custom-select-option:focus-visible { outline: 1px solid var(--orange, #ff6500); outline-offset: -2px; }
+#project-form .custom-select-option[aria-selected="true"]::after {
+  content: "✓";
+  float: right;
+  margin-left: 8px;
+  color: var(--orange, #ff6500);
+}
