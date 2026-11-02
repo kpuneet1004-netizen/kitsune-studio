@@ -246,13 +246,11 @@
   const projectTypeSelect = document.querySelector('#project-type');
   const budgetSelect = document.querySelector('#budget');
   const budgetField = document.querySelector('#budget-field');
-  const budgetTimelineRow = document.querySelector('#budget-timeline-row');
   const syncBudgetVisibility = () => {
-    if (!projectTypeSelect || !budgetField || !budgetTimelineRow || !budgetSelect) return;
+    if (!projectTypeSelect || !budgetField || !budgetSelect) return;
     const selectedType = projectTypeSelect.value;
     const needsBudget = selectedType === 'business' || selectedType === 'redesign';
     budgetField.hidden = !needsBudget;
-    budgetTimelineRow.classList.toggle('has-budget', needsBudget);
     budgetSelect.required = needsBudget;
     if (!needsBudget) {
       budgetSelect.selectedIndex = 0;
@@ -275,7 +273,6 @@
       const type = String(projectType?.options[projectType.selectedIndex]?.text || data.get('project-type') || '').trim();
       const region = String(data.get('client-region') || 'india') === 'overseas' ? 'Outside India · USD ($)' : 'India · INR (₹)';
       const budget = String(data.get('budget') || '').trim();
-      const timeline = String(data.get('timeline') || 'Flexible / not sure').trim();
       const goal = String(data.get('goal') || '').trim();
       const subject = encodeURIComponent('Project enquiry — ' + (type || 'Kitsune Studio'));
       const body = [
@@ -288,7 +285,6 @@
         'Client region / currency: ' + region,
         'Project type: ' + type,
         'Budget: ' + budget,
-        'Timeline: ' + timeline,
         '',
         'Project notes:',
         goal || 'Not added yet.',
