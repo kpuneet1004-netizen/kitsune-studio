@@ -378,12 +378,14 @@
         custom?.open();
         custom?.trigger.focus();
         return;
-      }\n      if (budgetSelect?.required && !budgetSelect.value) {
+      }
+      if (budgetSelect?.required && !budgetSelect.value) {
         const custom = customSelects.get(budgetSelect);
         custom?.open();
         custom?.trigger.focus();
         return;
-      }\n      if (!form.reportValidity()) return;
+      }
+      if (!form.reportValidity()) return;
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
