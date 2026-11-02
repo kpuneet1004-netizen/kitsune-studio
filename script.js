@@ -373,7 +373,17 @@
     form.addEventListener('submit', event => {
       event.preventDefault();
       // Native controls retain built-in required/email validation and focus behavior.
-      if (projectType && !projectType.value) {\n        const custom = customSelects.get(projectType);\n        custom?.open();\n        custom?.trigger.focus();\n        return;\n      }\n      if (budgetSelect?.required && !budgetSelect.value) {\n        const custom = customSelects.get(budgetSelect);\n        custom?.open();\n        custom?.trigger.focus();\n        return;\n      }\n      if (!form.reportValidity()) return;
+      if (projectType && !projectType.value) {
+        const custom = customSelects.get(projectType);
+        custom?.open();
+        custom?.trigger.focus();
+        return;
+      }\n      if (budgetSelect?.required && !budgetSelect.value) {
+        const custom = customSelects.get(budgetSelect);
+        custom?.open();
+        custom?.trigger.focus();
+        return;
+      }\n      if (!form.reportValidity()) return;
       const data = new FormData(form);
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
