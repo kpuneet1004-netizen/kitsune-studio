@@ -1148,3 +1148,33 @@ body.intro-active{overflow:hidden}
   margin-left: 8px;
   color: var(--orange, #ff6500);
 }
+
+
+/* Match Kōhī's project thumbnail to the shared card shape and hover language. */
+.work-card .kohi-thumbnail{
+  border-radius:var(--ks-radius-md);
+  transition:transform .35s var(--ease),border-color .35s;
+}
+.work-card .kohi-thumbnail img{
+  border-radius:inherit;
+  transform:scale(1);
+  transition:transform .65s cubic-bezier(.2,.75,.25,1);
+  will-change:transform;
+}
+.work-card:hover .kohi-thumbnail{
+  transform:translateY(-4px);
+  border-color:#ff650066;
+}
+.work-card:hover .kohi-thumbnail img{
+  transform:scale(1.055);
+}
+.work-card:focus-visible .kohi-thumbnail img{
+  transform:scale(1.035);
+}
+@media(prefers-reduced-motion:reduce){
+  .work-card .kohi-thumbnail,
+  .work-card .kohi-thumbnail img{transition:none;will-change:auto}
+  .work-card:hover .kohi-thumbnail,
+  .work-card:hover .kohi-thumbnail img,
+  .work-card:focus-visible .kohi-thumbnail img{transform:none}
+}
