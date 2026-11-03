@@ -1301,3 +1301,16 @@ body.intro-active{overflow:hidden}
     font-size:13px;
   }
 }
+
+
+/* Selected Work — fourth-card conversion anchor */
+.work-cta{grid-column:span 7;justify-content:space-between;min-height:100%;overflow:hidden;background:radial-gradient(ellipse at 88% 8%,#ff65002b,transparent 42%),linear-gradient(145deg,#211b1a 0%,#131216 75%);}
+.work-cta-content{position:relative;max-width:510px;padding:clamp(20px,4vw,44px) 8px;}
+.work-cta-mark{display:grid;place-items:center;width:46px;height:46px;margin-bottom:28px;border:1px solid #ff650066;border-radius:50%;color:var(--orange);font-size:24px;}
+.work-cta-content h3{margin:14px 0;font-size:clamp(30px,4.2vw,54px);line-height:1.02;letter-spacing:-.065em;}
+.work-cta-content h3 em{color:var(--orange);font-family:Georgia,serif;font-weight:400;}
+.work-cta-content p{max-width:38ch;margin:0 0 26px;color:var(--muted);font-size:13px;line-height:1.8;}
+.work-cta-content .button{display:inline-flex;max-width:100%;}
+.work-cta-foot{display:flex;justify-content:space-between;padding:16px 8px 3px;border-top:1px solid #ffffff18;color:#8c8793;font:9px var(--ks-font-mono);letter-spacing:.08em;}
+@media(max-width:900px){.work-cta{grid-column:span 7;}}
+@media(max-width:680px){.work-cta{grid-column:1;min-height:390px;padding:11px;}.work-cta-content{padding:24px 8px;}.work-cta-content h3{font-size:clamp(34px,9vw,46px);}}
