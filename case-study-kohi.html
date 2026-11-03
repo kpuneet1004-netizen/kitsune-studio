@@ -68,6 +68,11 @@
 .kohi-preview-shell{margin-top:28px;padding:12px;border:1px solid #ffffff20;border-radius:16px;background:#111116}
 .kohi-preview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:5px 5px 14px}
 .kohi-preview-status{display:flex;align-items:center;gap:8px;color:#aaa5b1;font-size:11px}
+.kohi-preview-hint{text-align:center;margin:16px auto 4px;max-width:760px;color:#aaa5b1;font-size:11px;line-height:1.7}
+.kohi-preview-bottom-action{display:none;justify-content:center;padding:14px 0 2px}
+.kohi-preview-close-bottom{align-items:center;justify-content:center;gap:9px;min-height:46px;width:min(100%,320px);padding:12px 20px;border:1px solid #ff8a4380;border-radius:8px;background:#20150f;color:#ffad75;font:700 11px 'DM Sans',sans-serif;letter-spacing:.07em;cursor:pointer}
+.kohi-preview-close-bottom span{font-size:17px;line-height:1}
+@media(max-width:680px){.kohi-preview-bottom-action{display:flex}.kohi-preview-close-bottom:not([hidden]){display:inline-flex}}
 .kohi-preview-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#8ed7a0;box-shadow:0 0 0 4px #8ed7a018}
 .kohi-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
 .kohi-preview-actions button,.kohi-preview-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 13px;border:1px solid #ffffff22;border-radius:7px;background:#19181f;color:#f6f3ef;font:500 11px 'DM Sans',sans-serif;cursor:pointer}
@@ -151,6 +156,9 @@
 <div class="kohi-preview-viewport" id="preview-viewport" hidden>
 <iframe id="kohi-preview-frame" title="Interactive Kōhī café website preview" src="about:blank" loading="lazy" scrolling="yes" allow="clipboard-read; clipboard-write"></iframe>
 </div>
+<div class="kohi-preview-bottom-action">
+<button type="button" id="preview-close-bottom" class="kohi-preview-close-bottom" hidden>Close preview <span aria-hidden="true">↑</span></button>
+</div>
 <p class="kohi-preview-hint">The full Kōhī website loads inside this frame. Browse the menu, gallery, navigation, and demo reservation form without leaving the case study.</p>
 </div>
 </section>
@@ -171,6 +179,7 @@
 (() => {
   const openButton = document.querySelector('#preview-open');
   const closeButton = document.querySelector('#preview-close');
+  const bottomCloseButton = document.querySelector('#preview-close-bottom');
   const desktopButton = document.querySelector('#preview-desktop');
   const mobileButton = document.querySelector('#preview-mobile');
   const viewport = document.querySelector('#preview-viewport');
@@ -207,6 +216,7 @@
     viewport.hidden = false;
     openButton.hidden = true;
     closeButton.hidden = false;
+    bottomCloseButton.hidden = false;
     const phoneView = window.matchMedia('(max-width: 680px)').matches;
     desktopButton.hidden = phoneView;
     mobileButton.hidden = phoneView;
@@ -225,10 +235,11 @@
     window.setTimeout(() => viewport.scrollIntoView({behavior: 'smooth', block: 'start'}), 60);
   });
 
-  closeButton.addEventListener('click', () => {
+  const closePreview = () => {
     viewport.hidden = true;
     openButton.hidden = false;
     closeButton.hidden = true;
+    bottomCloseButton.hidden = true;
     desktopButton.hidden = true;
     mobileButton.hidden = true;
     openButton.setAttribute('aria-expanded', 'false');
@@ -237,7 +248,9 @@
     frame.src = 'about:blank';
     loaded = false;
     openButton.focus();
-  });
+  };
+  closeButton.addEventListener('click', closePreview);
+  bottomCloseButton.addEventListener('click', closePreview);
 
   desktopButton.addEventListener('click', () => setMode('desktop'));
   mobileButton.addEventListener('click', () => setMode('mobile'));
