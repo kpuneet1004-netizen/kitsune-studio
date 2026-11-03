@@ -1252,3 +1252,7 @@ body.intro-active{overflow:hidden}
   .work-card:hover .resume-cover-image,
   .work-card:focus-visible .resume-cover-image{transform:none}
 }
+
+/* Visual direction artwork */
+.direction-art-image-wrap{padding:0!important;background:#e9dfcf!important;}
+.direction-art-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
