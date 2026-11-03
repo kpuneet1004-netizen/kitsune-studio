@@ -1314,3 +1314,29 @@ body.intro-active{overflow:hidden}
 .work-cta-foot{display:flex;justify-content:space-between;padding:16px 8px 3px;border-top:1px solid #ffffff18;color:#8c8793;font:9px var(--ks-font-mono);letter-spacing:.08em;}
 @media(max-width:900px){.work-cta{grid-column:span 7;}}
 @media(max-width:680px){.work-cta{grid-column:1;min-height:390px;padding:11px;}.work-cta-content{padding:24px 8px;}.work-cta-content h3{font-size:clamp(34px,9vw,46px);}}
+
+
+/* Immersive layer — restrained pointer light on work cards. */
+.work-card{
+  position:relative;
+  isolation:isolate;
+}
+.work-card::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:0;
+  background:radial-gradient(360px circle at var(--spot-x,50%) var(--spot-y,50%),#ff8a3d18,transparent 68%);
+  transition:opacity .28s ease;
+}
+.work-card>*{
+  position:relative;
+  z-index:1;
+}
+.work-card.has-pointer::after{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .work-card::after{display:none}
+}
