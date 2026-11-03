@@ -1223,3 +1223,32 @@ body.intro-active{overflow:hidden}
 @media(max-width:900px){.direction-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.direction-grid{gap:22px 12px}.direction-art{padding:15px}.direction-meta h3{font-size:15px}.direction-meta p{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.direction-art,.direction-card:hover .direction-art{transition:none;transform:none}}
+
+
+/* Prashant Bhandari — use the finished website showcase as the work-card visual. */
+.work-card .resume-mock{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--ks-radius-md);
+  background:#f4f1ea;
+}
+.work-card .resume-cover-image{
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:3 / 2;
+  object-fit:cover;
+  object-position:center;
+  border-radius:inherit;
+  transform:scale(1);
+  transition:transform .65s cubic-bezier(.2,.75,.25,1);
+  will-change:transform;
+}
+.work-card:hover .resume-cover-image{transform:scale(1.035)}
+.work-card:focus-visible .resume-cover-image{transform:scale(1.02)}
+@media(prefers-reduced-motion:reduce){
+  .work-card .resume-cover-image{transition:none;will-change:auto}
+  .work-card:hover .resume-cover-image,
+  .work-card:focus-visible .resume-cover-image{transform:none}
+}
