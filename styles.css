@@ -106,8 +106,14 @@ button{color:inherit}
 .work-card{display:block;min-width:0}
 .work-card-top{display:flex;justify-content:space-between;gap:10px;color:#8c8793;font-size:9px;margin-bottom:13px}
 .work-card-top span:last-child{color:#66616d}
-.business-mock,.portfolio-mock,.resume-mock{position:relative;overflow:hidden;min-height:365px;border:1px solid #ffffff17;border-radius:var(--ks-radius-md);transition:transform .35s var(--ease),border-color .35s}
-.work-card:hover .business-mock,.work-card:hover .portfolio-mock,.work-card:hover .resume-mock{transform:translateY(-4px);border-color:#ff650066}
+.business-mock,.portfolio-mock,.resume-mock,.kohi-thumbnail{position:relative;overflow:hidden;min-height:365px;border:1px solid #ffffff17;border-radius:var(--ks-radius-md);transition:transform .35s var(--ease),border-color .35s}
+.kohi-thumbnail{isolation:isolate;background:#17171b}
+.kohi-thumbnail img{display:block;width:100%;height:100%;min-height:365px;object-fit:cover;border-radius:inherit;transform:scale(1);transition:transform .65s cubic-bezier(.2,.75,.25,1);will-change:transform}
+.work-card:hover .business-mock,.work-card:hover .portfolio-mock,.work-card:hover .resume-mock,.work-card:hover .kohi-thumbnail{transform:translateY(-4px);border-color:#ff650066}
+.work-card:hover .kohi-thumbnail img{transform:scale(1.055)}
+.work-card:focus-visible .kohi-thumbnail img{transform:scale(1.035)}
+@media(max-width:680px){.kohi-thumbnail,.kohi-thumbnail img{min-height:0;aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.kohi-thumbnail img{transition:none;will-change:auto}.work-card:hover .kohi-thumbnail img,.work-card:focus-visible .kohi-thumbnail img{transform:none}}
 .business-mock{padding:17px 18px 15px;background:#e8e2d7;color:#22211f}
 .mock-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:13px;border-bottom:1px solid #24231f30;font-size:7px}
 .mock-top>b{font-size:16px;letter-spacing:-1px}.mock-top>b span{color:#8b5d40}
