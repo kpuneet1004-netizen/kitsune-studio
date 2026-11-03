@@ -1256,3 +1256,48 @@ body.intro-active{overflow:hidden}
 /* Visual direction artwork */
 .direction-art-image-wrap{padding:0!important;background:#e9dfcf!important;}
 .direction-art-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+
+
+/* Visual directions — responsive artwork sizing for legible image typography. */
+.directions .direction-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(20px,2.4vw,32px);
+  align-items:start;
+}
+.directions .direction-art{
+  aspect-ratio:3 / 4;
+  padding:0;
+}
+.directions .direction-art-image{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.directions .direction-meta{
+  padding-top:14px;
+}
+.directions .direction-meta h3{
+  font-size:clamp(16px,1.5vw,20px);
+}
+.directions .direction-meta p{
+  max-width:38ch;
+  font-size:clamp(12px,.95vw,14px);
+  line-height:1.7;
+}
+@media(max-width:560px){
+  .directions .direction-grid{
+    grid-template-columns:minmax(0,1fr);
+    gap:28px;
+  }
+  .directions .direction-card{
+    width:min(100%,520px);
+    margin-inline:auto;
+  }
+  .directions .direction-art{
+    aspect-ratio:3 / 4;
+  }
+  .directions .direction-meta p{
+    font-size:13px;
+  }
+}
