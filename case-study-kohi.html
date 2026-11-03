@@ -72,11 +72,13 @@
 .kohi-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
 .kohi-preview-actions button,.kohi-preview-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 13px;border:1px solid #ffffff22;border-radius:7px;background:#19181f;color:#f6f3ef;font:500 11px 'DM Sans',sans-serif;cursor:pointer}
 .kohi-preview-actions button[aria-pressed="true"]{border-color:#ff6500;color:#ff995e}
-#preview-open.kohi-preview-launch{position:relative;isolation:isolate;min-height:46px;padding:12px 20px;border:1px solid #ff8a43;background:linear-gradient(115deg,#ff6500 0%,#d94b08 100%);color:#fff;font-size:12px;font-weight:700;letter-spacing:.01em;box-shadow:0 0 0 1px #ff650033,0 0 22px #ff650044;animation:preview-cta-pulse 2.8s ease-in-out infinite}
+#preview-open.kohi-preview-launch{position:relative;isolation:isolate;min-height:52px;min-width:224px;padding:14px 22px;border:1px solid #ffad75;border-radius:9px;background:linear-gradient(115deg,#ff7626 0%,#e34e08 100%);color:#fff;font-size:12px;font-weight:800;letter-spacing:.075em;box-shadow:0 0 0 1px #ff650055,0 5px 18px #ff650044,0 0 30px #ff650033;animation:preview-cta-pulse 2.4s ease-in-out infinite;transition:transform .2s ease,box-shadow .2s ease}
 #preview-open.kohi-preview-launch:before{content:"";position:absolute;inset:-5px;border:1px solid #ff8a4366;border-radius:10px;z-index:-1;opacity:.7;transition:inset .2s ease,opacity .2s ease}
-#preview-open.kohi-preview-launch:hover{transform:translateY(-1px);box-shadow:0 0 0 1px #ff650055,0 0 30px #ff650066}
+#preview-open.kohi-preview-launch:hover{transform:translateY(-2px);box-shadow:0 0 0 2px #ffad7588,0 8px 28px #ff650077,0 0 36px #ff650055}
 #preview-open.kohi-preview-launch:hover:before{inset:-8px;opacity:1}
-#preview-open.kohi-preview-launch:focus-visible{outline:2px solid #fff;outline-offset:5px}
+#preview-open.kohi-preview-launch:focus-visible{outline:3px solid #fff;outline-offset:5px}
+#preview-open.kohi-preview-launch span+span{font-size:20px;line-height:1}
+@media(max-width:680px){#preview-open.kohi-preview-launch{width:100%;min-width:0;min-height:50px}.kohi-preview-toolbar{align-items:stretch}.kohi-preview-actions{width:100%}}
 @keyframes preview-cta-pulse{0%,100%{box-shadow:0 0 0 1px #ff650033,0 0 18px #ff650033}50%{box-shadow:0 0 0 1px #ff650066,0 0 28px #ff650066}}
 .kohi-preview-actions .kohi-preview-close{display:none}
 .kohi-preview-viewport{width:100%;margin:0 auto;overflow:hidden;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5;transition:max-width .25s ease}
@@ -207,7 +209,7 @@
 <div class="kohi-preview-toolbar">
 <div class="kohi-preview-status" id="preview-status">Preview ready when you are</div>
 <div class="kohi-preview-actions">
-<button type="button" id="preview-open" class="kohi-preview-launch" aria-expanded="false" aria-controls="kohi-preview-frame">Try embedded preview</button>
+<button type="button" id="preview-open" class="kohi-preview-launch" aria-label="Explore the live Kōhī Café website in this page" aria-expanded="false" aria-controls="kohi-preview-frame"><span>EXPLORE THE LIVE WEBSITE</span><span aria-hidden="true">↓</span></button>
 <button type="button" id="preview-desktop" aria-pressed="true" hidden>Desktop</button>
 <button type="button" id="preview-mobile" aria-pressed="false" hidden>Mobile</button>
 <button type="button" id="preview-close" class="kohi-preview-close" hidden>Close preview ×</button>
