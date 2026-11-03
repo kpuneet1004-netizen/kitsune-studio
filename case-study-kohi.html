@@ -68,10 +68,6 @@
 .kohi-preview-shell{margin-top:28px;padding:12px;border:1px solid #ffffff20;border-radius:16px;background:#111116}
 .kohi-preview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:5px 5px 14px}
 .kohi-preview-status{display:flex;align-items:center;gap:8px;color:#aaa5b1;font-size:11px}
-.kohi-preview-hint{text-align:center;margin:16px auto 4px;max-width:760px;color:#aaa5b1;font-size:11px;line-height:1.7}
-.kohi-preview-bottom-action{display:none;justify-content:center;padding:14px 0 2px}
-.kohi-preview-bottom-action #preview-close{min-height:46px;width:min(100%,320px);padding:12px 20px;border:1px solid #ff8a4380;border-radius:8px;background:#20150f;color:#ffad75;font:700 11px 'DM Sans',sans-serif;letter-spacing:.07em}
-@media(max-width:680px){.kohi-preview-bottom-action:has(#preview-close:not([hidden])){display:flex}.kohi-preview-bottom-action #preview-close:not([hidden]){display:inline-flex;align-items:center;justify-content:center}}
 .kohi-preview-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#8ed7a0;box-shadow:0 0 0 4px #8ed7a018}
 .kohi-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
 .kohi-preview-actions button,.kohi-preview-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 13px;border:1px solid #ffffff22;border-radius:7px;background:#19181f;color:#f6f3ef;font:500 11px 'DM Sans',sans-serif;cursor:pointer}
@@ -84,15 +80,12 @@
 #preview-open.kohi-preview-launch span+span{font-size:20px;line-height:1}
 @media(max-width:680px){#preview-open.kohi-preview-launch{width:100%;min-width:0;min-height:50px}.kohi-preview-toolbar{align-items:stretch}.kohi-preview-actions{width:100%}}
 @keyframes preview-cta-pulse{0%,100%{box-shadow:0 0 0 1px #ff650033,0 0 18px #ff650033}50%{box-shadow:0 0 0 1px #ff650066,0 0 28px #ff650066}}
+.kohi-preview-actions .kohi-preview-close{display:none}
 .kohi-preview-viewport{width:100%;margin:0 auto;overflow:hidden;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5;transition:max-width .25s ease}
 .kohi-preview-viewport.is-mobile{position:relative;box-sizing:border-box;width:min(100%,390px);max-width:390px;padding:0;margin:0 auto;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5;box-shadow:none}
 .kohi-preview-viewport iframe{display:block;width:100%;height:min(78vh,850px);min-height:600px;border:0;background:#f4efe5}
 .kohi-preview-viewport.is-mobile iframe{height:844px;min-height:844px;border-radius:8px;overflow:visible;touch-action:auto;overscroll-behavior:auto}
-.kohi-preview-hint{max-width:760px;margin:14px auto 4px;padding:0 12px;color:#a7a1ad;font-size:11px;line-height:1.7;text-align:center}
-.kohi-preview-actions .kohi-preview-close{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:10px 15px;border:1px solid #ffffff35;border-radius:8px;background:#24212a;color:#f6f3ef;font:600 11px 'DM Sans',sans-serif;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
-.kohi-preview-actions .kohi-preview-close:hover{background:#33252a;border-color:#ff8a43;transform:translateY(-1px)}
-.kohi-preview-actions button[hidden]{display:none!important}
-.kohi-preview-actions .kohi-preview-close:focus-visible{outline:2px solid #ffad75;outline-offset:3px}
+.kohi-preview-hint{margin:12px 5px 3px;color:#8e8995;font-size:10px;line-height:1.6}
 .kohi-outcome-note{padding:18px 20px;border-left:2px solid #ff6500;background:#151319;color:#b6b1bd;font-size:12px;line-height:1.8}
 @media(max-width:680px){
  .kohi-cover{margin-bottom:45px;border-radius:12px}
@@ -155,7 +148,6 @@
 <div class="kohi-preview-viewport" id="preview-viewport" hidden>
 <iframe id="kohi-preview-frame" title="Interactive Kōhī café website preview" src="about:blank" loading="lazy" scrolling="yes" allow="clipboard-read; clipboard-write"></iframe>
 </div>
-<div class="kohi-preview-bottom-action" id="preview-bottom-action"></div>
 <p class="kohi-preview-hint">The full Kōhī website loads inside this frame. Browse the menu, gallery, navigation, and demo reservation form without leaving the case study.</p>
 </div>
 </section>
@@ -176,8 +168,6 @@
 (() => {
   const openButton = document.querySelector('#preview-open');
   const closeButton = document.querySelector('#preview-close');
-  const previewActions = document.querySelector('.kohi-preview-actions');
-  const bottomAction = document.querySelector('#preview-bottom-action');
   const desktopButton = document.querySelector('#preview-desktop');
   const mobileButton = document.querySelector('#preview-mobile');
   const viewport = document.querySelector('#preview-viewport');
@@ -215,7 +205,6 @@
     openButton.hidden = true;
     closeButton.hidden = false;
     const phoneView = window.matchMedia('(max-width: 680px)').matches;
-    if (phoneView) bottomAction.appendChild(closeButton);
     desktopButton.hidden = phoneView;
     mobileButton.hidden = phoneView;
     openButton.setAttribute('aria-expanded', 'true');
@@ -233,11 +222,10 @@
     window.setTimeout(() => viewport.scrollIntoView({behavior: 'smooth', block: 'start'}), 60);
   });
 
-  const closePreview = () => {
+  closeButton.addEventListener('click', () => {
     viewport.hidden = true;
     openButton.hidden = false;
     closeButton.hidden = true;
-    previewActions.appendChild(closeButton);
     desktopButton.hidden = true;
     mobileButton.hidden = true;
     openButton.setAttribute('aria-expanded', 'false');
@@ -246,8 +234,7 @@
     frame.src = 'about:blank';
     loaded = false;
     openButton.focus();
-  };
-  closeButton.addEventListener('click', closePreview);
+  });
 
   desktopButton.addEventListener('click', () => setMode('desktop'));
   mobileButton.addEventListener('click', () => setMode('mobile'));
