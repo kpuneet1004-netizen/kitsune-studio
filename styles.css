@@ -1178,3 +1178,16 @@ body.intro-active{overflow:hidden}
   .work-card:hover .kohi-thumbnail img,
   .work-card:focus-visible .kohi-thumbnail img{transform:none}
 }
+
+
+/* Studio beliefs: quiet, static editorial list — no decorative hover interaction. */
+.belief-list article{
+  grid-template-columns:70px minmax(0,1fr);
+  transition:none;
+}
+.belief-list article:hover{padding-inline:0}
+.belief-mark{display:none!important}
+@media(max-width:680px){
+  .belief-list article{grid-template-columns:35px minmax(0,1fr)}
+  .belief-list article:hover{padding-inline:0}
+}
