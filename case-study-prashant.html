@@ -189,7 +189,7 @@
   const warmPreviewConnection = () => {
     if (connectionWarmed) return;
     connectionWarmed = true;
-    ['https://kohicafe.kitsune-studio.workers.dev', 'https://images.unsplash.com'].forEach(origin => {
+    ['https://prashant-resume.kitsune-studio.workers.dev', 'https://images.unsplash.com'].forEach(origin => {
       const link = document.createElement('link');
       link.rel = 'preconnect';
       link.href = origin;
@@ -219,7 +219,7 @@
     if (!loaded) {
       // Set eager loading explicitly: the visitor has requested the preview.
       frame.loading = 'eager';
-      frame.src = 'https://kohicafe.kitsune-studio.workers.dev/';
+      frame.src = 'https://prashant-resume.kitsune-studio.workers.dev/';
       loaded = true;
     }
     setMode(phoneView ? 'mobile' : 'desktop');
