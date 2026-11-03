@@ -72,6 +72,12 @@
 .kohi-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
 .kohi-preview-actions button,.kohi-preview-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 13px;border:1px solid #ffffff22;border-radius:7px;background:#19181f;color:#f6f3ef;font:500 11px 'DM Sans',sans-serif;cursor:pointer}
 .kohi-preview-actions button[aria-pressed="true"]{border-color:#ff6500;color:#ff995e}
+#preview-open.kohi-preview-launch{position:relative;isolation:isolate;min-height:46px;padding:12px 20px;border:1px solid #ff8a43;background:linear-gradient(115deg,#ff6500 0%,#d94b08 100%);color:#fff;font-size:12px;font-weight:700;letter-spacing:.01em;box-shadow:0 0 0 1px #ff650033,0 0 22px #ff650044;animation:preview-cta-pulse 2.8s ease-in-out infinite}
+#preview-open.kohi-preview-launch:before{content:"";position:absolute;inset:-5px;border:1px solid #ff8a4366;border-radius:10px;z-index:-1;opacity:.7;transition:inset .2s ease,opacity .2s ease}
+#preview-open.kohi-preview-launch:hover{transform:translateY(-1px);box-shadow:0 0 0 1px #ff650055,0 0 30px #ff650066}
+#preview-open.kohi-preview-launch:hover:before{inset:-8px;opacity:1}
+#preview-open.kohi-preview-launch:focus-visible{outline:2px solid #fff;outline-offset:5px}
+@keyframes preview-cta-pulse{0%,100%{box-shadow:0 0 0 1px #ff650033,0 0 18px #ff650033}50%{box-shadow:0 0 0 1px #ff650066,0 0 28px #ff650066}}
 .kohi-preview-actions .kohi-preview-close{display:none}
 .kohi-preview-viewport{width:100%;margin:0 auto;overflow:hidden;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5;transition:max-width .25s ease}
 .kohi-preview-viewport.is-mobile{position:relative;box-sizing:border-box;width:min(100%,390px);max-width:390px;padding:0;margin:0 auto;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5;box-shadow:none}
@@ -98,7 +104,7 @@
 }
 
 .kohi-preview-actions button[hidden],.kohi-preview-viewport[hidden]{display:none!important}
-@media(prefers-reduced-motion:reduce){.kohi-preview-viewport{transition:none}}
+@media(prefers-reduced-motion:reduce){.kohi-preview-viewport{transition:none}#preview-open.kohi-preview-launch{animation:none}}
 
 /* Mobile preview uses a true narrow viewport, without a simulated phone frame */
 .kohi-preview-viewport{box-sizing:border-box;width:100%;max-width:none;overflow:hidden;border-radius:0}
