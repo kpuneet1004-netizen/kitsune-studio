@@ -417,7 +417,7 @@
 
   // Progressive reveal: sections and cards animate into view as you explore.
   const motionTargets = [
-    ...document.querySelectorAll('.section-label, .section-heading, .about-grid, .about-stats, .work-card, .work-note, .concept-note, .belief-list article, .style-card, .style-selection, .service-card, .process-grid article, .contact-grid, .footer-main')
+    ...document.querySelectorAll('.section-label, .section-heading, .about-grid, .about-stats, .work-card, .work-note, .concept-note, .belief-list article, .style-card, .style-selection, .direction-card, .directions-note, .service-card, .process-grid article, .contact-grid, .footer-main')
   ];
   const motionAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (motionAllowed && 'IntersectionObserver' in window) {
@@ -435,6 +435,23 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
     motionTargets.forEach(element => revealObserver.observe(element));
+  }
+
+
+  // Fine-pointer spotlight: a quiet, responsive highlight on selected-work cards.
+  // It is disabled on touch devices and never changes layout or scroll behaviour.
+  if (!motionReduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.work-card').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const bounds = card.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+        const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+        card.style.setProperty('--spot-x', x.toFixed(1) + '%');
+        card.style.setProperty('--spot-y', y.toFixed(1) + '%');
+        card.classList.add('has-pointer');
+      });
+      card.addEventListener('pointerleave', () => card.classList.remove('has-pointer'));
+    });
   }
 
 
