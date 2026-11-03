@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://kitsune-studio-7ix.pages.dev/case-study-prashant.html"><title>Prashant Bhandari — Resume Website Case Study | Kitsune Studio</title>
 <link rel="icon" href="/kitsune-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://prashant-resume.kitsune-studio.workers.dev" crossorigin>
-<link rel="dns-prefetch" href="//kohicafe.kitsune-studio.workers.dev">
+<link rel="dns-prefetch" href="//prashant-resume.kitsune-studio.workers.dev">
 <link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net" crossorigin>
 <link rel="dns-prefetch" href="//images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,6 +123,17 @@
  .kohi-preview-viewport.is-mobile{width:100%;max-width:390px}
  .kohi-preview-viewport.is-mobile iframe{height:78vh;min-height:640px}
 }
+
+/* Prashant's visual identity: deep botanical green, warm paper, editorial serif. */
+.kohi-case .case-hero h1 em,.kohi-section h2 em{color:#81977a}
+.kohi-index,.kohi-info-card small,.kohi-type-sample small{color:#a5b996}
+.kohi-preview-actions button[aria-pressed="true"]{border-color:#81977a;color:#c2d2b5}
+#preview-open.kohi-preview-launch{border-color:#a9c19c;background:linear-gradient(115deg,#526b50 0%,#344b38 100%);box-shadow:0 0 0 1px #81977a55,0 5px 18px #263b2b66,0 0 30px #526b5044}
+#preview-open.kohi-preview-launch:before{border-color:#81977a66}
+#preview-open.kohi-preview-launch:hover{box-shadow:0 0 0 2px #a9c19c88,0 8px 28px #263b2b77,0 0 36px #526b5055}
+.kohi-preview-bottom-close{border-color:#81977a66;background:#171d18;color:#c2d2b5}
+.kohi-preview-bottom-close:hover{background:#202d22;border-color:#a9c19c}
+.kohi-outcome-note{border-left-color:#81977a}
 </style>
 </head>
 <body>
@@ -189,7 +200,7 @@
   const warmPreviewConnection = () => {
     if (connectionWarmed) return;
     connectionWarmed = true;
-    ['https://prashant-resume.kitsune-studio.workers.dev', 'https://images.unsplash.com'].forEach(origin => {
+    ['https://prashant-resume.kitsune-studio.workers.dev', 'https://d2ol7oe51mr4n9.cloudfront.net'].forEach(origin => {
       const link = document.createElement('link');
       link.rel = 'preconnect';
       link.href = origin;
