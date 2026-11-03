@@ -1,0 +1,16 @@
+/* Phase 1 immersive visual foundation */
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--ks-brand-orange);outline-offset:4px}
+.site-header{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hero-copy .eyebrow,.hero-copy .hero-overline,.hero-copy h1,.hero-copy .hero-intro,.hero-copy .hero-actions,.hero-copy .hero-note,.hero-art,.hero-bottom{animation:ks-hero-enter 850ms var(--ks-ease-enter) both}
+@keyframes ks-hero-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.welcome-gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:#09090c;color:#f6f3ef;padding:clamp(24px,5vw,64px);transition:opacity 650ms ease,visibility 650ms}
+.welcome-gate[hidden]{display:none}.welcome-gate.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-gate__content{width:min(100%,760px);text-align:center}.welcome-gate__eyebrow,.welcome-gate__index,.welcome-gate__foot{font:10px var(--ks-font-mono);letter-spacing:.16em;color:#aaa7b1}
+.welcome-gate__mark{display:grid;place-items:center;width:116px;height:116px;margin:60px auto 28px;border:1px solid #ffffff22;border-radius:50%;background:radial-gradient(circle,#ff650022,transparent 68%)}
+.welcome-gate__mark img{width:76px;height:76px}.welcome-gate__index{color:var(--ks-brand-orange)}.welcome-gate h2{margin:0;font-size:clamp(42px,8vw,88px);line-height:.98;letter-spacing:-.075em}.welcome-gate h2 em{font-family:Georgia,serif;font-weight:400;color:var(--ks-brand-orange)}
+.welcome-gate__copy{color:#aaa7b1;font-size:14px;line-height:1.8}.welcome-gate__actions{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:34px}
+.welcome-gate__enter{border:0;border-radius:999px;padding:15px 22px;background:var(--ks-brand-orange);color:#160d08;cursor:pointer}.welcome-gate__skip{border:0;background:none;color:#aaa7b1;text-decoration:underline;cursor:pointer}
+.welcome-gate__foot{display:flex;justify-content:space-between;margin-top:70px;padding-top:18px;border-top:1px solid #ffffff20}body.intro-active{overflow:hidden}
+.nav-links a[aria-current=location]{color:var(--ks-brand-orange)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-copy>* ,.hero-art,.hero-bottom{animation:none}.welcome-gate{transition:none}}
