@@ -1,6 +1,8 @@
 /* Kitsune Studio — small, dependency-free interactions */
 (() => {
 
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // Welcome screen: playful, optional, and keyboard-dismissible.
   const intro = document.querySelector('#studio-intro');
   const introEnter = document.querySelector('#intro-enter');
@@ -456,7 +458,6 @@
 
 
   // Ambient motion: tiny drifting sparks in the welcome and a live page-progress line.
-  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const introParticles = document.querySelector('#studio-intro');
   if (introParticles && !motionReduced && !introParticles.querySelector('.intro-particles')) {
     const layer = document.createElement('div');
