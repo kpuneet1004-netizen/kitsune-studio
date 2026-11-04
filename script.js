@@ -32,44 +32,6 @@
 
   const introVideo = document.querySelector('#intro-video');
 
-  if (intro) {
-    document.body.classList.add('intro-active');
-
-    // Skip always takes the visitor straight to the homepage.
-    if (introSkip) introSkip.addEventListener('click', leaveIntro);
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') leaveIntro();
-    });
-
-    if (introVideo) {
-      // Normal path: let the entire video play, then reveal the homepage.
-      introVideo.addEventListener('ended', leaveIntro, { once: true });
-
-      // If the remote asset fails, don't trap the visitor on the intro screen.
-      introVideo.addEventListener('error', () => {
-        intro.classList.add('intro-video-fallback');
-        leaveIntro();
-      }, { once: true });
-
-      const playback = introVideo.play();
-      if (playback && typeof playback.catch === 'function') {
-        playback.catch(() => {
-          intro.classList.add('intro-video-fallback');
-          leaveIntro();
-        });
-      }
-
-      // Safety net for a video stream that hangs and never fires "ended".
-      window.setTimeout(() => {
-        if (!intro.classList.contains('is-gone')) leaveIntro();
-      }, 20000);
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        introVideo.pause();
-        leaveIntro();
-      }
-    }
-  }
 
   function nudgeTheSpark() {
     if (introEmblem) {
