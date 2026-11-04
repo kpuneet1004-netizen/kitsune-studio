@@ -1,3 +1,6 @@
+/* Ensure the dismissed welcome gate does not override the browser hidden state. */
+#studio-intro[hidden]{display:none !important}
+
 /* Phase 1 immersive visual foundation */
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--ks-brand-orange);outline-offset:4px}
