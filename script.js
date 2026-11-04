@@ -334,9 +334,8 @@
   const form = document.querySelector('#project-form');
   const formNote = document.querySelector('#form-note');
   if (form) {
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
       event.preventDefault();
-      // Native controls retain built-in required/email validation and focus behavior.
       if (projectType && !projectType.value) {
         const custom = customSelects.get(projectType);
         custom?.open();
@@ -350,32 +349,30 @@
         return;
       }
       if (!form.reportValidity()) return;
-      const data = new FormData(form);
-      const name = String(data.get('name') || '').trim();
-      const email = String(data.get('email') || '').trim();
-      const type = String(projectType?.options[projectType.selectedIndex]?.text || data.get('project-type') || '').trim();
-      const region = String(data.get('client-region') || 'india') === 'overseas' ? 'Outside India · USD ($)' : 'India · INR (₹)';
-      const budget = String(data.get('budget') || '').trim();
-      const goal = String(data.get('goal') || '').trim();
-      const subject = encodeURIComponent('Project enquiry — ' + (type || 'Kitsune Studio'));
-      const body = [
-        'Hi Kitsune Studio,',
-        '',
-        'I’d like to talk about a website project.',
-        '',
-        'Name: ' + name,
-        'Email: ' + email,
-        'Client region / currency: ' + region,
-        'Project type: ' + type,
-        'Budget: ' + budget,
-        '',
-        'Project notes:',
-        goal || 'Not added yet.',
-        '',
-        'Sent from the Kitsune Studio website.'
-      ].join('\n');
-      if (formNote) formNote.textContent = 'Your email draft is opening. Please review the details and send it from your mail app.';
-      window.location.href = 'mailto:hello@kitsunestudio.design?subject=' + subject + '&body=' + encodeURIComponent(body);
+
+      const submitButton = form.querySelector('[type="submit"]');
+      const originalButton = submitButton?.innerHTML;
+      if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Sending enquiry…'; }
+      if (formNote) formNote.textContent = 'Sending your enquiry to Kitsune Studio…';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/kpuneet1004@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const result = await response.json();
+        if (!response.ok || result.success !== 'true') {
+          throw new Error(result.message || 'The enquiry could not be sent.');
+        }
+        form.reset();
+        syncBudgetVisibility();
+        if (formNote) formNote.textContent = 'Thank you — your enquiry has been sent. We’ll get back to you soon.';
+        if (submitButton) submitButton.textContent = 'Enquiry sent ✓';
+      } catch (error) {
+        if (formNote) formNote.textContent = 'We couldn’t send that just now. Please email kpuneet1004@gmail.com directly.';
+        if (submitButton) { submitButton.disabled = false; submitButton.innerHTML = originalButton || 'Try again ↗'; }
+      }
     });
   }
 
