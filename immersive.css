@@ -183,3 +183,23 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
   .work-card,.direction-card .direction-art-image{transition:none}
   .work-card:hover,.work-card:focus-visible{transform:none;box-shadow:none}
 }
+
+/* Motion System V2 — kinetic type, art-direction transitions, process path. */
+.ks-kinetic-title .ks-title-line{display:block;overflow:hidden;padding:0 0 .08em;margin-bottom:-.08em}
+.ks-kinetic-title .ks-title-line>span{display:inline-block;opacity:0;transform:translate3d(0,110%,0);animation:ks-title-arrive .95s cubic-bezier(.2,.75,.25,1) forwards}
+.ks-kinetic-title .ks-title-line:nth-child(2)>span{animation-delay:.16s}
+@keyframes ks-title-arrive{to{opacity:1;transform:translate3d(0,0,0)}}
+.ks-process-timeline{position:relative;isolation:isolate}
+.ks-process-timeline:before{content:"";position:absolute;z-index:-1;left:8%;right:8%;top:47px;height:1px;background:linear-gradient(90deg,#ff6500aa,#ffffff22 75%);transform:scaleX(0);transform-origin:left center;transition:transform 1.4s cubic-bezier(.2,.75,.25,1)}
+.ks-process-timeline.is-in-view:before{transform:scaleX(1)}
+.ks-process-timeline article{position:relative}
+.ks-process-timeline article:before{content:"";position:absolute;top:42px;left:28px;width:9px;height:9px;border-radius:50%;background:#17161b;border:1px solid #ff6500;box-shadow:0 0 0 5px #ff650014;transition:background .35s,box-shadow .35s}
+.ks-process-timeline article.is-active:before{background:#ff6500;box-shadow:0 0 0 7px #ff650020,0 0 22px #ff650066}
+.direction-card{position:relative;overflow:hidden}
+.direction-card:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(145deg,#ff65001c,transparent 48%);opacity:0;transition:opacity .65s cubic-bezier(.2,.75,.25,1)}
+.direction-card:hover:after,.direction-card:focus-within:after{opacity:1}
+.direction-card .direction-meta{position:relative;z-index:1}
+.direction-card .direction-meta h3{transition:transform .45s cubic-bezier(.2,.75,.25,1),color .45s}
+.direction-card:hover .direction-meta h3,.direction-card:focus-within .direction-meta h3{transform:translateX(5px);color:var(--orange)}
+@media(max-width:900px){.ks-process-timeline:before{display:none}}
+@media(prefers-reduced-motion:reduce){.ks-kinetic-title .ks-title-line>span{opacity:1;transform:none;animation:none}.ks-process-timeline:before{transform:none;transition:none}.ks-process-timeline article:before,.direction-card:after,.direction-card .direction-meta h3{transition:none}}
