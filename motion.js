@@ -94,3 +94,27 @@
   resize();
   start();
 })();
+
+
+/* V2: process timeline state follows visibility; no scroll interception. */
+(() => {
+  const timeline = document.querySelector('.ks-process-timeline');
+  if (!timeline) return;
+  const steps = [...timeline.querySelectorAll('article')];
+  if (!('IntersectionObserver' in window)) {
+    timeline.classList.add('is-in-view');
+    steps.forEach(step => step.classList.add('is-active'));
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      timeline.classList.add('is-in-view');
+      const index = steps.indexOf(entry.target);
+      entry.target.classList.add('is-active');
+      steps.slice(0, index).forEach(step => step.classList.add('is-active'));
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+  steps.forEach(step => observer.observe(step));
+})();
