@@ -123,3 +123,63 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
   }
   #work .work-grid > .work-card.work-cta{min-height:390px}
 }
+
+/* Kitsune motion system — atmospheric hero, responsive and lightweight. */
+.hero-art{isolation:isolate;overflow:visible}
+.ks-starfield{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  opacity:.78;
+}
+.hero-art .art-core img{
+  animation:ks-emblem-breathe 5.8s ease-in-out infinite;
+  transform-origin:50% 54%;
+}
+.hero-art .art-core:after{
+  content:"";
+  position:absolute;
+  inset:-15px;
+  border:1px solid #ff650018;
+  border-radius:34px;
+  opacity:0;
+  transform:scale(.96);
+  animation:ks-emblem-ring 5.8s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes ks-emblem-breathe{
+  0%,100%{transform:translateY(0) scale(1);filter:drop-shadow(0 8px 22px #ff650022)}
+  50%{transform:translateY(-4px) scale(1.035);filter:drop-shadow(0 12px 32px #ff650055)}
+}
+@keyframes ks-emblem-ring{
+  0%,35%{opacity:0;transform:scale(.96)}
+  55%{opacity:.65}
+  100%{opacity:0;transform:scale(1.12)}
+}
+.work-card{
+  transform:translateZ(0);
+  transition:transform .45s var(--ks-ease-standard),border-color .45s,box-shadow .45s;
+}
+.work-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 60px #0004;
+}
+.work-card:focus-visible{transform:translateY(-3px)}
+.direction-card .direction-art-image{
+  transition:transform .8s var(--ks-ease-standard),filter .8s;
+}
+.direction-card:hover .direction-art-image,
+.direction-card:focus-within .direction-art-image{
+  transform:scale(1.035);
+}
+.button,.nav-cta,.arrow-link,.text-link{
+  transition-duration:var(--ks-motion-base);
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-art .art-core img,.hero-art .art-core:after{animation:none}
+  .work-card,.direction-card .direction-art-image{transition:none}
+  .work-card:hover,.work-card:focus-visible{transform:none;box-shadow:none}
+}
