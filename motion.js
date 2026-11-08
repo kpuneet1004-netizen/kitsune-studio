@@ -118,3 +118,35 @@
   }, { threshold: 0.25 });
   steps.forEach(step => observer.observe(step));
 })();
+
+/* V2: reveal meaningful content as it enters view; never intercept scrolling. */
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  const selectors = [
+    '.section-heading', '.section-label', '.about-grid',
+    '.about-stats > div', '.belief-list article',
+    '.direction-card', '.service-card', '.process-grid article',
+    '.contact-copy', '.contact-panel'
+  ];
+  const targets = [...new Set(selectors.flatMap(selector => [...document.querySelectorAll(selector)]))];
+  if (!targets.length) return;
+
+  document.documentElement.classList.add('ks-reveal-ready');
+  targets.forEach((element, index) => {
+    element.classList.add('ks-reveal');
+    const siblingIndex = [...element.parentElement.children].indexOf(element);
+    element.style.setProperty('--ks-reveal-delay', Math.min(siblingIndex * 85, 340) + 'ms');
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+  targets.forEach(element => observer.observe(element));
+})();
