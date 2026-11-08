@@ -203,3 +203,15 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
 .direction-card:hover .direction-meta h3,.direction-card:focus-within .direction-meta h3{transform:translateX(5px);color:var(--orange)}
 @media(max-width:900px){.ks-process-timeline:before{display:none}}
 @media(prefers-reduced-motion:reduce){.ks-kinetic-title .ks-title-line>span{opacity:1;transform:none;animation:none}.ks-process-timeline:before{transform:none;transition:none}.ks-process-timeline article:before,.direction-card:after,.direction-card .direction-meta h3{transition:none}}
+
+/* V2 scroll reveals: progressive enhancement; content remains visible without JS. */
+.ks-reveal-ready .ks-reveal{
+  opacity:0;
+  transform:translate3d(0,22px,0);
+  transition:opacity .72s cubic-bezier(.2,.75,.25,1),transform .72s cubic-bezier(.2,.75,.25,1);
+  transition-delay:var(--ks-reveal-delay,0ms);
+}
+.ks-reveal-ready .ks-reveal.is-revealed{opacity:1;transform:translate3d(0,0,0)}
+@media(prefers-reduced-motion:reduce){
+  .ks-reveal-ready .ks-reveal{opacity:1;transform:none;transition:none}
+}
