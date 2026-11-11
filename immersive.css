@@ -215,3 +215,12 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
 @media(prefers-reduced-motion:reduce){
   .ks-reveal-ready .ks-reveal{opacity:1;transform:none;transition:none}
 }
+
+
+/* VZARI selected-work card */
+.vzari-thumbnail{position:relative;overflow:hidden;min-height:365px;aspect-ratio:16/9;border:1px solid #ffffff17;border-radius:var(--ks-radius-md);background:#f7f3e9;transition:transform .35s var(--ease),border-color .35s}
+.vzari-thumbnail img{display:block;width:100%;height:100%;min-height:365px;object-fit:cover;transition:transform .65s cubic-bezier(.2,.75,.25,1)}
+.work-card:hover .vzari-thumbnail{transform:translateY(-4px);border-color:#ff650066}
+.work-card:hover .vzari-thumbnail img{transform:scale(1.055)}
+@media(max-width:680px){.vzari-thumbnail,.vzari-thumbnail img{min-height:0;aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.vzari-thumbnail,.vzari-thumbnail img{transition:none}.work-card:hover .vzari-thumbnail img{transform:none}}
