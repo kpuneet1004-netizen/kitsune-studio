@@ -39,14 +39,14 @@
 .kohi-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
 .kohi-preview-actions button,.kohi-preview-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 13px;border:1px solid #ffffff22;border-radius:7px;background:#19181f;color:#f6f3ef;font:500 11px var(--ks-font-sans);cursor:pointer;text-decoration:none}
 .kohi-preview-actions button[aria-pressed="true"]{border-color:#c5a45f;color:#e5c985}
-#preview-open.kohi-preview-launch{min-height:52px;min-width:224px;padding:14px 22px;border:1px solid #d9bd7d;border-radius:9px;background:linear-gradient(115deg,#b58a32,#8d6b27);color:#fff;font-size:12px;font-weight:800;letter-spacing:.075em}
+#preview-open.kohi-preview-launch{position:relative;isolation:isolate;min-height:52px;min-width:224px;padding:14px 22px;border:1px solid #ffad75;border-radius:9px;background:linear-gradient(115deg,#ff7626 0%,#e34e08 100%);color:#fff;font-size:12px;font-weight:800;letter-spacing:.075em;box-shadow:0 0 0 1px #ff650055,0 5px 18px #ff650044,0 0 30px #ff650033;transition:transform .2s ease,box-shadow .2s ease}\n#preview-open.kohi-preview-launch:hover{transform:translateY(-2px);box-shadow:0 0 0 2px #ffad7588,0 8px 28px #ff650077,0 0 36px #ff650055}\n#preview-open.kohi-preview-launch:focus-visible{outline:3px solid #fff;outline-offset:5px}
 .kohi-preview-viewport{box-sizing:border-box;width:100%;max-width:none;margin:0 auto;overflow:hidden;border:1px solid #ffffff1b;border-radius:9px;background:#f4efe5}
 .kohi-preview-viewport iframe{box-sizing:border-box;display:block;width:100%;height:min(78vh,850px);min-height:600px;border:0;background:#f4efe5}
 .kohi-preview-viewport.is-mobile{box-sizing:border-box;width:min(390px,100%);max-width:390px;margin-inline:auto;overflow:hidden;border:0;border-radius:0}
 .kohi-preview-viewport.is-mobile iframe{height:844px;min-height:844px}
 .kohi-preview-bottom-actions{display:flex;justify-content:center;padding:18px 0 8px}
 .kohi-preview-bottom-close{min-width:190px;min-height:44px;padding:12px 20px;border:1px solid #c5a45f66;border-radius:8px;background:#1b1716;color:#e5c985;font:700 11px var(--ks-font-sans);letter-spacing:.09em;cursor:pointer}
-.kohi-preview-hint{max-width:760px;margin:12px auto 3px;color:#8e8995;font-size:10px;line-height:1.7;text-align:center}
+.kohi-preview-hint{max-width:760px;margin:18px auto 8px;color:#aaa5b1;font-size:11px;line-height:1.7;text-align:center}
 .kohi-preview-actions button[hidden],.kohi-preview-viewport[hidden]{display:none!important}
 @media(max-width:680px){.kohi-preview-toolbar{align-items:stretch}.kohi-preview-status{width:100%}.kohi-preview-actions{width:100%}.kohi-preview-actions>a{flex:1}.kohi-preview-viewport iframe{height:72vh;min-height:540px}.kohi-preview-viewport.is-mobile{width:100%;max-width:390px}.kohi-preview-viewport.is-mobile iframe{height:78vh;min-height:640px}}
 @media(prefers-reduced-motion:reduce){.kohi-preview-viewport{transition:none}}
@@ -143,9 +143,8 @@
 <p class="case-intro">A multi-page website for VZARI, designed to bring the care and character of heirloom textiles into a clearer, more approachable digital experience — and make the first enquiry feel simple.</p>
 <div class="case-meta"><span>Client: VZARI</span><span>Business website · UX/UI</span><span>Textile resale · Bengaluru</span><span>2026</span></div>
 </section>
-<section class="vzari-cover" aria-label="VZARI website visual">
-<img src="https://vzarisarees.com/images/01-mysore-silk-maroon.webp" width="1024" height="559" alt="Maroon Mysore silk saree with an ornate gold zari border, featured on the VZARI website" fetchpriority="high" decoding="async">
-<div class="vzari-cover-caption"><span>VZARI · OLD SILK & ZARI SAREE BUYERS</span><span>BUILT FOR CLARITY · BENGALURU</span></div>
+<section class="kohi-cover kohi-cover-image vzari-cover" aria-label="VZARI business website visual">
+<img src="/assets/images/vzari-case-study-cover.webp" width="1536" height="1024" alt="VZARI case study artwork showing the silk and zari saree website on a laptop against maroon and gold textiles" fetchpriority="high" decoding="async">
 </section>
 <section class="kohi-section" id="interactive-preview">
 <div class="kohi-section-head"><span class="kohi-index">LIVE WEBSITE · INTERACTIVE</span><h2>Explore the experience. <em>See it in context.</em></h2></div>
@@ -189,12 +188,9 @@
 <section class="kohi-section">
 <div class="kohi-section-head"><span class="kohi-index">01 / VISUAL LANGUAGE</span><h2>Let the material speak.<br><em>Keep the interface composed.</em></h2></div>
 <p class="kohi-lead">Textile imagery gives the experience its visual richness, while consistent layouts help visitors compare categories without losing their way.</p>
-<div class="vzari-gallery">
-<figure><img src="https://vzarisarees.com/images/02-kanchipuram-silk-emerald.webp" width="1024" height="559" alt="Emerald Kanchipuram silk saree with traditional woven details" loading="lazy" decoding="async"><figcaption>Kanchipuram silk — rich colour and weave detail.</figcaption></figure>
-<div class="vzari-gallery-stack">
-<figure><img src="https://vzarisarees.com/images/03-tissue-silk-gold.webp" width="1024" height="559" alt="Gold tissue silk saree with woven zari border" loading="lazy" decoding="async"><figcaption>Tissue silk — a luminous textile story.</figcaption></figure>
-<figure><img src="https://vzarisarees.com/images/04-banarasi-silk-maroon.webp" width="1024" height="559" alt="Maroon Banarasi silk saree with brocade details" loading="lazy" decoding="async"><figcaption>Banarasi silk — pattern, texture and heritage.</figcaption></figure>
-</div>
+<div class="case-bento" aria-label="VZARI visual direction details">
+<article class="case-bento-card case-bento-brand"><small>TEXTILE-LED STORYTELLING</small><h3>Let the material<br>lead <em>the story.</em></h3><p>Rich saree imagery gives visitors an immediate sense of the craft, colour and detail behind each category.</p></article>
+<article class="case-bento-card case-bento-system"><small>VISUAL BALANCE</small><h3>Heritage, without the clutter.</h3><div class="case-swatches"><i style="--swatch:#f7f3e9"></i><i style="--swatch:#552b2c"></i><i style="--swatch:#b58a32"></i><i style="--swatch:#26231f"></i><i style="--swatch:#746d61"></i></div><p>A warm paper base, deep wine and antique gold keep the interface expressive yet easy to navigate.</p></article>
 </div>
 </section>
 <section class="kohi-section">
