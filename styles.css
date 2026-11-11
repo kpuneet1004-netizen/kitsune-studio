@@ -1389,3 +1389,22 @@ body.intro-active{overflow:hidden}
   #work .work-grid > .work-card .resume-mock{aspect-ratio:3 / 2}
   #work .work-grid > .work-cta{min-height:360px}
 }
+
+
+/* VZARI uses the same fixed project-artwork frame as every other work card. */
+#work .work-grid > .work-card .vzari-thumbnail{
+  display:block;
+  width:100%;
+  height:auto;
+  min-height:0;
+  aspect-ratio:3 / 2;
+  flex:0 0 auto;
+  overflow:hidden;
+}
+#work .work-grid > .work-card .vzari-thumbnail img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
