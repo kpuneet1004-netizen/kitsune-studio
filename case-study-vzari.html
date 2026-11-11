@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0B0B0E">
-<meta name="description" content="Explore the VZARI business website case study by Kitsune Studio: a multi-page digital experience for old silk saree enquiries in Bengaluru.">
+<meta name="description" content="Explore the VZARI business website case study by Kitsune Studio. A multi-page digital experience for old silk and zari saree enquiries in Bengaluru, built around textile-led storytelling and a clear WhatsApp journey.">
 <link rel="canonical" href="https://kitsune-studio-7ix.pages.dev/case-study-vzari.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VZARI — Business Website Case Study | Kitsune Studio">
-<meta property="og:description" content="A considered digital experience connecting heirloom textiles with a clearer enquiry journey.">
+<meta property="og:description" content="Heritage, made easier to discover. A multi-page digital experience for VZARI by Kitsune Studio.">
 <meta property="og:image" content="https://vzarisarees.com/images/01-mysore-silk-maroon.webp">
+<meta name="twitter:card" content="summary_large_image">
 <title>VZARI — Business Website Case Study | Kitsune Studio</title>
 <link rel="icon" href="/kitsune-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://vzarisarees.com" crossorigin>
@@ -20,7 +21,10 @@
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/case-studies.css">
 <style>
-.vzari-case .case-hero h1 em,.vzari-case .case-content h2 em{color:#c5a45f}
+.kohi-case{padding-bottom:40px}
+.kohi-case .case-hero{padding-bottom:45px}
+.vzari-case .case-hero h1 em,.vzari-case .kohi-section h2 em{color:#c5a45f}
+.vzari-case .kohi-index,.vzari-case .case-bento-tag{color:#c5a45f}
 .vzari-cover{overflow:hidden;margin:0 0 32px;border:1px solid #ffffff20;border-radius:var(--ks-radius-lg);background:#f7f3e9;color:#26231f}
 .vzari-cover img{display:block;width:100%;height:auto;aspect-ratio:16/8.5;object-fit:cover}
 .vzari-cover-caption{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;background:#f7f3e9;color:#62594d;font:9px/1.5 var(--ks-font-mono);letter-spacing:.1em;text-transform:uppercase}
@@ -44,19 +48,71 @@
 .vzari-route p{margin:0;color:var(--ks-muted);font-size:11px;line-height:1.7}
 .vzari-case .case-point span{color:#c5a45f}
 .vzari-case .case-disclaimer{border-left-color:#b58a32}
-@media(max-width:700px){.vzari-demo{align-items:stretch;flex-direction:column;padding:18px}.vzari-demo .button{width:100%}.vzari-gallery{grid-template-columns:1fr}.vzari-gallery-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}.vzari-gallery-stack img{min-height:150px}.vzari-route{grid-template-columns:1fr 1fr}.vzari-cover-caption{font-size:7px}}
-@media(max-width:420px){.vzari-route{grid-template-columns:1fr}.vzari-gallery-stack{grid-template-columns:1fr}}
-
-.kohi-section{padding:clamp(38px,6vw,72px) 0;border-top:1px solid #ffffff1a}
-.kohi-section-head{display:grid;grid-template-columns:.55fr 1fr;gap:30px;margin-bottom:28px}
-.kohi-index{font:10px var(--ks-font-mono);letter-spacing:.12em;color:#c5a45f}
-.kohi-section h2{max-width:740px;margin:0;font-size:clamp(32px,5vw,56px);line-height:1.03;letter-spacing:-.065em}
-.kohi-section h2 em{font-family:'Playfair Display',Georgia,serif;font-weight:400;color:#c5a45f}
-.kohi-lead{max-width:720px;margin:0 0 28px;color:#c0bbc5;font-size:clamp(15px,1.6vw,18px);line-height:1.8}
+.case-summary .kohi-section-head{margin-bottom:12px}
+.case-summary .kohi-lead{max-width:760px;margin-bottom:26px}
+.case-bento{display:grid;grid-template-columns:1.12fr .88fr;gap:14px}
+.case-bento-card{min-height:205px;padding:24px;border:1px solid #ffffff18;border-radius:13px;background:#151319;overflow:hidden}
+.case-bento-card>small{display:block;margin-bottom:22px;color:#a5a0ac;font:10px/1.4 var(--ks-font-mono);letter-spacing:.08em}
+.case-bento-card h3{margin:0 0 12px;font-size:clamp(20px,2.2vw,29px);line-height:1.08;letter-spacing:-.045em}
+.case-bento-card h3 em{font-family:Georgia,serif;font-weight:400}
+.case-bento-card p{max-width:560px;margin:0;color:#b6b1bd;font-size:12px;line-height:1.75}
+.case-bento-brand{background:linear-gradient(135deg,#211d20,#171519)}
+.case-bento-brand h3{font-size:clamp(28px,3.2vw,42px)}
+.case-bento-brand h3 em,.case-bento-tag{color:#c5a45f}
+.case-bento-tag{display:inline-block;margin-top:18px;font:9px var(--ks-font-mono);letter-spacing:.1em}
+.case-bento-system{background:#f0e8d9;color:#28231f}
+.case-bento-system>small{color:#6c6258}
+.case-bento-system p{color:#5c5148}
+.case-swatches{display:flex;gap:8px;margin:4px 0 16px}
+.case-swatches i{width:29px;height:29px;border:1px solid #0002;border-radius:50%;background:var(--swatch)}
+.case-type-pair{display:flex;align-items:center;gap:12px;margin-bottom:12px;color:#28231f;font-size:11px;line-height:1.5}
+.case-type-pair .case-serif{font:34px/.9 Georgia,serif}
+.case-type-pair small{color:#74685e}
+.case-bento-experience{background:#e9e4d7;color:#332c25}
+.case-bento-experience>small{color:#78633f}
+.case-bento-experience ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin:18px 0 0;padding:0;list-style:none}
+.case-bento-experience li{font-size:12px;line-height:1.5}
+.case-bento-experience li:before{content:'↗';margin-right:7px;color:#98783d}
+.case-bento-delivery{background:#17191a}
 .case-tech-pills{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0}
 .case-tech-pills span{padding:7px 10px;border:1px solid #ffffff24;border-radius:30px;color:#d0ccd3;font-size:10px}
-@media(max-width:700px){.kohi-section{padding:42px 0}.kohi-section-head{grid-template-columns:1fr;gap:12px}}
-
+.case-deep-dive{margin-top:38px;border-top:1px solid #ffffff20}
+.case-deep-heading{padding:24px 0 18px}
+.case-deep-heading h3{margin:9px 0;font-size:clamp(22px,3vw,30px);letter-spacing:-.04em}
+.case-deep-heading p{margin:0;color:#aaa5b1;font-size:12px;line-height:1.7}
+.case-deep-dive details{border-top:1px solid #ffffff20}
+.case-deep-dive details:last-child{border-bottom:1px solid #ffffff20}
+.case-deep-dive summary{position:relative;padding:19px 42px 19px 2px;cursor:pointer;list-style:none;color:#f4f1f5;font-size:14px;font-weight:600}
+.case-deep-dive summary::-webkit-details-marker{display:none}
+.case-deep-dive summary:after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);color:#c5a45f;font-size:21px}
+.case-deep-dive details[open] summary:after{content:'−'}
+.case-detail-body{max-width:780px;padding:0 34px 20px 2px;color:#b8b3bf;font-size:12px;line-height:1.85}
+.case-detail-body p{margin:0}
+.case-next{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:0 0 48px;padding:clamp(24px,5vw,48px);border:1px solid #ffffff1c;border-radius:22px;background:linear-gradient(120deg,#17141d,#111116)}
+.case-next h2{max-width:650px;margin:0;font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-.07em}
+.case-next p{margin:12px 0 0;color:var(--ks-muted);font-size:12px}
+.case-next .case-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 17px;border-radius:var(--ks-radius-sm);background:var(--ks-brand-orange);color:#fff;font-size:12px;font-weight:700;white-space:nowrap}
+.case-footer{display:flex;justify-content:space-between;gap:20px}
+.case-footer a{color:var(--ks-muted)}
+.case-footer a:hover{color:var(--ks-brand-orange)}
+@media(max-width:700px){
+ .vzari-demo{align-items:stretch;flex-direction:column;padding:18px}
+ .vzari-demo .button{width:100%}
+ .vzari-gallery{grid-template-columns:1fr}
+ .vzari-gallery-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+ .vzari-gallery-stack img{min-height:150px}
+ .vzari-route{grid-template-columns:1fr 1fr}
+ .vzari-cover-caption{font-size:7px}
+ .case-bento{grid-template-columns:1fr}
+ .case-bento-card{min-height:unset;padding:20px}
+ .case-bento-experience ul{grid-template-columns:1fr 1fr}
+ .case-deep-dive{margin-top:26px}
+ .case-deep-dive summary{font-size:13px}
+ .case-next{align-items:flex-start;flex-direction:column;gap:20px;margin-bottom:42px;padding:22px}
+ .case-next .case-button{width:100%}
+}
+@media(max-width:420px){.vzari-route{grid-template-columns:1fr}.vzari-gallery-stack{grid-template-columns:1fr}.vzari-cover-caption{flex-direction:column;gap:5px}}
+@media(prefers-reduced-motion:reduce){.vzari-case *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -73,69 +129,66 @@
 <img src="https://vzarisarees.com/images/01-mysore-silk-maroon.webp" width="1024" height="559" alt="Maroon Mysore silk saree with an ornate gold zari border, featured on the VZARI website" fetchpriority="high" decoding="async">
 <div class="vzari-cover-caption"><span>VZARI · OLD SILK & ZARI SAREE BUYERS</span><span>BUILT FOR CLARITY · BENGALURU</span></div>
 </section>
-<section class="vzari-demo" aria-label="Visit the live VZARI website">
-<div><span>THE LIVE EXPERIENCE</span><p>Explore the published multi-page website, its responsive layouts and WhatsApp enquiry flow.</p></div>
-<a class="button button-primary" href="https://vzarisarees.com/" target="_blank" rel="noopener noreferrer">Visit VZARI website <span>↗</span></a>
-</section>
-<section class="case-content">
-<h2>A familiar category.<br><em>A more considered journey.</em></h2>
-<div class="case-copy">
-<p>VZARI helps people in Bengaluru enquire about selling pre-owned silk and zari sarees. The website needed to do more than display beautiful textiles: it had to explain what the business considers, set expectations around evaluation, and help visitors take the next step with confidence.</p>
-<p>The experience brings together a clear service proposition, textile-led visual storytelling, practical guidance and a direct WhatsApp handoff. The language is deliberately careful: an enquiry begins an individual review, while any visit, valuation or purchase is confirmed separately.</p>
+<section class="kohi-section" id="interactive-preview">
+<div class="kohi-section-head"><span class="kohi-index">LIVE WEBSITE · INTERACTIVE</span><h2>Explore the experience. <em>See it in context.</em></h2></div>
+<div class="case-direction-label"><span>VISUAL DIRECTION</span><strong>Editorial / Refined</strong><i>Textile-led imagery, expressive serif headlines and a calm, practical service interface.</i></div>
+<p class="kohi-lead">Visit the published VZARI website to explore its responsive pages, saree categories, process guidance, FAQs and direct WhatsApp enquiry journey.</p>
+<div class="kohi-preview-shell">
+<div class="kohi-preview-toolbar">
+<div class="kohi-preview-status">Live website · opens in a new tab</div>
+<div class="kohi-preview-actions"><a class="kohi-preview-launch" href="https://vzarisarees.com/" target="_blank" rel="noopener noreferrer"><span>EXPLORE THE LIVE WEBSITE</span><span aria-hidden="true">↗</span></a></div>
+</div>
+<p class="kohi-preview-hint">The VZARI site sets frame restrictions, so it is opened directly rather than displayed in an embedded frame. This preserves its full navigation and WhatsApp functionality.</p>
 </div>
 </section>
-<section class="case-points" aria-label="Project priorities">
-<article class="case-point"><span>01 / POSITIONING</span><h3>Make the offer clear</h3><p>Explain who VZARI serves, the kinds of textiles considered and the Bengaluru service area from the first screen.</p></article>
-<article class="case-point"><span>02 / TRUST</span><h3>Set useful expectations</h3><p>Describe the review process without promising a guaranteed valuation, offer or purchase.</p></article>
-<article class="case-point"><span>03 / ACTION</span><h3>Reduce enquiry friction</h3><p>Make WhatsApp the direct next step, with prompts for locality, quantity and photographs.</p></article>
-</section>
-<section class="case-content">
-<h2>Designed around<br><em>the textile and its story.</em></h2>
-<div class="case-copy">
-<p>A warm paper palette, deep wine accents and restrained gold details create a visual language that feels connected to traditional silk without becoming ornamental or difficult to read. Editorial serif typography gives the brand room to express heritage, while a clean sans-serif system keeps navigation and service information practical.</p>
-<p>Photography does the heavy lifting. Product imagery gives visitors a more tangible sense of the materials and categories VZARI considers, while generous spacing and short content blocks keep the experience calm and scannable.</p>
-<div class="vzari-palette" aria-label="VZARI colour palette"><span><i style="--swatch:#f7f3e9"></i>Warm paper</span><span><i style="--swatch:#552b2c"></i>Deep wine</span><span><i style="--swatch:#b58a32"></i>Antique gold</span><span><i style="--swatch:#26231f"></i>Ink</span></div>
+<section class="kohi-section case-summary" id="project-summary">
+<div class="kohi-section-head"><span class="kohi-index">THE PROJECT · AT A GLANCE</span><h2>A heritage-led service, <em>made clear online.</em></h2></div>
+<p class="kohi-lead">A digital home for people in Bengaluru who want to enquire about selling pre-owned silk, zari and heirloom sarees — designed to explain the service, build confidence and make the next step obvious.</p>
+<div class="case-bento">
+<article class="case-bento-card case-bento-brand"><small>01 / BRAND & PURPOSE</small><h3>Every saree<br>has <em>a story.</em></h3><p>Give a specialist textile resale service a clear, respectful and approachable digital presence.</p><span class="case-bento-tag">VZARI · BUSINESS WEBSITE</span></article>
+<article class="case-bento-card case-bento-system"><small>02 / DESIGN SYSTEM</small><h3>Warm, editorial, textile-led.</h3><div class="case-swatches"><i style="--swatch:#f7f3e9"></i><i style="--swatch:#552b2c"></i><i style="--swatch:#b58a32"></i><i style="--swatch:#26231f"></i><i style="--swatch:#746d61"></i></div><div class="case-type-pair"><span class="case-serif">Aa</span><span><b>Editorial serif</b><br><small>Paired with a clean sans-serif</small></span></div><p>Warm paper, deep wine and antique gold balance heritage cues with everyday clarity.</p></article>
+<article class="case-bento-card case-bento-experience"><small>03 / EXPERIENCE</small><h3>Confidence before contact.</h3><ul><li>Textile category discovery</li><li>Clear evaluation process</li><li>FAQs and service guidance</li><li>WhatsApp enquiry handoff</li></ul></article>
+<article class="case-bento-card case-bento-delivery"><small>04 / DELIVERY</small><h3>A connected page system.</h3><div class="case-tech-pills"><span>Responsive UI</span><span>Semantic HTML</span><span>Custom CSS</span><span>Vanilla JS</span><span>Cloudflare Workers</span></div><p>Multi-page website with shared navigation, SEO structure and a direct enquiry route.</p></article>
+</div>
+<div class="case-deep-dive">
+<div class="case-deep-heading"><span class="kohi-index">BEHIND THE BUILD</span><h3>Explore the thinking behind the experience.</h3><p>Open a chapter to see how the positioning, visual system and enquiry journey fit together.</p></div>
+<details><summary>01 · The challenge & audience</summary><div class="case-detail-body"><p>Visitors may arrive with a single old saree or a family collection, often unsure whether the pieces are suitable or what the evaluation involves. The website needed to explain the service quickly, answer practical questions and make it easy to begin without implying that every enquiry leads to a purchase.</p></div></details>
+<details><summary>02 · Strategy & visual direction</summary><div class="case-detail-body"><p>The visual direction uses textile photography as the primary storytelling device. A warm paper base, deep wine accents and restrained antique-gold details create a heritage-aware identity; editorial serif headlines add character while clean sans-serif body copy keeps service information direct and readable.</p></div></details>
+<details><summary>03 · Information architecture & interaction</summary><div class="case-detail-body"><p>The experience moves from the core service proposition into the saree types considered, the evaluation process, customer feedback and FAQs. Dedicated service, category, locality and journal pages support deeper discovery. Repeated WhatsApp calls-to-action keep the enquiry route visible, with a pre-filled message that visitors review and send themselves.</p></div></details>
+<details><summary>04 · Responsive build & delivery</summary><div class="case-detail-body"><p>The site is built with semantic HTML, custom responsive CSS and lightweight vanilla JavaScript. Shared page patterns support a consistent multi-page experience, while responsive image variants, lazy loading and restrained scroll reveals keep the interface practical across devices. The WhatsApp handoff does not transmit enquiry details to a VZARI website database.</p></div></details>
 </div>
 </section>
 <section class="kohi-section">
-<div class="kohi-section-head"><span class="kohi-index">01 / VISUAL LANGUAGE</span><h2>Craft-led imagery.<br><em>Clear digital structure.</em></h2></div>
-<p class="kohi-lead">A selection of textile imagery used to give the website a distinct visual vocabulary across saree categories.</p>
+<div class="kohi-section-head"><span class="kohi-index">01 / VISUAL LANGUAGE</span><h2>Let the material speak.<br><em>Keep the interface composed.</em></h2></div>
+<p class="kohi-lead">Textile imagery gives the experience its visual richness, while consistent layouts help visitors compare categories without losing their way.</p>
 <div class="vzari-gallery">
 <figure><img src="https://vzarisarees.com/images/02-kanchipuram-silk-emerald.webp" width="1024" height="559" alt="Emerald Kanchipuram silk saree with traditional woven details" loading="lazy" decoding="async"><figcaption>Kanchipuram silk — rich colour and weave detail.</figcaption></figure>
 <div class="vzari-gallery-stack">
-<figure><img src="https://vzarisarees.com/images/03-tissue-silk-gold.webp" width="1024" height="559" alt="Gold tissue silk saree" loading="lazy" decoding="async"><figcaption>Tissue silk — a lighter, luminous textile story.</figcaption></figure>
+<figure><img src="https://vzarisarees.com/images/03-tissue-silk-gold.webp" width="1024" height="559" alt="Gold tissue silk saree with woven zari border" loading="lazy" decoding="async"><figcaption>Tissue silk — a luminous textile story.</figcaption></figure>
 <figure><img src="https://vzarisarees.com/images/04-banarasi-silk-maroon.webp" width="1024" height="559" alt="Maroon Banarasi silk saree with brocade details" loading="lazy" decoding="async"><figcaption>Banarasi silk — pattern, texture and heritage.</figcaption></figure>
 </div>
 </div>
 </section>
 <section class="kohi-section">
-<div class="kohi-section-head"><span class="kohi-index">02 / EXPERIENCE DESIGN</span><h2>From discovery<br><em>to a useful first enquiry.</em></h2></div>
-<p class="kohi-lead">The site is organised to answer the visitor’s most immediate questions before asking them to get in touch.</p>
+<div class="kohi-section-head"><span class="kohi-index">02 / EXPERIENCE DESIGN</span><h2>From first discovery<br><em>to a useful enquiry.</em></h2></div>
+<p class="kohi-lead">The visitor journey is designed to answer the most immediate questions before inviting someone to make contact.</p>
 <div class="vzari-route">
-<article><small>STEP 01</small><h3>Understand</h3><p>Know what VZARI does, where it operates and what kinds of textiles it considers.</p></article>
-<article><small>STEP 02</small><h3>Explore</h3><p>Browse relevant saree categories, service details and educational guidance.</p></article>
-<article><small>STEP 03</small><h3>Feel informed</h3><p>Review the process, FAQs and practical expectations before making contact.</p></article>
-<article><small>STEP 04</small><h3>Enquire</h3><p>Move into WhatsApp with a clear prompt to share locality, quantity and photos.</p></article>
+<article><small>STEP 01</small><h3>Understand</h3><p>Learn what VZARI does, where it operates and which textiles it considers.</p></article>
+<article><small>STEP 02</small><h3>Explore</h3><p>Browse saree categories, service details and practical guidance.</p></article>
+<article><small>STEP 03</small><h3>Feel informed</h3><p>Review the process and FAQs before deciding whether to enquire.</p></article>
+<article><small>STEP 04</small><h3>Enquire</h3><p>Move to WhatsApp with a prompt to share locality, quantity and photographs.</p></article>
 </div>
 </section>
-<section class="case-content">
-<h2>Built as a connected<br><em>multi-page system.</em></h2>
-<div class="case-copy">
-<p>The project extends beyond the homepage into dedicated service and category pages, Bengaluru locality pages, a how-to-sell guide, FAQs, contact information and educational journal content. Shared navigation, page patterns and enquiry calls-to-action help visitors move through the site without losing the main purpose.</p>
-<p>The implementation uses semantic HTML, custom responsive CSS and lightweight vanilla JavaScript, with static pages served through Cloudflare Workers Static Assets. The enquiry journey hands off to WhatsApp; visitors review and send the pre-filled message themselves.</p>
-<div class="case-tech-pills"><span>Responsive UI</span><span>Semantic HTML</span><span>Custom CSS</span><span>Vanilla JavaScript</span><span>SEO page structure</span><span>Cloudflare Workers</span><span>WhatsApp handoff</span></div>
-</div>
-</section>
-<p class="case-disclaimer">Project note: this case study describes the website experience and its design intent. It does not claim verified increases in enquiries, sales, search rankings or business revenue. Service availability and any evaluation are confirmed directly by VZARI.</p>
+<p class="case-disclaimer">Project note: this case study describes the delivered website and its design intent. It does not claim verified increases in enquiries, sales, search rankings or revenue. An enquiry, photograph or initial review does not guarantee an offer, visit or purchase; service availability is confirmed directly by VZARI.</p>
 <nav class="case-project-nav" aria-label="Other projects">
 <a class="case-project-link" href="/case-study-prashant.html"><span>PREVIOUS PROJECT · 02</span><strong>People first. Results always. ↗</strong></a>
 <a class="case-project-link next" href="/case-study-kohi.html"><span>NEXT PROJECT · 01</span><strong>A little pause in the city. ↗</strong></a>
 </nav>
-<section class="case-cta">
-<div><h2>Have a business<br>with a story to tell?</h2><p>Let’s give it a digital presence that feels considered and works hard.</p></div>
-<a class="button button-primary" href="/#contact">Start a project <span>↗</span></a>
+<section class="case-next">
+<div><span class="case-kicker">YOUR BRAND, YOUR STORY</span><h2>Have a business with a story to tell?</h2><p>Let’s give it a digital presence that feels considered and works hard.</p></div>
+<a class="case-button" href="/#contact">Start a project ↗</a>
 </section>
 </main>
-<footer class="case-shell case-footer"><span>© 2026 Kitsune Studio</span><span>Clarity · Craft · Intention</span></footer>
+<footer class="case-shell case-footer"><span>© 2026 Kitsune Studio</span><a href="/#work">Back to all projects ↑</a></footer>
 </body>
 </html>
