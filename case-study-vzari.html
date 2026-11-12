@@ -137,17 +137,23 @@
   <img src="https://vzarisarees.com/images/01-mysore-silk-maroon.webp" width="1024" height="559" alt="VZARI textile-led website showcasing a maroon Mysore silk saree with a detailed zari border" fetchpriority="high" decoding="async">
 </section>
 <section class="kohi-section" id="interactive-preview">
-<div class="kohi-section-head"><span class="kohi-index">LIVE WEBSITE · EXPLORE</span><h2>A closer look at <em>VZARI online.</em></h2></div>
-<div class="case-direction-label"><span>VISUAL DIRECTION</span><strong>Editorial</strong><i>Textile-led imagery, warm surfaces and a clear path from discovery to enquiry.</i></div>
-<p class="kohi-lead">The published experience brings together textile categories, service guidance and a direct WhatsApp enquiry route. Open the delivered website to explore the complete multi-page experience.</p>
+<div class="kohi-section-head"><span class="kohi-index">LIVE WEBSITE · INTERACTIVE</span><h2>Don’t just look. <em>Step inside.</em></h2></div>
+<div class="case-direction-label"><span>VISUAL DIRECTION</span><strong>Editorial</strong><i>Textile-led imagery, warm surfaces and a clear path from discovery to enquiry.</i></div><p class="kohi-lead">Explore the delivered VZARI experience — textile categories, service guidance, FAQs and the direct WhatsApp enquiry journey. The live website loads right here, inside the case study.</p>
 <div class="kohi-preview-shell">
 <div class="kohi-preview-toolbar">
-<div class="kohi-preview-status">LIVE WEBSITE · VZARISAREES.COM</div>
+<div class="kohi-preview-status" id="preview-status">Preview ready when you are</div>
 <div class="kohi-preview-actions">
-<a class="kohi-preview-launch" href="https://vzarisarees.com/" target="_blank" rel="noopener noreferrer"><span>EXPLORE THE LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+<button type="button" id="preview-open" class="kohi-preview-launch" aria-label="Explore the live VZARI website in this page" aria-expanded="false" aria-controls="vzari-preview-frame"><span>EXPLORE THE LIVE WEBSITE</span><span aria-hidden="true">↓</span></button>
+<button type="button" id="preview-desktop" aria-pressed="true" hidden>Desktop</button>
+<button type="button" id="preview-mobile" aria-pressed="false" hidden>Mobile</button>
+<button type="button" id="preview-close" class="kohi-preview-close" hidden>Close preview ×</button>
 </div>
 </div>
-<p class="kohi-preview-hint">Opens the published VZARI website in a new tab. This direct link avoids embedded-preview restrictions and keeps the case study itself fast and stable.</p>
+<div class="kohi-preview-viewport" id="preview-viewport" hidden>
+<iframe id="vzari-preview-frame" title="Interactive VZARI website preview" src="about:blank" loading="lazy" scrolling="yes" allow="clipboard-read; clipboard-write"></iframe>
+<div class="kohi-preview-bottom-actions"><button type="button" id="preview-close-bottom" class="kohi-preview-bottom-close">CLOSE PREVIEW <span aria-hidden="true">↑</span></button></div>
+</div>
+<p class="kohi-preview-hint">The complete VZARI website loads inside this frame. Browse its pages and enquiry journey without leaving the case study.</p>
 </div>
 </section>
 <section class="kohi-section case-summary" id="project-summary"><div class="kohi-section-head"><span class="kohi-index">THE PROJECT · AT A GLANCE</span><h2>A heritage-led service, <em>made clear online.</em></h2></div><p class="kohi-lead">A digital home for people in Bengaluru who want to enquire about selling pre-owned silk, zari and heirloom sarees — designed to explain the service, build confidence and make the next step obvious.</p><div class="case-bento"><article class="case-bento-card case-bento-brand"><small>01 / BRAND & PURPOSE</small><h3>Every saree<br><em>has a story.</em></h3><p>Give a specialist textile resale service a clear, respectful and approachable digital presence.</p><span class="case-bento-tag">VZARI · BUSINESS WEBSITE</span></article><article class="case-bento-card case-bento-system"><small>02 / DESIGN SYSTEM</small><h3>Warm, editorial, textile-led.</h3><div class="case-swatches"><i style="--swatch:#f7f3e9"></i><i style="--swatch:#552b2c"></i><i style="--swatch:#b58a32"></i><i style="--swatch:#26231f"></i><i style="--swatch:#746d61"></i></div><div class="case-type-pair"><span class="case-serif">Aa</span><span><b>Editorial serif</b><br><small>Paired with a clean sans-serif</small></span></div><p>Warm paper, deep wine and antique gold balance heritage cues with everyday clarity.</p></article><article class="case-bento-card case-bento-experience"><small>03 / EXPERIENCE</small><h3>Confidence before contact.</h3><ul><li>Textile category discovery</li><li>Clear evaluation process</li><li>FAQs and service guidance</li><li>WhatsApp enquiry handoff</li></ul></article><article class="case-bento-card case-bento-delivery"><small>04 / DELIVERY</small><h3>A connected page system.</h3><div class="case-tech-pills"><span>Responsive UI</span><span>Semantic HTML</span><span>Custom CSS</span><span>Vanilla JS</span><span>Cloudflare</span></div><p>Multi-page website with shared navigation, SEO structure and a direct enquiry route.</p></article></div><div class="case-deep-dive"><div class="case-deep-heading"><span class="kohi-index">BEHIND THE BUILD</span><h3>Explore the thinking behind the experience.</h3><p>Open a chapter to see how the positioning, visual system and enquiry journey fit together.</p></div><details><summary>01 · The challenge & audience</summary><div class="case-detail-body"><p>Visitors may arrive with a single old saree or a family collection, often unsure whether the pieces are suitable or what the evaluation involves. The website needed to explain the service quickly, answer practical questions and make it easy to begin without implying that every enquiry leads to a purchase.</p></div></details><details><summary>02 · Strategy & visual direction</summary><div class="case-detail-body"><p>The visual direction uses textile photography as the primary storytelling device, supported by warm paper surfaces and restrained heritage-inspired accents. The delivered website pairs warm paper (#F7F3E9), deep ink (#26231F), wine (#552B2C), antique gold (#B58A32) and muted taupe. Playfair Display brings an editorial heritage quality while DM Sans keeps evaluation and enquiry information direct and legible.</p></div></details><details><summary>03 · Information architecture & interaction</summary><div class="case-detail-body"><p>The experience moves from the core service proposition into the saree types considered, the evaluation process, customer feedback and FAQs. Dedicated service, how-to-sell, FAQ and blog pages support deeper discovery. Repeated WhatsApp calls-to-action keep the enquiry route visible, with a pre-filled message that visitors review and send themselves.</p></div></details><details><summary>04 · Responsive build & delivery</summary><div class="case-detail-body"><p>The site is built with semantic HTML, custom responsive CSS and lightweight vanilla JavaScript, and deployed on Cloudflare. Shared page patterns support a consistent multi-page experience, while responsive image variants, lazy loading and restrained scroll reveals keep the interface practical across devices. The WhatsApp handoff does not transmit enquiry details to a VZARI website database.</p></div></details></div></section><section class="case-next"><div><span class="case-kicker">YOUR BRAND, YOUR STORY</span><h2>Your next website should feel unmistakably yours.</h2><p>Tell us what you want to achieve. We’ll shape the right digital experience around it.</p></div><a class="case-button" href="/#contact">Start a project ↗</a></section>
@@ -155,8 +161,61 @@
 <footer class="case-footer case-shell"><span>© 2026 Kitsune Studio</span><a href="/#work">Back to all projects ↑</a></footer>
 <script>
 (() => {
-  // The live site opens in a new tab rather than an iframe. This avoids
-  // cross-origin frame restrictions and keeps the case-study page stable.
+  const openButton = document.querySelector('#preview-open');
+  const closeButton = document.querySelector('#preview-close');
+  const bottomCloseButton = document.querySelector('#preview-close-bottom');
+  const desktopButton = document.querySelector('#preview-desktop');
+  const mobileButton = document.querySelector('#preview-mobile');
+  const viewport = document.querySelector('#preview-viewport');
+  const frame = document.querySelector('#vzari-preview-frame');
+  const status = document.querySelector('#preview-status');
+  let loaded = false;
+
+  const setMode = mode => {
+    const isMobile = mode === 'mobile';
+    viewport.classList.toggle('is-mobile', isMobile);
+    desktopButton.setAttribute('aria-pressed', String(!isMobile));
+    mobileButton.setAttribute('aria-pressed', String(isMobile));
+    status.textContent = isMobile ? 'Mobile viewport · 390px' : 'Desktop viewport · responsive width';
+  };
+
+  openButton.addEventListener('click', () => {
+    viewport.hidden = false;
+    openButton.hidden = true;
+    closeButton.hidden = false;
+    const phoneView = window.matchMedia('(max-width: 680px)').matches;
+    desktopButton.hidden = phoneView;
+    mobileButton.hidden = phoneView;
+    openButton.setAttribute('aria-expanded', 'true');
+    if (!loaded) {
+      frame.loading = 'eager';
+      frame.src = 'https://vzarisarees.com/';
+      loaded = true;
+    }
+    setMode(phoneView ? 'mobile' : 'desktop');
+    status.textContent = 'Interactive preview loading…';
+    frame.addEventListener('load', () => {
+      status.textContent = 'Preview frame loaded.';
+    }, { once: true });
+    window.setTimeout(() => viewport.scrollIntoView({behavior: 'smooth', block: 'start'}), 60);
+  });
+
+  const closePreview = () => {
+    viewport.hidden = true;
+    openButton.hidden = false;
+    closeButton.hidden = true;
+    desktopButton.hidden = true;
+    mobileButton.hidden = true;
+    openButton.setAttribute('aria-expanded', 'false');
+    status.textContent = 'Preview ready when you are';
+    frame.src = 'about:blank';
+    loaded = false;
+    openButton.focus();
+  };
+  closeButton.addEventListener('click', closePreview);
+  bottomCloseButton.addEventListener('click', closePreview);
+  desktopButton.addEventListener('click', () => setMode('desktop'));
+  mobileButton.addEventListener('click', () => setMode('mobile'));
 })();
 </script>
 </body>
