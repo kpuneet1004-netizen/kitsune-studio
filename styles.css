@@ -1429,3 +1429,38 @@ body.intro-active{overflow:hidden}
   #work .work-grid > .work-card .vzari-thumbnail,
   #work .work-grid > .work-card .resume-mock{aspect-ratio:16 / 9;height:auto;min-height:0}
 }
+
+
+/* Work grid rhythm: compact row spacing and equal-height project/CTA cards. */
+@media(min-width:681px){
+  #work .work-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-auto-rows:1fr !important;
+    align-items:stretch !important;
+    row-gap:24px !important;
+    column-gap:22px !important;
+  }
+  #work .work-grid > .work-card{
+    display:flex !important;
+    flex-direction:column !important;
+    height:100% !important;
+    min-height:0 !important;
+    align-self:stretch !important;
+  }
+  #work .work-grid > .work-card .work-card-meta{margin-top:0;flex:0 0 auto}
+  #work .work-grid > .work-cta{
+    min-height:0 !important;
+    padding:16px !important;
+    justify-content:space-between !important;
+  }
+  #work .work-grid > .work-cta .work-cta-content{padding:8px 4px !important}
+  #work .work-grid > .work-cta .work-cta-mark{margin-bottom:14px;width:40px;height:40px}
+  #work .work-grid > .work-cta .work-cta-content h3{font-size:clamp(25px,2.6vw,34px);margin:10px 0;line-height:1.04}
+  #work .work-grid > .work-cta .work-cta-content p{font-size:12px;line-height:1.65;margin-bottom:16px}
+  #work .work-grid > .work-cta .work-cta-content .button{min-height:44px}
+  #work .work-grid > .work-cta .work-cta-foot{padding-top:12px}
+}
+@media(max-width:680px){
+  #work .work-grid{row-gap:22px !important}
+  #work .work-grid > .work-cta{min-height:0 !important}
+}
