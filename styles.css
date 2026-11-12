@@ -1464,3 +1464,47 @@ body.intro-active{overflow:hidden}
   #work .work-grid{row-gap:22px !important}
   #work .work-grid > .work-cta{min-height:0 !important}
 }
+
+
+/* Responsive tablet grid: content-sized rows, no artificial vertical spacer. */
+@media(min-width:681px){
+  #work .work-grid{
+    grid-auto-rows:auto !important;
+    align-items:stretch !important;
+    row-gap:24px !important;
+  }
+  #work .work-grid > .work-card{
+    height:auto !important;
+    min-height:0 !important;
+    align-self:stretch !important;
+  }
+  #work .work-grid > .work-card:not(.work-cta){
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  #work .work-grid > .work-cta{
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:space-between !important;
+    padding:14px !important;
+    min-height:0 !important;
+  }
+  #work .work-grid > .work-cta .work-cta-content{
+    padding:0 2px !important;
+  }
+  #work .work-grid > .work-cta .work-cta-mark{
+    width:34px;height:34px;margin-bottom:10px;font-size:19px;
+  }
+  #work .work-grid > .work-cta .work-cta-content h3{
+    margin:8px 0;font-size:clamp(23px,2.5vw,31px);line-height:1.02;
+  }
+  #work .work-grid > .work-cta .work-cta-content p{
+    margin:0 0 12px;font-size:11px;line-height:1.55;
+  }
+  #work .work-grid > .work-cta .work-cta-content .button{
+    min-height:40px;padding:10px 12px;font-size:10px;
+  }
+  #work .work-grid > .work-cta .work-cta-foot{
+    padding:10px 2px 2px;font-size:8px;
+  }
+}
