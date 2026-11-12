@@ -1412,7 +1412,7 @@ body.intro-active{overflow:hidden}
 
 /* Selected work — consistent 16:9 cover art and content-led card heights. */
 #work .work-grid{align-items:start !important;grid-auto-rows:auto !important}
-#work .work-grid > .work-card{height:auto !important;min-height:0 !important;align-self:start !important}
+#work .work-grid > .work-card:not(.work-cta){height:auto !important;min-height:0 !important;align-self:start !important}
 #work .work-grid > .work-card .kohi-thumbnail,
 #work .work-grid > .work-card .vzari-thumbnail,
 #work .work-grid > .work-card .resume-mock{
