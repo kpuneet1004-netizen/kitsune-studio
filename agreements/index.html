@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0B0E">
+  <meta name="description" content="Private project agreements from Kitsune Studio.">
+  <title>Project Agreements — Kitsune Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Kitsune Studio"><span class="brand-mark">狐</span><span>kitsune<span class="light">studio</span></span></a>
+    <div class="topbar-meta"><span class="secure-dot"></span> AGREEMENT PORTAL <span class="divider">/</span> PRIVATE WORKSPACE</div>
+    <a class="back-link" href="https://kitsune-studio-7ix.pages.dev/">Studio website ↗</a>
+  </header>
+  <main class="layout">
+    <aside class="rail">
+      <p class="eyebrow">WORKSPACE / 01</p>
+      <h1>Good work<br><em>starts clearly.</em></h1>
+      <p class="rail-copy">A considered place to review project details, understand the terms, and confirm what we’re building together.</p>
+      <div class="rail-note"><span>✳</span><p>Clarity before commitment.<br>Craft through every step.</p></div>
+      <div class="rail-bottom"><span>KS—AGREEMENTS</span><span>V 1.0 / PREVIEW</span></div>
+    </aside>
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><p class="eyebrow">PROJECT DOCUMENT / DEMO</p><h2>Project agreement</h2></div>
+        <span class="status">ILLUSTRATIVE PREVIEW</span>
+      </div>
+      <div class="notice"><span>ⓘ</span><p>This is a design and workflow prototype. No agreement is being issued, signed, stored, or sent from this preview.</p></div>
+      <div class="project-card">
+        <div class="project-top"><div><span class="eyebrow">PREPARED FOR</span><h3 id="client-name">Northstar Atelier</h3><p id="client-email">hello@northstar.example</p></div><div class="agreement-id"><span>AGREEMENT ID</span><strong>KS-2026-001</strong><small>Draft · illustrative</small></div></div>
+        <div class="project-details">
+          <div><span>PROJECT</span><strong id="project-type">Business website</strong></div>
+          <div><span>DELIVERABLES</span><strong id="deliverables">Up to 5 pages</strong></div>
+          <div><span>ESTIMATED TIMELINE</span><strong id="timeline">25 working days</strong></div>
+          <div><span>PROJECT FEE</span><strong id="fee">₹45,000</strong></div>
+        </div>
+      </div>
+      <div class="section-title"><span>01 / COMMERCIALS</span><span>PAYMENT MILESTONES</span></div>
+      <div class="milestones">
+        <div class="milestone"><span class="milestone-no">01</span><div><strong>Project commencement</strong><small>Before work begins</small></div><b>50%</b><span class="amount" id="amount-one">₹22,500</span></div>
+        <div class="milestone"><span class="milestone-no">02</span><div><strong>First revision milestone</strong><small>At the agreed review checkpoint</small></div><b>20%</b><span class="amount" id="amount-two">₹9,000</span></div>
+        <div class="milestone"><span class="milestone-no">03</span><div><strong>Before production deployment</strong><small>Prior to launch and handover</small></div><b>30%</b><span class="amount" id="amount-three">₹13,500</span></div>
+      </div>
+      <div class="section-title"><span>02 / DELIVERY TERMS</span><span>THE IMPORTANT DETAILS</span></div>
+      <div class="terms-grid">
+        <article><span class="term-icon">↻</span><div><strong>Two revision rounds</strong><p>Two consolidated rounds within the approved scope. New pages or functionality are handled as a written change request.</p></div></article>
+        <article><span class="term-icon">⌂</span><div><strong>Your domain, your hosting</strong><p>The client owns and pays for the domain and hosting accounts. Studio access is delegated only as needed.</p></div></article>
+        <article><span class="term-icon">◇</span><div><strong>30-day defect warranty</strong><p>Reproducible implementation defects against the agreed scope are covered after launch. New features and third-party failures are excluded.</p></div></article>
+        <article><span class="term-icon">◎</span><div><strong>Portfolio permission</strong><p>Project work is shown in the studio portfolio only after the client gives written permission.</p></div></article>
+      </div>
+      <div class="section-title"><span>03 / AGREEMENT</span><span>REVIEW &amp; ACCEPTANCE</span></div>
+      <div class="agreement-copy">
+        <p class="copy-intro">Please review the complete agreement and project schedule before accepting. The signed version will identify the contracting parties, final scope, fees, payment dates, responsibilities, intellectual property terms, confidentiality, liability, termination, and governing law.</p>
+        <button class="text-button" id="show-terms" type="button" aria-expanded="false">Preview key terms <span>＋</span></button>
+        <div class="terms-preview" id="terms-preview" hidden>
+          <h4>Scope and changes</h4><p>Only deliverables listed in the approved project schedule are included. Additional pages, integrations, or functionality require a written change request and revised quote before work begins.</p>
+          <h4>Payment and ownership</h4><p>Payments follow the 50% / 20% / 30% milestones. Bespoke deliverable ownership transfers only after full payment, subject to the final signed agreement and third-party licences.</p>
+          <h4>Delays and closure</h4><p>Client feedback and materials are required to maintain the schedule. After 30 consecutive days of inactivity, written notice provides a further 7 days to resume before the project may be closed under the agreement.</p>
+          <h4>Legal review</h4><p>The final agreement must be completed with the correct legal identity of the service provider and reviewed for applicable Indian law and stamp duty before execution.</p>
+        </div>
+      </div>
+      <div class="acceptance">
+        <label class="check-row"><input id="accept-check" type="checkbox"><span>I have reviewed the project details and understand that the final agreement will be provided for formal acceptance.</span></label>
+        <div class="signature-fields"><label>YOUR FULL LEGAL NAME<input id="signer-name" type="text" placeholder="Enter your full name" autocomplete="name"></label><label>EMAIL ADDRESS<input id="signer-email" type="email" placeholder="you@company.com" autocomplete="email"></label></div>
+        <button class="submit-button" id="preview-submit" type="button">Preview acceptance flow <span>↗</span></button>
+        <p class="form-foot" id="form-message" aria-live="polite">Preview only. This button does not create a legally binding signature.</p>
+      </div>
+      <footer class="footer"><span>© <span id="year"></span> KITSUNE STUDIO</span><span>CLARITY · CRAFT · INTENTION</span><a href="mailto:hello@kitsunestudio.design">Need help? Contact us ↗</a></footer>
+    </section>
+  </main>
+</body>
+</html>
