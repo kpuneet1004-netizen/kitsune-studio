@@ -1434,3 +1434,27 @@ body.intro-active{overflow:hidden}
 #project-form .field select{min-height:48px;cursor:pointer}
 #project-form .field select:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 #project-form .field select:invalid{color:var(--muted)}
+
+
+/* Tablet and desktop portfolio grid — natural rows, equal cards, no stretched gaps. */
+@media(min-width:681px){
+  #work .work-grid{
+    height:auto !important;
+    grid-template-rows:repeat(2,auto) !important;
+    grid-auto-rows:auto !important;
+    align-items:stretch !important;
+    align-content:start !important;
+  }
+  #work .work-grid > .work-card,
+  #work .work-grid > .work-card:not(.work-cta){
+    height:auto !important;
+    min-height:0 !important;
+    align-self:stretch !important;
+  }
+  #work .work-grid > .work-cta{
+    height:auto !important;
+    min-height:0 !important;
+    align-self:stretch !important;
+    justify-content:space-between !important;
+  }
+}
