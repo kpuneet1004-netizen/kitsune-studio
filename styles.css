@@ -1458,3 +1458,30 @@ body.intro-active{overflow:hidden}
     justify-content:space-between !important;
   }
 }
+
+
+/* Service scope — make the deliverables behind each starting point scannable. */
+.service-includes{
+  display:grid;
+  gap:8px;
+  margin:16px 0 20px;
+  padding:14px 0 0;
+  border-top:1px solid #ffffff16;
+  list-style:none;
+}
+.service-includes li{
+  position:relative;
+  padding-left:17px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+}
+.service-includes li::before{
+  content:"↗";
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--orange);
+  font-size:10px;
+}
+.service-card .arrow-link{margin-top:auto}
